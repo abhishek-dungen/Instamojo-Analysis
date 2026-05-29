@@ -1,0 +1,289 @@
+.shell {
+  width: min(1240px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 32px 0 64px;
+}
+
+.loading-panel,
+.hero-panel,
+.glass-card,
+.metric-card,
+.control-panel {
+  background: rgba(255, 252, 247, 0.84);
+  border: 1px solid rgba(33, 48, 43, 0.1);
+  box-shadow: 0 24px 60px rgba(56, 44, 24, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.hero-panel {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 24px;
+  padding: 32px;
+  border-radius: 28px;
+}
+
+.hero-copy h1,
+.glass-card h2,
+.loading-panel h1 {
+  margin: 0;
+}
+
+.lede {
+  max-width: 58ch;
+  margin-top: 16px;
+  font-size: 1.02rem;
+}
+
+.hero-meta {
+  display: grid;
+  gap: 14px;
+}
+
+.hero-stat,
+.metric-card {
+  border-radius: 22px;
+  padding: 20px;
+}
+
+.hero-stat {
+  background: linear-gradient(135deg, #17362f, #285d4f);
+  color: #f9f4ea;
+}
+
+.hero-stat span,
+.metric-card span,
+.freshness span,
+.money-band span,
+.course-row span,
+.payment-row span,
+.window-note {
+  display: block;
+  opacity: 0.78;
+}
+
+.hero-stat strong,
+.metric-card strong,
+.money-band strong {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1;
+}
+
+.control-panel {
+  margin-top: 22px;
+  padding: 20px 24px;
+  border-radius: 22px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.week-select {
+  margin-top: 10px;
+  min-width: 280px;
+  border: 1px solid rgba(22, 44, 38, 0.16);
+  border-radius: 14px;
+  padding: 12px 14px;
+  background: #fffdfa;
+  color: inherit;
+  font: inherit;
+}
+
+.freshness {
+  text-align: right;
+}
+
+.metrics-grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.metric-card {
+  border-radius: 24px;
+}
+
+.metric-card p {
+  margin: 10px 0 0;
+}
+
+.insight-layout {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 16px;
+}
+
+.glass-card {
+  border-radius: 28px;
+  padding: 24px;
+}
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.section-label,
+.eyebrow {
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.78rem;
+  color: #805f2a;
+}
+
+.money-band {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.money-band > div {
+  padding: 18px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, rgba(240, 225, 192, 0.7), rgba(248, 243, 229, 0.95));
+}
+
+.course-list,
+.payment-table,
+.bars {
+  margin-top: 22px;
+}
+
+.course-list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.course-row,
+.payment-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-top: 1px solid rgba(33, 48, 43, 0.08);
+  align-items: center;
+}
+
+.course-row em,
+.payment-row time,
+.bar-row em {
+  font-style: normal;
+  font-weight: 700;
+}
+
+.bars {
+  display: grid;
+  gap: 12px;
+}
+
+.bar-row {
+  border: 0;
+  padding: 16px;
+  border-radius: 18px;
+  background: #fffcf7;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: 1fr 0.9fr auto;
+  gap: 14px;
+  align-items: center;
+  text-align: left;
+  color: inherit;
+}
+
+.bar-row.active {
+  background: linear-gradient(135deg, rgba(255, 225, 178, 0.65), rgba(255, 248, 233, 1));
+  outline: 1px solid rgba(128, 95, 42, 0.18);
+}
+
+.bar-stack {
+  display: grid;
+  gap: 6px;
+}
+
+.bar-fill {
+  height: 10px;
+  border-radius: 999px;
+}
+
+.bar-fill.registration {
+  background: linear-gradient(90deg, #de8f29, #f0c26e);
+}
+
+.bar-fill.revenue {
+  background: linear-gradient(90deg, #18483d, #56a286);
+}
+
+.payment-row {
+  grid-template-columns: 1.2fr 0.7fr auto;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 18px 0 4px;
+  opacity: 0.76;
+}
+
+.loading-panel {
+  min-height: 60vh;
+  border-radius: 28px;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  text-align: center;
+}
+
+@media (max-width: 980px) {
+  .hero-panel,
+  .insight-layout,
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .control-panel,
+  .card-head,
+  .course-row,
+  .payment-row,
+  .bar-row {
+    grid-template-columns: 1fr;
+  }
+
+  .control-panel,
+  .freshness {
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .shell {
+    width: min(100% - 20px, 1240px);
+    padding-top: 18px;
+  }
+
+  .hero-panel,
+  .glass-card,
+  .metric-card,
+  .control-panel {
+    padding: 18px;
+  }
+
+  .week-select {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .money-band {
+    grid-template-columns: 1fr;
+  }
+}

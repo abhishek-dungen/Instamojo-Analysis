@@ -1,0 +1,2732 @@
+{
+  "generatedAt": "2026-05-29T15:46:56.898Z",
+  "timezone": "Asia/Kolkata",
+  "source": {
+    "paymentRequestCount": 1822,
+    "paymentCount": 1441,
+    "successfulPaymentCount": 1239
+  },
+  "totals": {
+    "registrations": 975,
+    "bundleRegistrations": 438,
+    "coursePurchases": 160,
+    "totalRevenue": 488087
+  },
+  "weekly": [
+    {
+      "webinarDate": "2026-05-31",
+      "label": "Webinar 31 May 2026",
+      "registrationWindow": "24 May, 06:31 PM to 31 May, 06:30 PM IST",
+      "registrations": 44,
+      "webinarOnlyRegistrations": 24,
+      "comboRegistrations": 20,
+      "bundleRegistrations": 20,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 6336,
+      "totalRevenue": 6336,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6529I05Q83028138",
+          "localCreatedAt": "29 May 2026, 05:01 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "RIDHAM JAIN"
+        },
+        {
+          "paymentId": "MOJO6529C05Q83027907",
+          "localCreatedAt": "29 May 2026, 04:37 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Rashmi Makwana"
+        },
+        {
+          "paymentId": "MOJO6529L05Q83027522",
+          "localCreatedAt": "29 May 2026, 03:43 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Vidhi Nathwani"
+        },
+        {
+          "paymentId": "MOJO6529J05Q83027337",
+          "localCreatedAt": "29 May 2026, 03:20 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Meetrajsinh Zala"
+        },
+        {
+          "paymentId": "MOJO6529Q05Q83025584",
+          "localCreatedAt": "29 May 2026, 11:56 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Sonu Yadav"
+        },
+        {
+          "paymentId": "MOJO6529N05Q83025328",
+          "localCreatedAt": "29 May 2026, 11:22 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "jeet pratap"
+        },
+        {
+          "paymentId": "MOJO6529K05Q83024867",
+          "localCreatedAt": "29 May 2026, 10:21 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Manvi Chib"
+        },
+        {
+          "paymentId": "MOJO6529305Q83024809",
+          "localCreatedAt": "29 May 2026, 10:13 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Aastha  Bhatt"
+        },
+        {
+          "paymentId": "MOJO6529805Q83024758",
+          "localCreatedAt": "29 May 2026, 10:04 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Kiran Kumawat"
+        },
+        {
+          "paymentId": "MOJO6529X05Q83024629",
+          "localCreatedAt": "29 May 2026, 09:44 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Pratik Gaikwad"
+        },
+        {
+          "paymentId": "MOJO6529D05Q83023962",
+          "localCreatedAt": "29 May 2026, 07:00 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Rajesh Kumar"
+        },
+        {
+          "paymentId": "MOJO6529A05Q83023854",
+          "localCreatedAt": "29 May 2026, 06:03 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Santosh Ghattaragi"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-05-24",
+      "label": "Webinar 24 May 2026",
+      "registrationWindow": "17 May, 06:31 PM to 24 May, 06:30 PM IST",
+      "registrations": 53,
+      "webinarOnlyRegistrations": 22,
+      "comboRegistrations": 31,
+      "bundleRegistrations": 34,
+      "bundleOnlyRegistrations": 3,
+      "coursePurchasesLive": 7,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 17500,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 8613,
+      "totalRevenue": 26113,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 7,
+          "revenue": 17500
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6524S05Q13886105",
+          "localCreatedAt": "24 May 2026, 10:26 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Priyanka Lokhande"
+        },
+        {
+          "paymentId": "MOJO6524Z05Q13886004",
+          "localCreatedAt": "24 May 2026, 10:11 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Ravindra Dehuri"
+        },
+        {
+          "paymentId": "MOJO6524105Q13885827",
+          "localCreatedAt": "24 May 2026, 09:44 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Abhishek Rovin"
+        },
+        {
+          "paymentId": "MOJO6524I05Q13885766",
+          "localCreatedAt": "24 May 2026, 09:32 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "ANIL  KUMAR"
+        },
+        {
+          "paymentId": "MOJO6524205A13885760",
+          "localCreatedAt": "24 May 2026, 09:31 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Kalyan Panja"
+        },
+        {
+          "paymentId": "MOJO6524D05Q13885607",
+          "localCreatedAt": "24 May 2026, 09:07 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Moses Paul"
+        },
+        {
+          "paymentId": "MOJO6524305Q13885550",
+          "localCreatedAt": "24 May 2026, 09:01 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Gawher Nazir Dar"
+        },
+        {
+          "paymentId": "MOJO6524Y05Q13883712",
+          "localCreatedAt": "24 May 2026, 05:46 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Moses Paul"
+        },
+        {
+          "paymentId": "MOJO6524K05Q13880253",
+          "localCreatedAt": "24 May 2026, 09:25 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "sumit kumar yadav"
+        },
+        {
+          "paymentId": "MOJO6523205D05833309",
+          "localCreatedAt": "23 May 2026, 09:24 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Ashish Sharma"
+        },
+        {
+          "paymentId": "MOJO6523S05Q05828480",
+          "localCreatedAt": "23 May 2026, 11:04 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Dhaval  Parmar"
+        },
+        {
+          "paymentId": "MOJO6523505Q05827615",
+          "localCreatedAt": "23 May 2026, 09:23 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "SUSHIL PAL"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-05-17",
+      "label": "Webinar 17 May 2026",
+      "registrationWindow": "10 May, 06:31 PM to 17 May, 06:30 PM IST",
+      "registrations": 65,
+      "webinarOnlyRegistrations": 33,
+      "comboRegistrations": 32,
+      "bundleRegistrations": 33,
+      "bundleOnlyRegistrations": 1,
+      "coursePurchasesLive": 12,
+      "coursePurchasesExtended": 3,
+      "courseRevenueLive": 24000,
+      "courseRevenueExtended": 6000,
+      "registrationRevenue": 9702,
+      "totalRevenue": 39747,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 15,
+          "revenue": 30000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6521C05Q79737673",
+          "localCreatedAt": "21 May 2026, 06:57 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sinan A"
+        },
+        {
+          "paymentId": "MOJO6521J05Q79737614",
+          "localCreatedAt": "21 May 2026, 06:48 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Om raj"
+        },
+        {
+          "paymentId": "MOJO6518K05Q99144284",
+          "localCreatedAt": "18 May 2026, 09:06 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Mohammad tabraiz  Shaikh"
+        },
+        {
+          "paymentId": "MOJO6517Z05Q38910950",
+          "localCreatedAt": "17 May 2026, 10:44 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Davinder Singh"
+        },
+        {
+          "paymentId": "MOJO6517V05Q38910643",
+          "localCreatedAt": "17 May 2026, 10:04 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Prashasti  Singh"
+        },
+        {
+          "paymentId": "MOJO6517705D38910642",
+          "localCreatedAt": "17 May 2026, 10:04 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "RAVI THAKKAR"
+        },
+        {
+          "paymentId": "MOJO6517L05Q38910623",
+          "localCreatedAt": "17 May 2026, 10:00 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Raktim Choudhury"
+        },
+        {
+          "paymentId": "MOJO6517F05Q38910389",
+          "localCreatedAt": "17 May 2026, 09:26 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Rohan Mahajan"
+        },
+        {
+          "paymentId": "MOJO6517H05Q38910263",
+          "localCreatedAt": "17 May 2026, 09:10 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Swati Gour"
+        },
+        {
+          "paymentId": "MOJO6517A05Q38910227",
+          "localCreatedAt": "17 May 2026, 09:03 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "priti Ranjan"
+        },
+        {
+          "paymentId": "MOJO6517X05Q38910219",
+          "localCreatedAt": "17 May 2026, 09:03 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shivendra  Srivastava"
+        },
+        {
+          "paymentId": "MOJO6517J05Q38910213",
+          "localCreatedAt": "17 May 2026, 09:02 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Rupa Bhandare"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-05-10",
+      "label": "Webinar 10 May 2026",
+      "registrationWindow": "03 May, 06:31 PM to 10 May, 06:30 PM IST",
+      "registrations": 94,
+      "webinarOnlyRegistrations": 40,
+      "comboRegistrations": 54,
+      "bundleRegistrations": 54,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 15,
+      "coursePurchasesExtended": 1,
+      "courseRevenueLive": 30000,
+      "courseRevenueExtended": 2000,
+      "registrationRevenue": 14652,
+      "totalRevenue": 46652,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 16,
+          "revenue": 32000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6516505Q99042957",
+          "localCreatedAt": "16 May 2026, 09:28 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Ashish Deshwal"
+        },
+        {
+          "paymentId": "MOJO6510M05Q01271480",
+          "localCreatedAt": "10 May 2026, 11:12 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Joy Roy Roy"
+        },
+        {
+          "paymentId": "MOJO6510S05Q01271230",
+          "localCreatedAt": "10 May 2026, 10:48 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Aditya Parashar"
+        },
+        {
+          "paymentId": "MOJO6510Y05D01271101",
+          "localCreatedAt": "10 May 2026, 10:41 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Naveen S"
+        },
+        {
+          "paymentId": "MOJO6510005D01270569",
+          "localCreatedAt": "10 May 2026, 09:52 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Nishikant Samudre"
+        },
+        {
+          "paymentId": "MOJO6510A05Q01270378",
+          "localCreatedAt": "10 May 2026, 09:28 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Nandini Bahety"
+        },
+        {
+          "paymentId": "MOJO6510905Q01270318",
+          "localCreatedAt": "10 May 2026, 09:22 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Pranoy  Acharya"
+        },
+        {
+          "paymentId": "MOJO6510W05Q01270209",
+          "localCreatedAt": "10 May 2026, 09:10 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Aman Srivastava"
+        },
+        {
+          "paymentId": "MOJO6510R05D01270199",
+          "localCreatedAt": "10 May 2026, 09:09 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Anuj Sareen"
+        },
+        {
+          "paymentId": "MOJO6510605Q01270182",
+          "localCreatedAt": "10 May 2026, 09:08 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Gyanaranjan Dash"
+        },
+        {
+          "paymentId": "MOJO6510005Q01270160",
+          "localCreatedAt": "10 May 2026, 09:06 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Vidhi Lodha"
+        },
+        {
+          "paymentId": "MOJO6510E05Q01270153",
+          "localCreatedAt": "10 May 2026, 09:06 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Ashay Bhagat"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-05-03",
+      "label": "Webinar 03 May 2026",
+      "registrationWindow": "26 Apr, 06:31 PM to 03 May, 06:30 PM IST",
+      "registrations": 26,
+      "webinarOnlyRegistrations": 8,
+      "comboRegistrations": 18,
+      "bundleRegistrations": 19,
+      "bundleOnlyRegistrations": 1,
+      "coursePurchasesLive": 15,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 30000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 4455,
+      "totalRevenue": 34473,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 15,
+          "revenue": 30000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6503C05Q43528825",
+          "localCreatedAt": "03 May 2026, 10:09 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Nikhil Gulyani"
+        },
+        {
+          "paymentId": "MOJO6503R05Q43528771",
+          "localCreatedAt": "03 May 2026, 09:59 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Saishirish Kherde"
+        },
+        {
+          "paymentId": "MOJO6503405Q43528668",
+          "localCreatedAt": "03 May 2026, 09:50 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Noor Mohammad"
+        },
+        {
+          "paymentId": "MOJO6503Y05Q43528517",
+          "localCreatedAt": "03 May 2026, 09:34 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Purnima Chandragiri"
+        },
+        {
+          "paymentId": "MOJO6503Z05Q43528323",
+          "localCreatedAt": "03 May 2026, 09:15 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Nasreen Khan"
+        },
+        {
+          "paymentId": "MOJO6503Z05D43528313",
+          "localCreatedAt": "03 May 2026, 09:14 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sumit  Sharma"
+        },
+        {
+          "paymentId": "MOJO6503905Q43528309",
+          "localCreatedAt": "03 May 2026, 09:13 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shankar shirasangi"
+        },
+        {
+          "paymentId": "MOJO6503Q05Q43528299",
+          "localCreatedAt": "03 May 2026, 09:12 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "JYOTSSNA PACHPOL"
+        },
+        {
+          "paymentId": "MOJO6503605D43528263",
+          "localCreatedAt": "03 May 2026, 09:07 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Debasis Panda"
+        },
+        {
+          "paymentId": "MOJO6503205Q43528252",
+          "localCreatedAt": "03 May 2026, 09:05 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "PANKAJ KATKAR"
+        },
+        {
+          "paymentId": "MOJO6503L05Q43528232",
+          "localCreatedAt": "03 May 2026, 09:02 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Atish Deshpande"
+        },
+        {
+          "paymentId": "MOJO6503C05Q43528206",
+          "localCreatedAt": "03 May 2026, 08:59 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shekhar Kumar"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-04-26",
+      "label": "Webinar 26 Apr 2026",
+      "registrationWindow": "19 Apr, 06:31 PM to 26 Apr, 06:30 PM IST",
+      "registrations": 12,
+      "webinarOnlyRegistrations": 5,
+      "comboRegistrations": 7,
+      "bundleRegistrations": 7,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 1881,
+      "totalRevenue": 1953,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6426Z05Q46607878",
+          "localCreatedAt": "26 Apr 2026, 11:47 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Manvi Bashisth"
+        },
+        {
+          "paymentId": "MOJO6426805Q46607430",
+          "localCreatedAt": "26 Apr 2026, 10:50 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Prakriti  Dwesar"
+        },
+        {
+          "paymentId": "MOJO6426Z05Q46606746",
+          "localCreatedAt": "26 Apr 2026, 09:11 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Girish Kulkarni"
+        },
+        {
+          "paymentId": "MOJO6425N05Q91105489",
+          "localCreatedAt": "26 Apr 2026, 12:06 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Shubhi Sanadhya"
+        },
+        {
+          "paymentId": "MOJO6425305Q91105133",
+          "localCreatedAt": "25 Apr 2026, 11:10 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Prathamesh Hadpad"
+        },
+        {
+          "paymentId": "MOJO6425G05Q91104463",
+          "localCreatedAt": "25 Apr 2026, 09:31 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Sagnika Chatterjee"
+        },
+        {
+          "paymentId": "MOJO6425105Q91098113",
+          "localCreatedAt": "25 Apr 2026, 09:13 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Akash Jain"
+        },
+        {
+          "paymentId": "MOJO6424Q05Q62390174",
+          "localCreatedAt": "24 Apr 2026, 03:04 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "pragya Chauhan"
+        },
+        {
+          "paymentId": "MOJO6424505Q62388827",
+          "localCreatedAt": "24 Apr 2026, 12:43 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Aditya Anjungikar"
+        },
+        {
+          "paymentId": "MOJO6424105Q62386398",
+          "localCreatedAt": "24 Apr 2026, 06:39 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Debasis  Panda"
+        },
+        {
+          "paymentId": "MOJO6423505Q75440135",
+          "localCreatedAt": "23 Apr 2026, 11:00 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Hiren Bamania"
+        },
+        {
+          "paymentId": "MOJO6423E05Q75434494",
+          "localCreatedAt": "23 Apr 2026, 11:43 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Atish Deshpande"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-03-22",
+      "label": "Webinar 22 Mar 2026",
+      "registrationWindow": "15 Mar, 06:31 PM to 22 Mar, 06:30 PM IST",
+      "registrations": 28,
+      "webinarOnlyRegistrations": 18,
+      "comboRegistrations": 10,
+      "bundleRegistrations": 10,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 3762,
+      "totalRevenue": 3762,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6317205Q70042914",
+          "localCreatedAt": "17 Mar 2026, 08:50 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Sunil Nair"
+        },
+        {
+          "paymentId": "MOJO6317405Q70042846",
+          "localCreatedAt": "17 Mar 2026, 08:44 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Shreyas Mohite"
+        },
+        {
+          "paymentId": "MOJO6317M05Q70042799",
+          "localCreatedAt": "17 Mar 2026, 08:40 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Ayub  Shekh"
+        },
+        {
+          "paymentId": "MOJO6317F05Q70040235",
+          "localCreatedAt": "17 Mar 2026, 05:01 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "ViShal Kalal"
+        },
+        {
+          "paymentId": "MOJO6317Y05Q70039119",
+          "localCreatedAt": "17 Mar 2026, 03:35 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Shital parchure"
+        },
+        {
+          "paymentId": "MOJO6317005Q70038905",
+          "localCreatedAt": "17 Mar 2026, 03:18 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Sameer Chaudhary"
+        },
+        {
+          "paymentId": "MOJO6317O05Q70038138",
+          "localCreatedAt": "17 Mar 2026, 02:23 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Paras Sharma"
+        },
+        {
+          "paymentId": "MOJO6317E05Q70034593",
+          "localCreatedAt": "17 Mar 2026, 10:19 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Basavaraj K P"
+        },
+        {
+          "paymentId": "MOJO6317P05Q70034443",
+          "localCreatedAt": "17 Mar 2026, 10:08 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Somiya Otwani"
+        },
+        {
+          "paymentId": "MOJO6317M05Q70033907",
+          "localCreatedAt": "17 Mar 2026, 09:21 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Mimansha Verma"
+        },
+        {
+          "paymentId": "MOJO6317P05Q70033615",
+          "localCreatedAt": "17 Mar 2026, 08:55 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "vandana nautiyal"
+        },
+        {
+          "paymentId": "MOJO6317R05Q70033446",
+          "localCreatedAt": "17 Mar 2026, 08:33 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Amit Kumar Gupta"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-03-15",
+      "label": "Webinar 15 Mar 2026",
+      "registrationWindow": "08 Mar, 06:31 PM to 15 Mar, 06:30 PM IST",
+      "registrations": 77,
+      "webinarOnlyRegistrations": 38,
+      "comboRegistrations": 39,
+      "bundleRegistrations": 40,
+      "bundleOnlyRegistrations": 1,
+      "coursePurchasesLive": 21,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 42000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 11583,
+      "totalRevenue": 53583,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 21,
+          "revenue": 42000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6315005Q32484478",
+          "localCreatedAt": "15 Mar 2026, 11:17 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Bhawana Agarwal"
+        },
+        {
+          "paymentId": "MOJO6315R05Q32484277",
+          "localCreatedAt": "15 Mar 2026, 11:00 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Keval Joshi"
+        },
+        {
+          "paymentId": "MOJO6315D05Q32483900",
+          "localCreatedAt": "15 Mar 2026, 10:33 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Anuradha Singh  Nikhar"
+        },
+        {
+          "paymentId": "MOJO6315005Q32483671",
+          "localCreatedAt": "15 Mar 2026, 10:17 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Pinki Gurjar"
+        },
+        {
+          "paymentId": "MOJO6315N05Q32483597",
+          "localCreatedAt": "15 Mar 2026, 10:10 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Anjali Mourya"
+        },
+        {
+          "paymentId": "MOJO6315X05Q32483536",
+          "localCreatedAt": "15 Mar 2026, 10:07 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Alka Mishra"
+        },
+        {
+          "paymentId": "MOJO6315X05Q32483486",
+          "localCreatedAt": "15 Mar 2026, 10:03 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Jayant Tirole"
+        },
+        {
+          "paymentId": "MOJO6315H05Q32483298",
+          "localCreatedAt": "15 Mar 2026, 09:49 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Ashutosh Mandal Mandal"
+        },
+        {
+          "paymentId": "MOJO6315V05Q32483242",
+          "localCreatedAt": "15 Mar 2026, 09:46 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shivam Shrivastava"
+        },
+        {
+          "paymentId": "MOJO6315H05Q32483077",
+          "localCreatedAt": "15 Mar 2026, 09:34 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Dhaarna Rustagi"
+        },
+        {
+          "paymentId": "MOJO6315I05Q32483030",
+          "localCreatedAt": "15 Mar 2026, 09:30 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Prem Horo"
+        },
+        {
+          "paymentId": "MOJO6315F05Q32482897",
+          "localCreatedAt": "15 Mar 2026, 09:20 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "ROBIN Samudre"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-03-08",
+      "label": "Webinar 08 Mar 2026",
+      "registrationWindow": "01 Mar, 06:31 PM to 08 Mar, 06:30 PM IST",
+      "registrations": 68,
+      "webinarOnlyRegistrations": 31,
+      "comboRegistrations": 37,
+      "bundleRegistrations": 39,
+      "bundleOnlyRegistrations": 2,
+      "coursePurchasesLive": 6,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 17994,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 10593,
+      "totalRevenue": 29087,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 6,
+          "revenue": 17994
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6308405Q23666959",
+          "localCreatedAt": "08 Mar 2026, 10:35 PM",
+          "amount": 2999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Himani Jain"
+        },
+        {
+          "paymentId": "MOJO6308705Q23666679",
+          "localCreatedAt": "08 Mar 2026, 10:08 PM",
+          "amount": 2999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "KHUSHI GOEL"
+        },
+        {
+          "paymentId": "MOJO6308U05Q23666491",
+          "localCreatedAt": "08 Mar 2026, 09:50 PM",
+          "amount": 2999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Himanshu Joshi"
+        },
+        {
+          "paymentId": "MOJO6308D05Q23666033",
+          "localCreatedAt": "08 Mar 2026, 08:59 PM",
+          "amount": 2999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sabita Balakrishnan"
+        },
+        {
+          "paymentId": "MOJO6308305Q23665945",
+          "localCreatedAt": "08 Mar 2026, 08:52 PM",
+          "amount": 2999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Aniruddh Kumar  Gupta"
+        },
+        {
+          "paymentId": "MOJO6308905Q23665906",
+          "localCreatedAt": "08 Mar 2026, 08:49 PM",
+          "amount": 2999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Deependra Malik"
+        },
+        {
+          "paymentId": "MOJO6308A05Q23664073",
+          "localCreatedAt": "08 Mar 2026, 05:49 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Ankita Jha"
+        },
+        {
+          "paymentId": "MOJO6308205Q23662298",
+          "localCreatedAt": "08 Mar 2026, 03:22 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Adesh Mahajan"
+        },
+        {
+          "paymentId": "MOJO6308V05Q23661574",
+          "localCreatedAt": "08 Mar 2026, 02:26 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Vijay Bipin"
+        },
+        {
+          "paymentId": "MOJO6308005Q23659375",
+          "localCreatedAt": "08 Mar 2026, 12:05 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "prince jaiswal"
+        },
+        {
+          "paymentId": "MOJO6308H05Q23658057",
+          "localCreatedAt": "08 Mar 2026, 10:29 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Himani Jain"
+        },
+        {
+          "paymentId": "MOJO6308305Q23657207",
+          "localCreatedAt": "08 Mar 2026, 09:19 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Joshna Chhangani"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-03-01",
+      "label": "Webinar 01 Mar 2026",
+      "registrationWindow": "22 Feb, 06:31 PM to 01 Mar, 06:30 PM IST",
+      "registrations": 89,
+      "webinarOnlyRegistrations": 44,
+      "comboRegistrations": 45,
+      "bundleRegistrations": 45,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 18,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 45000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 13266,
+      "totalRevenue": 58302,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 18,
+          "revenue": 45000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6301O05Q63310089",
+          "localCreatedAt": "01 Mar 2026, 11:02 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Amey  Bhosale"
+        },
+        {
+          "paymentId": "MOJO6301905Q63310011",
+          "localCreatedAt": "01 Mar 2026, 10:57 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Ankit Sharma"
+        },
+        {
+          "paymentId": "MOJO6301N05Q63309669",
+          "localCreatedAt": "01 Mar 2026, 10:32 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "ARYA SHUBHAM"
+        },
+        {
+          "paymentId": "MOJO6301605Q63309565",
+          "localCreatedAt": "01 Mar 2026, 10:22 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Keshab Panigrahi"
+        },
+        {
+          "paymentId": "MOJO6301S05Q63309012",
+          "localCreatedAt": "01 Mar 2026, 09:39 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shubhangi Das"
+        },
+        {
+          "paymentId": "MOJO6301B05Q63308812",
+          "localCreatedAt": "01 Mar 2026, 09:24 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shivam  Swaraj"
+        },
+        {
+          "paymentId": "MOJO6301D05Q63308800",
+          "localCreatedAt": "01 Mar 2026, 09:23 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Hiteshita Kapoor"
+        },
+        {
+          "paymentId": "MOJO6301H05Q63308427",
+          "localCreatedAt": "01 Mar 2026, 08:56 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Anurag  Tiwary"
+        },
+        {
+          "paymentId": "MOJO6301I05Q63308409",
+          "localCreatedAt": "01 Mar 2026, 08:55 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Syeda Quadri"
+        },
+        {
+          "paymentId": "MOJO6301R05Q63308384",
+          "localCreatedAt": "01 Mar 2026, 08:54 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "mansi jani"
+        },
+        {
+          "paymentId": "MOJO6301705Q63308298",
+          "localCreatedAt": "01 Mar 2026, 08:51 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sharadbabu Narayanan"
+        },
+        {
+          "paymentId": "MOJO6301V05Q63308289",
+          "localCreatedAt": "01 Mar 2026, 08:51 PM",
+          "amount": 2500,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sakshi Mishra"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-02-22",
+      "label": "Webinar 22 Feb 2026",
+      "registrationWindow": "15 Feb, 06:31 PM to 22 Feb, 06:30 PM IST",
+      "registrations": 54,
+      "webinarOnlyRegistrations": 29,
+      "comboRegistrations": 25,
+      "bundleRegistrations": 25,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 13,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 26000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 7821,
+      "totalRevenue": 33821,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 13,
+          "revenue": 26000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6222I05Q33492451",
+          "localCreatedAt": "22 Feb 2026, 10:11 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Paramita Mitra"
+        },
+        {
+          "paymentId": "MOJO6222J05Q33491778",
+          "localCreatedAt": "22 Feb 2026, 09:13 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Jaydeep Jagani"
+        },
+        {
+          "paymentId": "MOJO6222K05Q33491737",
+          "localCreatedAt": "22 Feb 2026, 09:09 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Nikhil Khetan"
+        },
+        {
+          "paymentId": "MOJO6222V05Q33491658",
+          "localCreatedAt": "22 Feb 2026, 09:02 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Md Asif Iqbal"
+        },
+        {
+          "paymentId": "MOJO6222W05Q33491612",
+          "localCreatedAt": "22 Feb 2026, 08:59 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "RAJESH Kumar"
+        },
+        {
+          "paymentId": "MOJO6222M05Q33491607",
+          "localCreatedAt": "22 Feb 2026, 08:58 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shubhra  Nigudkar"
+        },
+        {
+          "paymentId": "MOJO6222Z05D33491606",
+          "localCreatedAt": "22 Feb 2026, 08:58 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Reshu Teotia"
+        },
+        {
+          "paymentId": "MOJO6222A05Q33491592",
+          "localCreatedAt": "22 Feb 2026, 08:56 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shivali Dawar"
+        },
+        {
+          "paymentId": "MOJO6222705Q33491563",
+          "localCreatedAt": "22 Feb 2026, 08:55 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Priyanka  Dangi"
+        },
+        {
+          "paymentId": "MOJO6222N05D33491556",
+          "localCreatedAt": "22 Feb 2026, 08:54 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Neelam Patil"
+        },
+        {
+          "paymentId": "MOJO6222B05Q33491536",
+          "localCreatedAt": "22 Feb 2026, 08:52 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Anjali  Lasiyal"
+        },
+        {
+          "paymentId": "MOJO6222P05D33491492",
+          "localCreatedAt": "22 Feb 2026, 08:48 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Gouri Fiske Kadu"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-02-15",
+      "label": "Webinar 15 Feb 2026",
+      "registrationWindow": "08 Feb, 06:31 PM to 15 Feb, 06:30 PM IST",
+      "registrations": 65,
+      "webinarOnlyRegistrations": 29,
+      "comboRegistrations": 36,
+      "bundleRegistrations": 38,
+      "bundleOnlyRegistrations": 2,
+      "coursePurchasesLive": 19,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 38000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 10197,
+      "totalRevenue": 48215,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 19,
+          "revenue": 38000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6215P05Q94169523",
+          "localCreatedAt": "15 Feb 2026, 10:55 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Pritesh Patil"
+        },
+        {
+          "paymentId": "MOJO6215Z05Q94169513",
+          "localCreatedAt": "15 Feb 2026, 10:54 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Jyoti Kashyap"
+        },
+        {
+          "paymentId": "MOJO6215005D94169378",
+          "localCreatedAt": "15 Feb 2026, 10:46 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Deepak  Sharma"
+        },
+        {
+          "paymentId": "MOJO6215D05Q94169322",
+          "localCreatedAt": "15 Feb 2026, 10:42 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Arpita  Sutar"
+        },
+        {
+          "paymentId": "MOJO6215X05Q94168911",
+          "localCreatedAt": "15 Feb 2026, 10:21 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "ROHIT KUMAR"
+        },
+        {
+          "paymentId": "MOJO6215405Q94168902",
+          "localCreatedAt": "15 Feb 2026, 10:20 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Tushar  Patra"
+        },
+        {
+          "paymentId": "MOJO6215Q05Q94168901",
+          "localCreatedAt": "15 Feb 2026, 10:20 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "sukalp tripathi"
+        },
+        {
+          "paymentId": "MOJO6215005Q94168889",
+          "localCreatedAt": "15 Feb 2026, 10:19 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Heena Dhiman"
+        },
+        {
+          "paymentId": "MOJO6215I05Q94168887",
+          "localCreatedAt": "15 Feb 2026, 10:19 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "DIBYENDU KANRAR"
+        },
+        {
+          "paymentId": "MOJO6215I05Q94168886",
+          "localCreatedAt": "15 Feb 2026, 10:19 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Tarun Kumar  CHANAPE"
+        },
+        {
+          "paymentId": "MOJO6215805Q94168792",
+          "localCreatedAt": "15 Feb 2026, 10:13 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Girish Kulkarni"
+        },
+        {
+          "paymentId": "MOJO6215005Q94168253",
+          "localCreatedAt": "15 Feb 2026, 09:40 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Antara Bhave"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-02-08",
+      "label": "Webinar 08 Feb 2026",
+      "registrationWindow": "01 Feb, 06:31 PM to 08 Feb, 06:30 PM IST",
+      "registrations": 43,
+      "webinarOnlyRegistrations": 19,
+      "comboRegistrations": 24,
+      "bundleRegistrations": 24,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 4,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 8000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 6633,
+      "totalRevenue": 14633,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 4,
+          "revenue": 8000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6208A05Q13180648",
+          "localCreatedAt": "08 Feb 2026, 10:56 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "BIPLAB SUTRADHAR"
+        },
+        {
+          "paymentId": "MOJO6208M05D13178803",
+          "localCreatedAt": "08 Feb 2026, 09:12 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sanjay Kumar"
+        },
+        {
+          "paymentId": "MOJO6208G05Q13178740",
+          "localCreatedAt": "08 Feb 2026, 09:08 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "vaishnavi vaishnavi"
+        },
+        {
+          "paymentId": "MOJO6208M05Q13178251",
+          "localCreatedAt": "08 Feb 2026, 08:45 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Shivani Kumari"
+        },
+        {
+          "paymentId": "MOJO6208R05Q13174948",
+          "localCreatedAt": "08 Feb 2026, 05:16 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Shaik Daniya"
+        },
+        {
+          "paymentId": "MOJO6208U05Q13173602",
+          "localCreatedAt": "08 Feb 2026, 03:43 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Sanjay Kumar"
+        },
+        {
+          "paymentId": "MOJO6208Q05Q13168994",
+          "localCreatedAt": "08 Feb 2026, 10:57 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "MD REHAN ALAM"
+        },
+        {
+          "paymentId": "MOJO6208U05Q13167447",
+          "localCreatedAt": "08 Feb 2026, 09:14 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Dibyendu Kanrar"
+        },
+        {
+          "paymentId": "MOJO6207U05Q30029431",
+          "localCreatedAt": "07 Feb 2026, 02:15 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Sajjadul Haque Ansari"
+        },
+        {
+          "paymentId": "MOJO6207X05Q30026890",
+          "localCreatedAt": "07 Feb 2026, 11:48 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Amrit Raj"
+        },
+        {
+          "paymentId": "MOJO6207C05Q30026809",
+          "localCreatedAt": "07 Feb 2026, 11:45 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Riddhi Jain"
+        },
+        {
+          "paymentId": "MOJO6207V05Q30025959",
+          "localCreatedAt": "07 Feb 2026, 11:01 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Rakesh Mishra"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-02-01",
+      "label": "Webinar 01 Feb 2026",
+      "registrationWindow": "25 Jan, 06:31 PM to 01 Feb, 06:30 PM IST",
+      "registrations": 43,
+      "webinarOnlyRegistrations": 37,
+      "comboRegistrations": 6,
+      "bundleRegistrations": 9,
+      "bundleOnlyRegistrations": 3,
+      "coursePurchasesLive": 6,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 12000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 5148,
+      "totalRevenue": 17148,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 6,
+          "revenue": 12000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6201S05Q81099394",
+          "localCreatedAt": "01 Feb 2026, 10:27 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Pramod  Kumar"
+        },
+        {
+          "paymentId": "MOJO6201Y05Q81099231",
+          "localCreatedAt": "01 Feb 2026, 10:20 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Mamta Gupta"
+        },
+        {
+          "paymentId": "MOJO6201005Q81098267",
+          "localCreatedAt": "01 Feb 2026, 09:36 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sachin Roy"
+        },
+        {
+          "paymentId": "MOJO6201I05Q81098116",
+          "localCreatedAt": "01 Feb 2026, 09:28 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Reshma Jambhulkar"
+        },
+        {
+          "paymentId": "MOJO6201Y05Q81097328",
+          "localCreatedAt": "01 Feb 2026, 08:50 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "PALASH RAJPUT"
+        },
+        {
+          "paymentId": "MOJO6201J05D81097120",
+          "localCreatedAt": "01 Feb 2026, 08:39 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sheetal Indise"
+        },
+        {
+          "paymentId": "MOJO6201R05Q81087997",
+          "localCreatedAt": "01 Feb 2026, 01:41 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Pramod Kumar"
+        },
+        {
+          "paymentId": "MOJO6201605Q81087851",
+          "localCreatedAt": "01 Feb 2026, 01:34 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Shivani joshi"
+        },
+        {
+          "paymentId": "MOJO6201205Q81086423",
+          "localCreatedAt": "01 Feb 2026, 12:41 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Neha chugh"
+        },
+        {
+          "paymentId": "MOJO6201705Q81082091",
+          "localCreatedAt": "01 Feb 2026, 09:13 AM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Mamta  Gupta"
+        },
+        {
+          "paymentId": "MOJO6131405Q31691015",
+          "localCreatedAt": "01 Feb 2026, 12:33 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Gautam Kumar"
+        },
+        {
+          "paymentId": "MOJO6131R05Q31689751",
+          "localCreatedAt": "31 Jan 2026, 11:06 PM",
+          "amount": 198,
+          "purpose": "Masterclass + Ultimate Resource Bundle",
+          "classification": "combo",
+          "buyerName": "Palash Singh"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-01-25",
+      "label": "Webinar 25 Jan 2026",
+      "registrationWindow": "18 Jan, 06:31 PM to 25 Jan, 06:30 PM IST",
+      "registrations": 31,
+      "webinarOnlyRegistrations": 31,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 6,
+      "bundleOnlyRegistrations": 6,
+      "coursePurchasesLive": 5,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 10000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 3663,
+      "totalRevenue": 13663,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 5,
+          "revenue": 10000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6125D05Q22051699",
+          "localCreatedAt": "25 Jan 2026, 10:25 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Wasim Tarique"
+        },
+        {
+          "paymentId": "MOJO6125G05Q22050888",
+          "localCreatedAt": "25 Jan 2026, 09:38 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Bhanupratap  Kumar"
+        },
+        {
+          "paymentId": "MOJO6125N05Q22049790",
+          "localCreatedAt": "25 Jan 2026, 08:44 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Priyanjali Daga"
+        },
+        {
+          "paymentId": "MOJO6125105Q22049733",
+          "localCreatedAt": "25 Jan 2026, 08:42 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Ankit Sharma"
+        },
+        {
+          "paymentId": "MOJO6125G05Q22049610",
+          "localCreatedAt": "25 Jan 2026, 08:38 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Subhajit Murmu"
+        },
+        {
+          "paymentId": "MOJO6125E05Q22046363",
+          "localCreatedAt": "25 Jan 2026, 05:35 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Pradeep Chaugule"
+        },
+        {
+          "paymentId": "MOJO6125M05Q22043807",
+          "localCreatedAt": "25 Jan 2026, 03:06 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Mohammed Yusuf"
+        },
+        {
+          "paymentId": "MOJO6122505Q51298542",
+          "localCreatedAt": "23 Jan 2026, 01:33 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Vrushali Chikode"
+        },
+        {
+          "paymentId": "MOJO6122M05Q51295357",
+          "localCreatedAt": "22 Jan 2026, 09:37 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Arshad  Ansari"
+        },
+        {
+          "paymentId": "MOJO6122W05Q51294651",
+          "localCreatedAt": "22 Jan 2026, 09:01 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Deepak Sharma"
+        },
+        {
+          "paymentId": "MOJO6122E05Q51283063",
+          "localCreatedAt": "22 Jan 2026, 09:42 AM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Priyanka Taklikar"
+        },
+        {
+          "paymentId": "MOJO6122F05Q51283039",
+          "localCreatedAt": "22 Jan 2026, 09:40 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Priyanka Taklikar"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-01-18",
+      "label": "Webinar 18 Jan 2026",
+      "registrationWindow": "11 Jan, 06:31 PM to 18 Jan, 06:30 PM IST",
+      "registrations": 57,
+      "webinarOnlyRegistrations": 57,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 13,
+      "bundleOnlyRegistrations": 13,
+      "coursePurchasesLive": 7,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 14000,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 6930,
+      "totalRevenue": 20930,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 7,
+          "revenue": 14000
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6118905Q07338691",
+          "localCreatedAt": "18 Jan 2026, 10:41 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Rohit Jain"
+        },
+        {
+          "paymentId": "MOJO6118Q05Q07338260",
+          "localCreatedAt": "18 Jan 2026, 10:16 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Mainak Mukherjee"
+        },
+        {
+          "paymentId": "MOJO6118805Q07337241",
+          "localCreatedAt": "18 Jan 2026, 09:18 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Vaishali  Narkar"
+        },
+        {
+          "paymentId": "MOJO6118205Q07337058",
+          "localCreatedAt": "18 Jan 2026, 09:06 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Avani Shah"
+        },
+        {
+          "paymentId": "MOJO6118905D07336811",
+          "localCreatedAt": "18 Jan 2026, 08:52 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Tejaswini  Joshi"
+        },
+        {
+          "paymentId": "MOJO6118205Q07336747",
+          "localCreatedAt": "18 Jan 2026, 08:48 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Prasad  Sadawarte"
+        },
+        {
+          "paymentId": "MOJO6118E05Q07336666",
+          "localCreatedAt": "18 Jan 2026, 08:43 PM",
+          "amount": 2000,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "KETAN PATEL"
+        },
+        {
+          "paymentId": "MOJO6118E05Q07333363",
+          "localCreatedAt": "18 Jan 2026, 05:24 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Kajal Nagarkoti"
+        },
+        {
+          "paymentId": "MOJO6118F05Q07331129",
+          "localCreatedAt": "18 Jan 2026, 03:13 PM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "sagar rawat"
+        },
+        {
+          "paymentId": "MOJO6118R05Q07331110",
+          "localCreatedAt": "18 Jan 2026, 03:12 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "sagar rawat"
+        },
+        {
+          "paymentId": "MOJO6118H05Q07327411",
+          "localCreatedAt": "18 Jan 2026, 12:04 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Sukesh Anuj"
+        },
+        {
+          "paymentId": "MOJO6118505Q07325921",
+          "localCreatedAt": "18 Jan 2026, 10:39 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Avani Shah"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-01-11",
+      "label": "Webinar 11 Jan 2026",
+      "registrationWindow": "04 Jan, 06:31 PM to 11 Jan, 06:30 PM IST",
+      "registrations": 61,
+      "webinarOnlyRegistrations": 61,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 4,
+      "bundleOnlyRegistrations": 4,
+      "coursePurchasesLive": 6,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 11994,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 6435,
+      "totalRevenue": 18429,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 6,
+          "revenue": 11994
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6111F05Q15599677",
+          "localCreatedAt": "11 Jan 2026, 09:43 PM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Jay Shirure"
+        },
+        {
+          "paymentId": "MOJO6111V05Q15599620",
+          "localCreatedAt": "11 Jan 2026, 09:39 PM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Md Mojahid Hussain"
+        },
+        {
+          "paymentId": "MOJO6111D05Q15599408",
+          "localCreatedAt": "11 Jan 2026, 09:25 PM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Yash Bhola"
+        },
+        {
+          "paymentId": "MOJO6111G05Q15599178",
+          "localCreatedAt": "11 Jan 2026, 09:09 PM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sumit Negi"
+        },
+        {
+          "paymentId": "MOJO6111705Q15598645",
+          "localCreatedAt": "11 Jan 2026, 08:42 PM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Lalit Khillare"
+        },
+        {
+          "paymentId": "MOJO6111U05Q15598105",
+          "localCreatedAt": "11 Jan 2026, 08:14 PM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Sudipta Sankha Mukhopadhyay"
+        },
+        {
+          "paymentId": "MOJO6111905Q15596585",
+          "localCreatedAt": "11 Jan 2026, 06:05 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Safwan Chappu"
+        },
+        {
+          "paymentId": "MOJO6111T05Q15595380",
+          "localCreatedAt": "11 Jan 2026, 04:19 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Bhairavi Noolekar"
+        },
+        {
+          "paymentId": "MOJO6111V05Q15595088",
+          "localCreatedAt": "11 Jan 2026, 03:53 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Kishan  Modha"
+        },
+        {
+          "paymentId": "MOJO6111B05Q15593350",
+          "localCreatedAt": "11 Jan 2026, 01:38 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Rupa Sherkhanne"
+        },
+        {
+          "paymentId": "MOJO6111S05Q15590319",
+          "localCreatedAt": "11 Jan 2026, 10:02 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Sabir Acharjee"
+        },
+        {
+          "paymentId": "MOJO6111Q05Q15589972",
+          "localCreatedAt": "11 Jan 2026, 09:30 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Vikas Thakur"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2026-01-04",
+      "label": "Webinar 04 Jan 2026",
+      "registrationWindow": "28 Dec, 06:31 PM to 04 Jan, 06:30 PM IST",
+      "registrations": 15,
+      "webinarOnlyRegistrations": 15,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 2,
+      "bundleOnlyRegistrations": 2,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 1683,
+      "totalRevenue": 6678,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO6104S05Q55896547",
+          "localCreatedAt": "04 Jan 2026, 01:27 PM",
+          "amount": 999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "other",
+          "buyerName": "SUNNY KAPOOR"
+        },
+        {
+          "paymentId": "MOJO6104805Q55895714",
+          "localCreatedAt": "04 Jan 2026, 12:50 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Shankar  Yadav"
+        },
+        {
+          "paymentId": "MOJO6104I05Q55895428",
+          "localCreatedAt": "04 Jan 2026, 12:34 PM",
+          "amount": 999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "other",
+          "buyerName": "Rahul Gupta"
+        },
+        {
+          "paymentId": "MOJO6104N05Q55895342",
+          "localCreatedAt": "04 Jan 2026, 12:30 PM",
+          "amount": 999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "other",
+          "buyerName": "Vinit Kumar  Pathak"
+        },
+        {
+          "paymentId": "MOJO6104H05Q55895305",
+          "localCreatedAt": "04 Jan 2026, 12:28 PM",
+          "amount": 999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "other",
+          "buyerName": "RAJENDRRA DANTALA"
+        },
+        {
+          "paymentId": "MOJO6104U05Q55895290",
+          "localCreatedAt": "04 Jan 2026, 12:26 PM",
+          "amount": 999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "other",
+          "buyerName": "Sumit Upadhyay"
+        },
+        {
+          "paymentId": "MOJO6103505Q01798780",
+          "localCreatedAt": "04 Jan 2026, 12:39 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "kaushal kumar pal"
+        },
+        {
+          "paymentId": "MOJO6103U05Q01798699",
+          "localCreatedAt": "04 Jan 2026, 12:28 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Karan Karan"
+        },
+        {
+          "paymentId": "MOJO6103R05Q01788337",
+          "localCreatedAt": "03 Jan 2026, 02:16 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Sweta Mishra"
+        },
+        {
+          "paymentId": "MOJO6103O05Q01782234",
+          "localCreatedAt": "03 Jan 2026, 08:52 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "NILESH BANDIWDEKAR"
+        },
+        {
+          "paymentId": "MOJO6102705Q39858780",
+          "localCreatedAt": "03 Jan 2026, 12:12 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Prashant  Kumar"
+        },
+        {
+          "paymentId": "MOJO6102105Q39841116",
+          "localCreatedAt": "02 Jan 2026, 07:10 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Siddhant Pawar"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2025-12-28",
+      "label": "Webinar 28 Dec 2025",
+      "registrationWindow": "21 Dec, 06:31 PM to 28 Dec, 06:30 PM IST",
+      "registrations": 19,
+      "webinarOnlyRegistrations": 19,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 3,
+      "bundleOnlyRegistrations": 3,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 2178,
+      "totalRevenue": 2178,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO5c28505Q55209873",
+          "localCreatedAt": "28 Dec 2025, 03:53 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "HIMADRI Mitra"
+        },
+        {
+          "paymentId": "MOJO5c28Q05Q55209286",
+          "localCreatedAt": "28 Dec 2025, 03:08 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Ubaid Fazlani"
+        },
+        {
+          "paymentId": "MOJO5c28B05Q55204093",
+          "localCreatedAt": "28 Dec 2025, 09:07 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Goverdhan  Prashad"
+        },
+        {
+          "paymentId": "MOJO5c27C05Q67363497",
+          "localCreatedAt": "27 Dec 2025, 10:57 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Pooja Patani"
+        },
+        {
+          "paymentId": "MOJO5c27G05Q67361647",
+          "localCreatedAt": "27 Dec 2025, 08:40 AM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "namruta hegde"
+        },
+        {
+          "paymentId": "MOJO5c27J05Q67361617",
+          "localCreatedAt": "27 Dec 2025, 08:37 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Namruta Hegde"
+        },
+        {
+          "paymentId": "MOJO5c26V05Q28191477",
+          "localCreatedAt": "27 Dec 2025, 01:36 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "AMARDEEP KATIYAR"
+        },
+        {
+          "paymentId": "MOJO5c26D05Q28183394",
+          "localCreatedAt": "26 Dec 2025, 03:03 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Faizan khan"
+        },
+        {
+          "paymentId": "MOJO5c26105Q28180369",
+          "localCreatedAt": "26 Dec 2025, 11:51 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Sonam Satpute"
+        },
+        {
+          "paymentId": "MOJO5c25Q05D25296804",
+          "localCreatedAt": "26 Dec 2025, 04:46 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Gaurav Sharma"
+        },
+        {
+          "paymentId": "MOJO5c25Y05Q25295552",
+          "localCreatedAt": "25 Dec 2025, 11:27 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Kapil Mittal"
+        },
+        {
+          "paymentId": "MOJO5c25I05Q25286435",
+          "localCreatedAt": "25 Dec 2025, 12:43 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "MOHD FAISAL"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2025-12-21",
+      "label": "Webinar 21 Dec 2025",
+      "registrationWindow": "14 Dec, 06:31 PM to 21 Dec, 06:30 PM IST",
+      "registrations": 18,
+      "webinarOnlyRegistrations": 18,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 6,
+      "bundleOnlyRegistrations": 6,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 2376,
+      "totalRevenue": 5376,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO5c21505Q39339236",
+          "localCreatedAt": "21 Dec 2025, 04:37 PM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Prateek Kumar shaw"
+        },
+        {
+          "paymentId": "MOJO5c21S05Q39339215",
+          "localCreatedAt": "21 Dec 2025, 04:35 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Prateek Kumar shaw"
+        },
+        {
+          "paymentId": "MOJO5c21605Q39338184",
+          "localCreatedAt": "21 Dec 2025, 03:20 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "vaibhav sutar"
+        },
+        {
+          "paymentId": "MOJO5c21L05Q39333280",
+          "localCreatedAt": "21 Dec 2025, 10:06 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Jay PRAJAPATI"
+        },
+        {
+          "paymentId": "MOJO5c21L05Q39331169",
+          "localCreatedAt": "21 Dec 2025, 06:11 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Vitthal Kute"
+        },
+        {
+          "paymentId": "MOJO5c20I05Q96323360",
+          "localCreatedAt": "20 Dec 2025, 09:36 PM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Krishan Dutt"
+        },
+        {
+          "paymentId": "MOJO5c20B05Q96323329",
+          "localCreatedAt": "20 Dec 2025, 09:35 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Krishan Dutt"
+        },
+        {
+          "paymentId": "MOJO5c20C05Q96321937",
+          "localCreatedAt": "20 Dec 2025, 08:04 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Vaibhav Bharti Bharti"
+        },
+        {
+          "paymentId": "MOJO5c19H05Q76915939",
+          "localCreatedAt": "20 Dec 2025, 01:25 AM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Pramod  Chichkote"
+        },
+        {
+          "paymentId": "MOJO5c19U05Q76915927",
+          "localCreatedAt": "20 Dec 2025, 01:23 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Pramod Chichkote"
+        },
+        {
+          "paymentId": "MOJO5c19005Q76915842",
+          "localCreatedAt": "20 Dec 2025, 01:07 AM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Ashish Tiwari"
+        },
+        {
+          "paymentId": "MOJO5c19E05Q76914479",
+          "localCreatedAt": "19 Dec 2025, 10:32 PM",
+          "amount": 99,
+          "purpose": "3 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Khushboo Shivhare"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2025-12-14",
+      "label": "Webinar 14 Dec 2025",
+      "registrationWindow": "07 Dec, 06:31 PM to 14 Dec, 06:30 PM IST",
+      "registrations": 13,
+      "webinarOnlyRegistrations": 13,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 5,
+      "bundleOnlyRegistrations": 5,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 1782,
+      "totalRevenue": 1782,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO5c14J05Q37267988",
+          "localCreatedAt": "14 Dec 2025, 05:57 PM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Gurkirat Singh dhamija"
+        },
+        {
+          "paymentId": "MOJO5c14D05Q37267965",
+          "localCreatedAt": "14 Dec 2025, 05:55 PM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Gurkirat Singh dhamija"
+        },
+        {
+          "paymentId": "MOJO5c14Q05Q37263149",
+          "localCreatedAt": "14 Dec 2025, 12:23 PM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Ganesh Ashok Khatu"
+        },
+        {
+          "paymentId": "MOJO5c14W05Q37263128",
+          "localCreatedAt": "14 Dec 2025, 12:23 PM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Akshaya Kumar Jena"
+        },
+        {
+          "paymentId": "MOJO5c13505Q46725802",
+          "localCreatedAt": "13 Dec 2025, 12:20 PM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Yash gupta"
+        },
+        {
+          "paymentId": "MOJO5c13D05Q46722202",
+          "localCreatedAt": "13 Dec 2025, 08:53 AM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Zubair  Ahmed"
+        },
+        {
+          "paymentId": "MOJO5c13E05Q46722185",
+          "localCreatedAt": "13 Dec 2025, 08:51 AM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Zubair Ahmed"
+        },
+        {
+          "paymentId": "MOJO5c12L05Q53005886",
+          "localCreatedAt": "12 Dec 2025, 10:00 PM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Ravi Pratap Singh"
+        },
+        {
+          "paymentId": "MOJO5c11305Q98100576",
+          "localCreatedAt": "11 Dec 2025, 10:03 PM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Sujay Keskar"
+        },
+        {
+          "paymentId": "MOJO5c11T05Q98093405",
+          "localCreatedAt": "11 Dec 2025, 03:24 PM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "Sujayk Keskar"
+        },
+        {
+          "paymentId": "MOJO5c10V05Q66891609",
+          "localCreatedAt": "10 Dec 2025, 08:17 AM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "SALLHA KESHAB"
+        },
+        {
+          "paymentId": "MOJO5c10105Q66891595",
+          "localCreatedAt": "10 Dec 2025, 08:16 AM",
+          "amount": 99,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "webinar_only",
+          "buyerName": "SALLHA KESHAB"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2025-12-07",
+      "label": "Webinar 07 Dec 2025",
+      "registrationWindow": "30 Nov, 06:31 PM to 07 Dec, 06:30 PM IST",
+      "registrations": 0,
+      "webinarOnlyRegistrations": 0,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 2,
+      "bundleOnlyRegistrations": 2,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 198,
+      "totalRevenue": 1080,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO5c07N05Q39556082",
+          "localCreatedAt": "07 Dec 2025, 03:49 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Ritika Vashistha"
+        },
+        {
+          "paymentId": "MOJO5c07J05Q39554104",
+          "localCreatedAt": "07 Dec 2025, 01:34 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Deepanshu Thakur"
+        },
+        {
+          "paymentId": "MOJO5c07905Q39551603",
+          "localCreatedAt": "07 Dec 2025, 11:10 AM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Bhupendra  SINGH"
+        },
+        {
+          "paymentId": "MOJO5c07905Q39550044",
+          "localCreatedAt": "07 Dec 2025, 09:32 AM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Ankita Anand"
+        },
+        {
+          "paymentId": "MOJO5c07F05Q39549420",
+          "localCreatedAt": "07 Dec 2025, 08:47 AM",
+          "amount": 99,
+          "purpose": "Ultimate Resource Bundle",
+          "classification": "bundle_only",
+          "buyerName": "Shatrujit Mal"
+        },
+        {
+          "paymentId": "MOJO5c07B05Q39549325",
+          "localCreatedAt": "07 Dec 2025, 08:38 AM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Shatrujit Mal"
+        },
+        {
+          "paymentId": "MOJO5c06Y05Q83011730",
+          "localCreatedAt": "06 Dec 2025, 11:33 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Rahul Gupta"
+        },
+        {
+          "paymentId": "MOJO5c06H05Q83011718",
+          "localCreatedAt": "06 Dec 2025, 11:32 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Jaya Madnani"
+        },
+        {
+          "paymentId": "MOJO5c06I05Q83010694",
+          "localCreatedAt": "06 Dec 2025, 10:28 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Subhojit Das"
+        },
+        {
+          "paymentId": "MOJO5c06B05Q82999263",
+          "localCreatedAt": "06 Dec 2025, 11:35 AM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "JAYANT SINGH"
+        },
+        {
+          "paymentId": "MOJO5c05J05Q90742919",
+          "localCreatedAt": "05 Dec 2025, 10:24 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Snehal  Yejare"
+        },
+        {
+          "paymentId": "MOJO5c05L05Q90739208",
+          "localCreatedAt": "05 Dec 2025, 06:32 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Neelanjana Nambiar"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2025-11-30",
+      "label": "Webinar 30 Nov 2025",
+      "registrationWindow": "23 Nov, 06:31 PM to 30 Nov, 06:30 PM IST",
+      "registrations": 0,
+      "webinarOnlyRegistrations": 0,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 0,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 1,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 1999,
+      "registrationRevenue": 0,
+      "totalRevenue": 2048,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 1,
+          "revenue": 1999
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO5c01K05D00912404",
+          "localCreatedAt": "01 Dec 2025, 05:36 PM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Rahul Yadav"
+        },
+        {
+          "paymentId": "MOJO5b28T05Q97885770",
+          "localCreatedAt": "28 Nov 2025, 12:22 PM",
+          "amount": 49,
+          "purpose": "2 Hours Excel Career Masterclass",
+          "classification": "other",
+          "buyerName": "Sanju Bawne"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2025-11-23",
+      "label": "Webinar 23 Nov 2025",
+      "registrationWindow": "16 Nov, 06:31 PM to 23 Nov, 06:30 PM IST",
+      "registrations": 0,
+      "webinarOnlyRegistrations": 0,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 0,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 0,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 0,
+      "registrationRevenue": 0,
+      "totalRevenue": 99,
+      "topCoursePurposes": [],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO5b19205Q06424194",
+          "localCreatedAt": "19 Nov 2025, 11:05 AM",
+          "amount": 99,
+          "purpose": "Unknown purpose",
+          "classification": "other",
+          "buyerName": "Abhishek Kumar"
+        }
+      ]
+    },
+    {
+      "webinarDate": "2025-11-16",
+      "label": "Webinar 16 Nov 2025",
+      "registrationWindow": "09 Nov, 06:31 PM to 16 Nov, 06:30 PM IST",
+      "registrations": 0,
+      "webinarOnlyRegistrations": 0,
+      "comboRegistrations": 0,
+      "bundleRegistrations": 0,
+      "bundleOnlyRegistrations": 0,
+      "coursePurchasesLive": 0,
+      "coursePurchasesExtended": 1,
+      "courseRevenueLive": 0,
+      "courseRevenueExtended": 1999,
+      "registrationRevenue": 0,
+      "totalRevenue": 1999,
+      "topCoursePurposes": [
+        {
+          "purpose": "Basic to Advance Excel Course",
+          "count": 1,
+          "revenue": 1999
+        }
+      ],
+      "recentPayments": [
+        {
+          "paymentId": "MOJO5b20505Q64635163",
+          "localCreatedAt": "20 Nov 2025, 10:59 AM",
+          "amount": 1999,
+          "purpose": "Basic to Advance Excel Course",
+          "classification": "course",
+          "buyerName": "Abhishek kumar"
+        }
+      ]
+    }
+  ]
+}
