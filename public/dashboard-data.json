@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-05-29T18:16:52.635Z",
+  "generatedAt": "2026-05-29T18:22:41.381Z",
   "timezone": "Asia/Kolkata",
   "gateways": {
     "instamojo": {
       "gateway": "instamojo",
       "label": "Instamojo",
-      "generatedAt": "2026-05-29T18:16:52.635Z",
+      "generatedAt": "2026-05-29T18:22:41.381Z",
       "timezone": "Asia/Kolkata",
       "source": {
         "paymentRequestCount": 1826,
@@ -1863,42 +1863,105 @@
     "payu": {
       "gateway": "payu",
       "label": "PayU",
-      "generatedAt": "2026-05-29T18:16:52.635Z",
+      "generatedAt": "2026-05-29T18:22:41.381Z",
       "timezone": "Asia/Kolkata",
       "source": {
-        "paymentRequestCount": 0,
-        "paymentCount": 0,
-        "successfulPaymentCount": 0
+        "paymentRequestCount": 4,
+        "paymentCount": 4,
+        "successfulPaymentCount": 4
       },
       "syncStatus": {
         "state": "pending",
-        "message": "PayU is temporarily rate-limiting the historical backfill. The dashboard will retry automatically on the next hourly sync."
+        "message": "PayU history is loading week by week. Recent data through 2026-05-29 is available now, and older weeks will continue syncing automatically every hour."
       },
       "totals": {
         "registrations": 0,
         "bundleRegistrations": 0,
-        "coursePurchases": 0,
-        "totalRevenue": 0
+        "coursePurchases": 4,
+        "totalRevenue": 10000
       },
       "historicalSummary": {
         "webinarRegistrations": 0,
-        "webinarWeeksCount": 0,
+        "webinarWeeksCount": 1,
         "bundleRegistrations": 0,
-        "coursePurchases": 0,
+        "coursePurchases": 4,
         "bundleConversionRate": 0,
         "courseConversionRate": 0
       },
       "classificationSources": {
         "webinar": [],
         "bundle": [],
-        "course": []
+        "course": [
+          {
+            "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+            "count": 4
+          }
+        ]
       },
-      "weekly": []
+      "weekly": [
+        {
+          "webinarDate": "2026-05-24",
+          "label": "Webinar 24 May 2026",
+          "registrationWindow": "17 May, 06:31 PM to 24 May, 06:30 PM IST",
+          "registrations": 0,
+          "webinarOnlyRegistrations": 0,
+          "comboRegistrations": 0,
+          "bundleRegistrations": 0,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 4,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 10000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 0,
+          "totalRevenue": 10000,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "count": 4,
+              "revenue": 10000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "28740836522",
+              "localCreatedAt": "24/5/2026, 9:43:43 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Megha Bhardwaj"
+            },
+            {
+              "paymentId": "28740787816",
+              "localCreatedAt": "24/5/2026, 9:40:24 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Tribeni Kumar Panda"
+            },
+            {
+              "paymentId": "28740288665",
+              "localCreatedAt": "24/5/2026, 9:09:46 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Avinash Borade"
+            },
+            {
+              "paymentId": "28740129293",
+              "localCreatedAt": "24/5/2026, 9:00:10 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Bhagyashri Dhakare"
+            }
+          ]
+        }
+      ]
     },
     "cashfree": {
       "gateway": "cashfree",
       "label": "Cashfree",
-      "generatedAt": "2026-05-29T18:16:52.635Z",
+      "generatedAt": "2026-05-29T18:22:41.381Z",
       "timezone": "Asia/Kolkata",
       "source": {
         "paymentRequestCount": 984,

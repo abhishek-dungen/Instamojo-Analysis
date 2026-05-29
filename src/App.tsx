@@ -156,7 +156,9 @@ function App() {
           <h2>{getStatusHeadline(data)}</h2>
           <p className="status-copy">{data.syncStatus.message}</p>
         </section>
-      ) : selected ? (
+      ) : null}
+
+      {selected ? (
         <>
           <section className="glass-card section-card">
             <p className="section-label">Selected week</p>
@@ -262,10 +264,12 @@ function App() {
           </section>
         </>
       ) : (
-        <section className="glass-card section-card">
-          <p className="section-label">{data.label}</p>
-          <h2>No valid webinar weeks after exclusions</h2>
-        </section>
+        data.syncStatus.state === 'ready' ? (
+          <section className="glass-card section-card">
+            <p className="section-label">{data.label}</p>
+            <h2>No valid webinar weeks after exclusions</h2>
+          </section>
+        ) : null
       )}
     </main>
   )

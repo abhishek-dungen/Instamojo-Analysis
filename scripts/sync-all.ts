@@ -44,6 +44,7 @@ type GatewaySyncResult = {
   dashboard: DashboardSnapshot['gateways'][GatewayId]
   payments: StoredPayment[]
   rawRequestDocs?: Array<{ id: string; data: Record<string, unknown> }>
+  backfillState?: Record<string, unknown>
 }
 
 const repoRoot = path.resolve(import.meta.dirname, '..')
@@ -141,6 +142,22 @@ function buildStoredPayment(input: {
 
 function filterExcluded(payments: StoredPayment[]) {
   return payments.filter((payment) => !isExcludedWebinarWeek(payment.webinarDate))
+}
+
+async function readStoredPayments(
+  firestore: FirebaseFirestore.Firestore,
+  collectionName: string,
+) {
+  const snapshot = await firestore.collection(collectionName).get()
+  return snapshot.docs.map((doc) => doc.data()) as StoredPayment[]
+}
+
+async function readBackfillState(
+  firestore: FirebaseFirestore.Firestore,
+  documentId: string,
+) {
+  const snapshot = await firestore.collection('dashboardMetadata').doc(documentId).get()
+  return snapshot.exists ? (snapshot.data() ?? null) : null
 }
 
 function initFirebase() {
@@ -473,98 +490,153 @@ async function fetchPayuPaymentLinksByOauth(generatedAt: string): Promise<Gatewa
   }
 }
 
-async function fetchPayuByLegacyApi(generatedAt: string): Promise<GatewaySyncResult> {
+function parsePayuLegacyTransactions(payload: {
+  Transaction_details?: Array<Record<string, unknown>>
+  transaction_details?: Record<string, Record<string, unknown>>
+}) {
+  if (Array.isArray(payload.Transaction_details)) {
+    return payload.Transaction_details
+  }
+
+  return Object.values(payload.transaction_details ?? {})
+}
+
+function normalizePayuStatus(rawStatus: string) {
+  const normalized = rawStatus.trim().toLowerCase()
+  if (normalized === 'success' || normalized === 'captured') {
+    return 'Credit'
+  }
+
+  return rawStatus || 'Failed'
+}
+
+async function fetchPayuByLegacyBackfill(
+  generatedAt: string,
+  existingPayments: StoredPayment[],
+  nextWindowEnd: string | null,
+): Promise<GatewaySyncResult> {
   const key = optionalEnv('PAYU_KEY')
   const salt = optionalEnv('PAYU_SALT')
   if (!key || !salt) {
     throw new Error('PayU key and salt are not configured for legacy transaction sync.')
   }
 
-  const payments: StoredPayment[] = []
-  const seen = new Set<string>()
-
-  for (const window of dayRangeWindows(HISTORY_START, new Date(), PAYU_LEGACY_WINDOW_DAYS)) {
-    const hash = crypto
-      .createHash('sha512')
-      .update(`${key}|get_Transaction_Details|${window.start}|${salt}`)
-      .digest('hex')
-
-    const response = await fetch(PAYU_LEGACY_URL, {
-      method: 'POST',
-      headers: {
-        accept: 'application/json',
-        'content-type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        key,
-        command: 'get_Transaction_Details',
-        var1: window.start,
-        var2: window.end,
-        hash,
-      }),
-    })
-
-    if (!response.ok) {
-      const message = await response.text()
-      throw new Error(`PayU legacy request failed: ${response.status} ${message}`)
-    }
-
-    const payload = (await response.json()) as {
-      status?: number
-      msg?: string
-      transaction_details?: Record<string, Record<string, unknown>>
-    }
-
-    if (payload.status === 0) {
-      throw new Error(`PayU legacy transaction API error: ${payload.msg ?? 'Unknown error'}`)
-    }
-
-    for (const details of Object.values(payload.transaction_details ?? {})) {
-      const paymentId = String(details.mihpayid ?? details.txnid ?? '')
-      if (!paymentId || seen.has(paymentId)) continue
-      seen.add(paymentId)
-      const amount = Number(details.amount ?? 0)
-      const purpose = String(details.productinfo ?? details.field9 ?? 'PayU Payment')
-      const createdAt = String(details.addedon ?? details.created_on ?? '')
-      const normalizedCreatedAt = createdAt
-        ? createdAt.replace(' ', 'T').replace('.0', '') + '+05:30'
-        : new Date().toISOString()
-      const status = String(details.status ?? '').toLowerCase() === 'success' ? 'Credit' : String(details.status ?? 'Failed')
-
-      payments.push(
-        buildStoredPayment({
-          paymentId,
-          requestId: String(details.txnid ?? ''),
-          purpose,
-          amount,
-          createdAt: normalizedCreatedAt,
-          buyerName: String(details.firstname ?? ''),
-          buyerEmail: String(details.email ?? ''),
-          buyerPhone: String(details.phone ?? ''),
-          status,
-          requestCreatedAt: normalizedCreatedAt,
-        }),
-      )
-    }
+  const mergedPayments = new Map(existingPayments.map((payment) => [payment.paymentId, payment]))
+  const today = new Date()
+  const historyStartDate = new Date(`${HISTORY_START}T00:00:00+05:30`)
+  const activeWindowEnd = nextWindowEnd ? new Date(`${nextWindowEnd}T00:00:00+05:30`) : today
+  const activeWindowStart = new Date(activeWindowEnd)
+  activeWindowStart.setDate(activeWindowStart.getDate() - (PAYU_LEGACY_WINDOW_DAYS - 1))
+  if (activeWindowStart < historyStartDate) {
+    activeWindowStart.setTime(historyStartDate.getTime())
   }
 
-  const filteredPayments = filterExcluded(payments)
+  const var1 = activeWindowStart.toISOString().slice(0, 10)
+  const var2 = activeWindowEnd.toISOString().slice(0, 10)
+  const hash = crypto
+    .createHash('sha512')
+    .update(`${key}|get_Transaction_Details|${var1}|${salt}`)
+    .digest('hex')
+
+  const response = await fetch(PAYU_LEGACY_URL, {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      key,
+      command: 'get_Transaction_Details',
+      var1,
+      var2,
+      hash,
+    }),
+  })
+
+  if (!response.ok) {
+    const message = await response.text()
+    throw new Error(`PayU legacy request failed: ${response.status} ${message}`)
+  }
+
+  const payload = (await response.json()) as {
+    status?: number
+    msg?: string
+    Transaction_details?: Array<Record<string, unknown>>
+    transaction_details?: Record<string, Record<string, unknown>>
+  }
+
+  if (payload.status === 0) {
+    throw new Error(`PayU legacy transaction API error: ${payload.msg ?? 'Unknown error'}`)
+  }
+
+  for (const details of parsePayuLegacyTransactions(payload)) {
+    const paymentId = String(details.id ?? details.mihpayid ?? details.txnid ?? '')
+    if (!paymentId) continue
+
+    const amount = Number(details.amount ?? details.transaction_fee ?? 0)
+    const purpose = String(details.productinfo ?? details.field9 ?? 'PayU Payment')
+    const createdAt = String(details.addedon ?? details.created_on ?? '')
+    const normalizedCreatedAt = createdAt
+      ? createdAt.replace(' ', 'T').replace('.0', '') + '+05:30'
+      : new Date().toISOString()
+    const status = normalizePayuStatus(String(details.status ?? ''))
+
+    mergedPayments.set(
+      paymentId,
+      buildStoredPayment({
+        paymentId,
+        requestId: String(details.txnid ?? ''),
+        purpose,
+        amount,
+        createdAt: normalizedCreatedAt,
+        buyerName: [String(details.firstname ?? ''), String(details.lastname ?? '')].join(' ').trim(),
+        buyerEmail: String(details.email ?? ''),
+        buyerPhone: String(details.phone ?? ''),
+        status,
+        requestCreatedAt: normalizedCreatedAt,
+      }),
+    )
+  }
+
+  const nextEndDate = new Date(activeWindowStart)
+  nextEndDate.setDate(nextEndDate.getDate() - 1)
+  const completed = activeWindowStart.getTime() <= historyStartDate.getTime()
+  const filteredPayments = filterExcluded(Array.from(mergedPayments.values()))
+  const dashboard = buildDashboardDataFromStoredPayments(
+    'payu',
+    filteredPayments,
+    {
+      paymentRequestCount: filteredPayments.length,
+      paymentCount: filteredPayments.length,
+      successfulPaymentCount: filteredPayments.filter((payment) => payment.status === 'Credit').length,
+    },
+    generatedAt,
+  )
+
   return {
-    dashboard: buildDashboardDataFromStoredPayments(
-      'payu',
-      filteredPayments,
-      {
-        paymentRequestCount: filteredPayments.length,
-        paymentCount: filteredPayments.length,
-        successfulPaymentCount: filteredPayments.filter((payment) => payment.status === 'Credit').length,
-      },
-      generatedAt,
-    ),
+    dashboard: completed
+      ? dashboard
+      : {
+          ...dashboard,
+          syncStatus: {
+            state: 'pending',
+            message: `PayU history is loading week by week. Recent data through ${var2} is available now, and older weeks will continue syncing automatically every hour.`,
+          },
+        },
     payments: filteredPayments,
+    backfillState: {
+      nextWindowEnd: completed ? null : nextEndDate.toISOString().slice(0, 10),
+      completed,
+      lastFetchedStart: var1,
+      lastFetchedEnd: var2,
+    },
   }
 }
 
-async function syncPayu(generatedAt: string): Promise<GatewaySyncResult> {
+async function syncPayu(
+  generatedAt: string,
+  firestore?: FirebaseFirestore.Firestore,
+): Promise<GatewaySyncResult> {
   try {
     return await fetchPayuPaymentLinksByOauth(generatedAt)
   } catch (oauthError) {
@@ -574,7 +646,14 @@ async function syncPayu(generatedAt: string): Promise<GatewaySyncResult> {
     }
   }
 
-  return fetchPayuByLegacyApi(generatedAt)
+  const existingPayments =
+    firestore ? await readStoredPayments(firestore, 'payuPayments').catch(() => []) : []
+  const progress =
+    firestore ? await readBackfillState(firestore, 'payuBackfill').catch(() => null) : null
+  const nextWindowEnd =
+    typeof progress?.nextWindowEnd === 'string' ? progress.nextWindowEnd : null
+
+  return fetchPayuByLegacyBackfill(generatedAt, existingPayments, nextWindowEnd)
 }
 
 async function syncCashfree(generatedAt: string): Promise<GatewaySyncResult> {
@@ -730,7 +809,7 @@ async function writeGatewayToFirestore(
   result: GatewaySyncResult,
   generatedAt: string,
 ) {
-  if (result.dashboard.syncStatus.state !== 'ready') {
+  if (result.dashboard.syncStatus.state === 'error' && result.payments.length === 0) {
     await firestore.collection('dashboardMetadata').doc(gateway).set(
       {
         generatedAt,
@@ -774,15 +853,22 @@ async function writeGatewayToFirestore(
   )
 
   await firestore.collection('dashboardMetadata').doc(gateway).set(result.dashboard, { merge: true })
+
+  if (gateway === 'payu' && result.backfillState) {
+    await firestore.collection('dashboardMetadata').doc('payuBackfill').set(result.backfillState, {
+      merge: true,
+    })
+  }
 }
 
 async function main() {
   const generatedAt = new Date().toISOString()
   const skipFirebase = process.env.SKIP_FIREBASE === '1'
+  const firestore = skipFirebase ? undefined : initFirebase()
 
   const [instamojo, payu, cashfree] = await Promise.all([
     safeGatewaySync('instamojo', generatedAt, () => syncInstamojo(generatedAt)),
-    safeGatewaySync('payu', generatedAt, () => syncPayu(generatedAt)),
+    safeGatewaySync('payu', generatedAt, () => syncPayu(generatedAt, firestore)),
     safeGatewaySync('cashfree', generatedAt, () => syncCashfree(generatedAt)),
   ])
 
@@ -799,8 +885,7 @@ async function main() {
   await mkdir(publicDir, { recursive: true })
   await writeFile(path.join(publicDir, 'dashboard-data.json'), JSON.stringify(snapshot, null, 2), 'utf8')
 
-  if (!skipFirebase) {
-    const firestore = initFirebase()
+  if (firestore) {
     await Promise.all([
       writeGatewayToFirestore(firestore, 'instamojo', instamojo, generatedAt),
       writeGatewayToFirestore(firestore, 'payu', payu, generatedAt),
