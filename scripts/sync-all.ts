@@ -1,0 +1,794 @@
+import { readFileSync } from 'node:fs'
+import { mkdir, writeFile } from 'node:fs/promises'
+import path from 'node:path'
+import process from 'node:process'
+import crypto from 'node:crypto'
+import admin from 'firebase-admin'
+import {
+  buildDashboardData,
+  buildDashboardDataFromStoredPayments,
+  classifyPayment,
+  emptyDashboardData,
+  isExcludedWebinarWeek,
+  normalizePayments,
+  resolveWebinarDateForClassification,
+  TIME_ZONE,
+} from '../src/lib/analytics'
+import type { DashboardSnapshot, GatewayId, StoredPayment } from '../src/lib/dashboard-data'
+
+type InstamojoPaymentRequest = {
+  id: string
+  phone: string | null
+  email: string | null
+  buyer_name: string | null
+  amount: string
+  purpose: string
+  status: string
+  longurl: string | null
+  created_at: string
+  modified_at: string
+}
+
+type InstamojoPayment = {
+  payment_id: string
+  status: string
+  amount: string
+  buyer_name: string | null
+  buyer_phone: string | null
+  buyer_email: string | null
+  payment_request: string | null
+  created_at: string
+}
+
+type GatewaySyncResult = {
+  dashboard: DashboardSnapshot['gateways'][GatewayId]
+  payments: StoredPayment[]
+  rawRequestDocs?: Array<{ id: string; data: Record<string, unknown> }>
+}
+
+const repoRoot = path.resolve(import.meta.dirname, '..')
+const publicDir = path.join(repoRoot, 'public')
+const INSTAMOJO_API_BASE = 'https://www.instamojo.com/api/1.1'
+const PAYU_TOKEN_URL = 'https://accounts.payu.in/oauth/token'
+const PAYU_PAYMENT_LINKS_BASE = 'https://oneapi.payu.in/payment-links'
+const PAYU_LEGACY_URL = 'https://info.payu.in/merchant/postservice.php?form=2'
+const DEFAULT_CASHFREE_RECON_URL = 'https://api.cashfree.com/pg/recon'
+const HISTORY_START = '2018-01-01'
+const PAYU_LEGACY_WINDOW_DAYS = 7
+const CASHFREE_WINDOW_DAYS = 30
+const CASHFREE_MAX_LOOKBACK_DAYS = 700
+
+function requiredEnv(name: string) {
+  const value = process.env[name]
+  if (!value) throw new Error(`Missing required environment variable: ${name}`)
+  return value
+}
+
+function optionalEnv(name: string) {
+  return process.env[name]?.trim() || undefined
+}
+
+function toLocalText(createdAt: string) {
+  return new Date(createdAt).toLocaleString('en-IN', { timeZone: TIME_ZONE })
+}
+
+function buildStoredPayment(input: {
+  paymentId: string
+  requestId?: string | null
+  purpose: string
+  amount: number
+  createdAt: string
+  buyerName?: string | null
+  buyerEmail?: string | null
+  buyerPhone?: string | null
+  status: string
+  requestCreatedAt?: string | null
+}) {
+  const classification = classifyPayment(input.amount, input.purpose)
+  const webinarDate = resolveWebinarDateForClassification(new Date(input.createdAt), classification)
+
+  return {
+    paymentId: input.paymentId,
+    requestId: input.requestId ?? null,
+    purpose: input.purpose,
+    amount: input.amount,
+    createdAt: input.createdAt,
+    localCreatedAt: toLocalText(input.createdAt),
+    buyerName: input.buyerName ?? '',
+    buyerEmail: input.buyerEmail ?? '',
+    buyerPhone: input.buyerPhone ?? '',
+    status: input.status,
+    classification,
+    webinarDate,
+    requestCreatedAt: input.requestCreatedAt ?? null,
+  } satisfies StoredPayment
+}
+
+function filterExcluded(payments: StoredPayment[]) {
+  return payments.filter((payment) => !isExcludedWebinarWeek(payment.webinarDate))
+}
+
+function initFirebase() {
+  const serviceAccountJson = process.env.FIREBASE_SERVICE_ACCOUNT_JSON
+  const serviceAccountPath = process.env.FIREBASE_SERVICE_ACCOUNT_PATH
+
+  if (!serviceAccountJson && !serviceAccountPath) {
+    throw new Error(
+      'Set FIREBASE_SERVICE_ACCOUNT_JSON or FIREBASE_SERVICE_ACCOUNT_PATH before running the sync.',
+    )
+  }
+
+  const serviceAccount = serviceAccountJson
+    ? JSON.parse(serviceAccountJson)
+    : JSON.parse(readFileSync(serviceAccountPath!, 'utf8'))
+
+  if (admin.apps.length === 0) {
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+    })
+  }
+
+  return admin.firestore()
+}
+
+async function writeCollection(
+  firestore: FirebaseFirestore.Firestore,
+  collectionName: string,
+  docs: Array<{ id: string; data: Record<string, unknown> }>,
+) {
+  for (let index = 0; index < docs.length; index += 400) {
+    const slice = docs.slice(index, index + 400)
+    const batch = firestore.batch()
+    for (const doc of slice) {
+      batch.set(firestore.collection(collectionName).doc(doc.id), doc.data, { merge: true })
+    }
+    await batch.commit()
+  }
+}
+
+async function clearCollection(
+  firestore: FirebaseFirestore.Firestore,
+  collectionName: string,
+) {
+  while (true) {
+    const snapshot = await firestore.collection(collectionName).limit(400).get()
+    if (snapshot.empty) break
+
+    const batch = firestore.batch()
+    snapshot.docs.forEach((doc) => batch.delete(doc.ref))
+    await batch.commit()
+  }
+}
+
+async function instamojoGet<T>(endpoint: string, page: number, limit = 500): Promise<T> {
+  const apiKey = requiredEnv('INSTAMOJO_API_KEY')
+  const authToken = requiredEnv('INSTAMOJO_AUTH_TOKEN')
+  const url = new URL(`${INSTAMOJO_API_BASE}/${endpoint}/`)
+  url.searchParams.set('page', String(page))
+  url.searchParams.set('limit', String(limit))
+
+  const response = await fetch(url, {
+    headers: {
+      'X-Api-Key': apiKey,
+      'X-Auth-Token': authToken,
+    },
+  })
+
+  if (!response.ok) {
+    throw new Error(`Instamojo request failed for ${endpoint}: ${response.status}`)
+  }
+
+  return response.json() as Promise<T>
+}
+
+async function fetchAllInstamojoPages<T>(endpoint: string, key: string): Promise<T[]> {
+  const items: T[] = []
+  let page = 1
+  let keepGoing = true
+
+  while (keepGoing) {
+    const payload = (await instamojoGet<Record<string, unknown>>(endpoint, page)) as Record<
+      string,
+      unknown
+    >
+    const pageItems = (payload[key] as T[]) ?? []
+    items.push(...pageItems)
+    keepGoing = pageItems.length === 500
+    page += 1
+  }
+
+  return items
+}
+
+function normalizeInstamojoRequests(paymentRequests: InstamojoPaymentRequest[]) {
+  return paymentRequests
+    .map((request) => {
+      const amountValue = Number.parseFloat(request.amount)
+      const classification = classifyPayment(amountValue, request.purpose)
+      const webinarDate = resolveWebinarDateForClassification(new Date(request.created_at), classification)
+
+      return {
+        ...request,
+        amountValue,
+        classification,
+        webinarDate,
+      }
+    })
+    .filter((request) => !isExcludedWebinarWeek(request.webinarDate))
+}
+
+async function syncInstamojo(generatedAt: string): Promise<GatewaySyncResult> {
+  const paymentRequests = await fetchAllInstamojoPages<InstamojoPaymentRequest>(
+    'payment-requests',
+    'payment_requests',
+  )
+  const payments = await fetchAllInstamojoPages<InstamojoPayment>('payments', 'payments')
+  const normalizedRequests = normalizeInstamojoRequests(paymentRequests)
+  const normalizedPayments = filterExcluded(normalizePayments(paymentRequests, payments))
+  const dashboard = {
+    ...buildDashboardData(paymentRequests, payments),
+    generatedAt,
+  }
+
+  return {
+    dashboard,
+    payments: normalizedPayments,
+    rawRequestDocs: normalizedRequests.map((request) => ({
+      id: request.id,
+      data: {
+        ...request,
+        syncedAt: generatedAt,
+      },
+    })),
+  }
+}
+
+function dayRangeWindows(startDate: string, endDate: Date, windowDays: number) {
+  const windows: Array<{ start: string; end: string }> = []
+  let cursor = new Date(`${startDate}T00:00:00+05:30`)
+
+  while (cursor <= endDate) {
+    const start = cursor
+    const end = new Date(cursor)
+    end.setDate(end.getDate() + windowDays - 1)
+    if (end > endDate) {
+      end.setTime(endDate.getTime())
+    }
+
+    windows.push({
+      start: start.toISOString().slice(0, 10),
+      end: end.toISOString().slice(0, 10),
+    })
+
+    cursor = new Date(end)
+    cursor.setDate(cursor.getDate() + 1)
+  }
+
+  return windows
+}
+
+async function getPayuAccessToken() {
+  const clientId = optionalEnv('PAYU_CLIENT_ID')
+  const clientSecret = optionalEnv('PAYU_CLIENT_SECRET')
+  if (!clientId || !clientSecret) {
+    throw new Error('PayU client ID and client secret are not configured.')
+  }
+
+  const response = await fetch(PAYU_TOKEN_URL, {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/x-www-form-urlencoded',
+    },
+    body: new URLSearchParams({
+      client_id: clientId,
+      client_secret: clientSecret,
+      grant_type: 'client_credentials',
+      scope: 'read_payment_links',
+    }),
+  })
+
+  if (!response.ok) {
+    const message = await response.text()
+    throw new Error(`PayU token request failed: ${response.status} ${message}`)
+  }
+
+  const payload = (await response.json()) as { access_token?: string }
+  if (!payload.access_token) {
+    throw new Error('PayU token response did not include an access token.')
+  }
+
+  return payload.access_token
+}
+
+async function fetchPayuPaymentLinksByOauth(generatedAt: string): Promise<GatewaySyncResult> {
+  const merchantId = optionalEnv('PAYU_MERCHANT_ID')
+  if (!merchantId) {
+    throw new Error('PayU merchant ID is required for OAuth payment-link sync.')
+  }
+
+  const token = await getPayuAccessToken()
+  const today = new Date()
+  const links: Array<{
+    invoiceNumber: string
+    description?: string | null
+    createDate?: string
+    amount?: number
+  }> = []
+
+  for (const window of dayRangeWindows(HISTORY_START, today, 31)) {
+    let pageOffset = 0
+    let keepGoing = true
+
+    while (keepGoing) {
+      const url = new URL(PAYU_PAYMENT_LINKS_BASE)
+      url.searchParams.set('pageSize', '100')
+      url.searchParams.set('pageOffset', String(pageOffset))
+      url.searchParams.set('orderBy', 'addedOn')
+      url.searchParams.set('order', 'asc')
+      url.searchParams.set('dateFrom', window.start)
+      url.searchParams.set('dateTo', window.end)
+
+      const response = await fetch(url, {
+        headers: {
+          merchantId,
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      if (!response.ok) {
+        const message = await response.text()
+        throw new Error(`PayU payment-links request failed: ${response.status} ${message}`)
+      }
+
+      const payload = (await response.json()) as {
+        result?: { paymentLinksList?: Array<{ invoiceNumber: string; description?: string | null; createDate?: string; amount?: number }> }
+      }
+      const pageItems = payload.result?.paymentLinksList ?? []
+      links.push(...pageItems)
+      keepGoing = pageItems.length === 100
+      pageOffset += pageItems.length
+    }
+  }
+
+  const payments: StoredPayment[] = []
+  const seen = new Set<string>()
+
+  for (const link of links) {
+    let pageOffset = 0
+    let keepGoing = true
+
+    while (keepGoing) {
+      const url = new URL(`${PAYU_PAYMENT_LINKS_BASE}/${link.invoiceNumber}/txns`)
+      url.searchParams.set('pageSize', '100')
+      url.searchParams.set('pageOffset', String(pageOffset))
+      url.searchParams.set('dateFrom', HISTORY_START)
+      url.searchParams.set('dateTo', new Date().toISOString().slice(0, 10))
+
+      const response = await fetch(url, {
+        headers: {
+          merchantId,
+          Authorization: `Bearer ${token}`,
+        },
+      })
+
+      if (!response.ok) {
+        const message = await response.text()
+        throw new Error(`PayU transaction-details request failed: ${response.status} ${message}`)
+      }
+
+      const payload = (await response.json()) as {
+        result?: {
+          data?: Array<{
+            transactionId?: string
+            merchantReferenceId?: string
+            customerEmail?: string
+            customerName?: string
+            customerPhone?: string
+            settledAmount?: number
+            createdOn?: string
+            status?: string
+          }>
+        }
+      }
+      const pageItems = payload.result?.data ?? []
+
+      for (const item of pageItems) {
+        const paymentId = item.transactionId ?? item.merchantReferenceId
+        if (!paymentId || seen.has(paymentId)) continue
+        seen.add(paymentId)
+        const createdAt = item.createdOn
+          ? item.createdOn.replace(' ', 'T').replace('.0', '') + '+05:30'
+          : new Date().toISOString()
+
+        payments.push(
+          buildStoredPayment({
+            paymentId,
+            requestId: link.invoiceNumber,
+            purpose: link.description?.trim() || 'PayU Payment Link',
+            amount: Number(item.settledAmount ?? link.amount ?? 0),
+            createdAt,
+            buyerName: item.customerName,
+            buyerEmail: item.customerEmail,
+            buyerPhone: item.customerPhone,
+            status: item.status?.toLowerCase() === 'success' ? 'Credit' : item.status ?? 'Failed',
+            requestCreatedAt: link.createDate ?? null,
+          }),
+        )
+      }
+
+      keepGoing = pageItems.length === 100
+      pageOffset += pageItems.length
+    }
+  }
+
+  const filteredPayments = filterExcluded(payments)
+  return {
+    dashboard: buildDashboardDataFromStoredPayments(
+      'payu',
+      filteredPayments,
+      {
+        paymentRequestCount: links.length,
+        paymentCount: filteredPayments.length,
+        successfulPaymentCount: filteredPayments.filter((payment) => payment.status === 'Credit').length,
+      },
+      generatedAt,
+    ),
+    payments: filteredPayments,
+  }
+}
+
+async function fetchPayuByLegacyApi(generatedAt: string): Promise<GatewaySyncResult> {
+  const key = optionalEnv('PAYU_KEY')
+  const salt = optionalEnv('PAYU_SALT')
+  if (!key || !salt) {
+    throw new Error('PayU key and salt are not configured for legacy transaction sync.')
+  }
+
+  const payments: StoredPayment[] = []
+  const seen = new Set<string>()
+
+  for (const window of dayRangeWindows(HISTORY_START, new Date(), PAYU_LEGACY_WINDOW_DAYS)) {
+    const hash = crypto
+      .createHash('sha512')
+      .update(`${key}|get_Transaction_Details|${window.start}|${salt}`)
+      .digest('hex')
+
+    const response = await fetch(PAYU_LEGACY_URL, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        key,
+        command: 'get_Transaction_Details',
+        var1: window.start,
+        var2: window.end,
+        hash,
+      }),
+    })
+
+    if (!response.ok) {
+      const message = await response.text()
+      throw new Error(`PayU legacy request failed: ${response.status} ${message}`)
+    }
+
+    const payload = (await response.json()) as {
+      status?: number
+      msg?: string
+      transaction_details?: Record<string, Record<string, unknown>>
+    }
+
+    if (payload.status === 0) {
+      throw new Error(`PayU legacy transaction API error: ${payload.msg ?? 'Unknown error'}`)
+    }
+
+    for (const details of Object.values(payload.transaction_details ?? {})) {
+      const paymentId = String(details.mihpayid ?? details.txnid ?? '')
+      if (!paymentId || seen.has(paymentId)) continue
+      seen.add(paymentId)
+      const amount = Number(details.amount ?? 0)
+      const purpose = String(details.productinfo ?? details.field9 ?? 'PayU Payment')
+      const createdAt = String(details.addedon ?? details.created_on ?? '')
+      const normalizedCreatedAt = createdAt
+        ? createdAt.replace(' ', 'T').replace('.0', '') + '+05:30'
+        : new Date().toISOString()
+      const status = String(details.status ?? '').toLowerCase() === 'success' ? 'Credit' : String(details.status ?? 'Failed')
+
+      payments.push(
+        buildStoredPayment({
+          paymentId,
+          requestId: String(details.txnid ?? ''),
+          purpose,
+          amount,
+          createdAt: normalizedCreatedAt,
+          buyerName: String(details.firstname ?? ''),
+          buyerEmail: String(details.email ?? ''),
+          buyerPhone: String(details.phone ?? ''),
+          status,
+          requestCreatedAt: normalizedCreatedAt,
+        }),
+      )
+    }
+  }
+
+  const filteredPayments = filterExcluded(payments)
+  return {
+    dashboard: buildDashboardDataFromStoredPayments(
+      'payu',
+      filteredPayments,
+      {
+        paymentRequestCount: filteredPayments.length,
+        paymentCount: filteredPayments.length,
+        successfulPaymentCount: filteredPayments.filter((payment) => payment.status === 'Credit').length,
+      },
+      generatedAt,
+    ),
+    payments: filteredPayments,
+  }
+}
+
+async function syncPayu(generatedAt: string): Promise<GatewaySyncResult> {
+  try {
+    return await fetchPayuPaymentLinksByOauth(generatedAt)
+  } catch (oauthError) {
+    const merchantId = optionalEnv('PAYU_MERCHANT_ID')
+    if (merchantId) {
+      throw oauthError
+    }
+  }
+
+  return fetchPayuByLegacyApi(generatedAt)
+}
+
+async function syncCashfree(generatedAt: string): Promise<GatewaySyncResult> {
+  const clientId = requiredEnv('CASHFREE_CLIENT_ID')
+  const clientSecret = requiredEnv('CASHFREE_CLIENT_SECRET')
+  const reconUrl = optionalEnv('CASHFREE_RECON_URL') ?? DEFAULT_CASHFREE_RECON_URL
+  const payments: StoredPayment[] = []
+  const cashfreeHistoryStart = new Date()
+  cashfreeHistoryStart.setDate(cashfreeHistoryStart.getDate() - CASHFREE_MAX_LOOKBACK_DAYS)
+  const effectiveHistoryStart = [
+    HISTORY_START,
+    cashfreeHistoryStart.toISOString().slice(0, 10),
+  ].sort().at(-1) as string
+  const windows = dayRangeWindows(effectiveHistoryStart, new Date(), CASHFREE_WINDOW_DAYS)
+
+  for (const window of windows) {
+    let cursor: string | null = null
+
+    do {
+      const response = await fetch(reconUrl, {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          accept: 'application/json',
+          'x-api-version': '2025-01-01',
+          'x-client-id': clientId,
+          'x-client-secret': clientSecret,
+        },
+        body: JSON.stringify({
+          pagination: {
+            limit: 100,
+            cursor,
+          },
+          filters: {
+            start_date: `${window.start}T00:00:00+05:30`,
+            end_date: `${window.end}T23:59:59+05:30`,
+          },
+        }),
+      })
+
+      if (!response.ok) {
+        const message = await response.text()
+        throw new Error(`Cashfree reconciliation request failed: ${response.status} ${message}`)
+      }
+
+      const payload = (await response.json()) as {
+        cursor?: string | null
+        data?: Array<Record<string, unknown>>
+      }
+
+      for (const item of payload.data ?? []) {
+        const orderDetails = (item.order_details as Record<string, unknown> | undefined) ?? {}
+        const customerDetails = (item.customer_details as Record<string, unknown> | undefined) ?? {}
+        const paymentDetails = (item.payment_details as Record<string, unknown> | undefined) ?? {}
+        const eventDetails = (item.event_details as Record<string, unknown> | undefined) ?? {}
+        const tags = (orderDetails.order_tags as Record<string, unknown> | null | undefined) ?? {}
+        const eventType = String(eventDetails.event_type ?? '')
+        if (eventType && eventType !== 'PAYMENT') continue
+
+        const purpose =
+          String(
+            tags.purpose ??
+              tags.description ??
+              eventDetails.event_remarks ??
+              orderDetails.order_note ??
+              orderDetails.order_id ??
+              item.order_id ??
+              'Cashfree Payment',
+          )
+
+        const paymentId = String(
+          paymentDetails.cf_payment_id ?? item.cf_payment_id ?? paymentDetails.payment_id ?? '',
+        )
+        if (!paymentId) continue
+
+        const amount = Number(
+          paymentDetails.payment_amount ?? eventDetails.event_amount ?? orderDetails.order_amount ?? 0,
+        )
+        const createdAt = String(
+          paymentDetails.payment_time ??
+            eventDetails.event_time ??
+            orderDetails.order_expiry_time ??
+            new Date().toISOString(),
+        )
+        const paymentStatus = String(
+          paymentDetails.payment_status ??
+            paymentDetails.status ??
+            eventDetails.event_status ??
+            item.payment_status ??
+            item.status ??
+            'FAILED',
+        )
+
+        payments.push(
+          buildStoredPayment({
+            paymentId,
+            requestId: String(orderDetails.order_id ?? item.order_id ?? ''),
+            purpose,
+            amount,
+            createdAt,
+            buyerName: String(customerDetails.customer_name ?? ''),
+            buyerEmail: String(customerDetails.customer_email ?? ''),
+            buyerPhone: String(customerDetails.customer_phone ?? ''),
+            status: paymentStatus.toUpperCase() === 'SUCCESS' ? 'Credit' : paymentStatus,
+            requestCreatedAt: String(orderDetails.order_expiry_time ?? ''),
+          }),
+        )
+      }
+
+      cursor = payload.cursor ?? null
+    } while (cursor)
+  }
+
+  const filteredPayments = filterExcluded(payments)
+  return {
+    dashboard: buildDashboardDataFromStoredPayments(
+      'cashfree',
+      filteredPayments,
+      {
+        paymentRequestCount: filteredPayments.length,
+        paymentCount: filteredPayments.length,
+        successfulPaymentCount: filteredPayments.filter((payment) => payment.status === 'Credit').length,
+      },
+      generatedAt,
+    ),
+    payments: filteredPayments,
+  }
+}
+
+async function safeGatewaySync(
+  gateway: GatewayId,
+  generatedAt: string,
+  syncFn: () => Promise<GatewaySyncResult>,
+) {
+  try {
+    return await syncFn()
+  } catch (error) {
+    const message = error instanceof Error ? error.message : `Unknown ${gateway} sync error`
+    console.error(`${gateway} sync failed`, error)
+    return {
+      dashboard: emptyDashboardData(gateway, message, generatedAt),
+      payments: [],
+    } satisfies GatewaySyncResult
+  }
+}
+
+async function writeGatewayToFirestore(
+  firestore: FirebaseFirestore.Firestore,
+  gateway: GatewayId,
+  result: GatewaySyncResult,
+  generatedAt: string,
+) {
+  if (result.dashboard.syncStatus.state !== 'ready') {
+    await firestore.collection('dashboardMetadata').doc(gateway).set(
+      {
+        generatedAt,
+        syncStatus: result.dashboard.syncStatus,
+      },
+      { merge: true },
+    )
+    return
+  }
+
+  const paymentCollection = `${gateway}Payments`
+  await clearCollection(firestore, paymentCollection)
+  await writeCollection(
+    firestore,
+    paymentCollection,
+    result.payments.map((payment) => ({
+      id: payment.paymentId,
+      data: {
+        ...payment,
+        syncedAt: generatedAt,
+      },
+    })),
+  )
+
+  if (gateway === 'instamojo' && result.rawRequestDocs) {
+    await clearCollection(firestore, 'instamojoPaymentRequests')
+    await writeCollection(firestore, 'instamojoPaymentRequests', result.rawRequestDocs)
+  }
+
+  await clearCollection(firestore, `${gateway}WebinarReports`)
+  await writeCollection(
+    firestore,
+    `${gateway}WebinarReports`,
+    result.dashboard.weekly.map((week) => ({
+      id: week.webinarDate,
+      data: {
+        ...week,
+        generatedAt,
+      },
+    })),
+  )
+
+  await firestore.collection('dashboardMetadata').doc(gateway).set(result.dashboard, { merge: true })
+}
+
+async function main() {
+  const generatedAt = new Date().toISOString()
+  const skipFirebase = process.env.SKIP_FIREBASE === '1'
+
+  const [instamojo, payu, cashfree] = await Promise.all([
+    safeGatewaySync('instamojo', generatedAt, () => syncInstamojo(generatedAt)),
+    safeGatewaySync('payu', generatedAt, () => syncPayu(generatedAt)),
+    safeGatewaySync('cashfree', generatedAt, () => syncCashfree(generatedAt)),
+  ])
+
+  const snapshot: DashboardSnapshot = {
+    generatedAt,
+    timezone: TIME_ZONE,
+    gateways: {
+      instamojo: instamojo.dashboard,
+      payu: payu.dashboard,
+      cashfree: cashfree.dashboard,
+    },
+  }
+
+  await mkdir(publicDir, { recursive: true })
+  await writeFile(path.join(publicDir, 'dashboard-data.json'), JSON.stringify(snapshot, null, 2), 'utf8')
+
+  if (!skipFirebase) {
+    const firestore = initFirebase()
+    await Promise.all([
+      writeGatewayToFirestore(firestore, 'instamojo', instamojo, generatedAt),
+      writeGatewayToFirestore(firestore, 'payu', payu, generatedAt),
+      writeGatewayToFirestore(firestore, 'cashfree', cashfree, generatedAt),
+    ])
+
+    await firestore.collection('dashboardMetadata').doc('latest').set(snapshot, { merge: true })
+  }
+
+  console.log(
+    JSON.stringify(
+      {
+        generatedAt,
+        gateways: {
+          instamojo: instamojo.dashboard.syncStatus,
+          payu: payu.dashboard.syncStatus,
+          cashfree: cashfree.dashboard.syncStatus,
+        },
+      },
+      null,
+      2,
+    ),
+  )
+}
+
+main().catch((error) => {
+  console.error(error)
+  process.exitCode = 1
+})

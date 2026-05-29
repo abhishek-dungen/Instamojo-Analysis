@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "sync": "tsx scripts/sync-instamojo.ts"
+    "sync": "tsx scripts/sync-all.ts"
   },
   "dependencies": {
     "date-fns": "^4.3.0",

@@ -1,9 +1,21 @@
 import { addDays, format, previousSunday, startOfDay, subDays } from 'date-fns'
 import { formatInTimeZone, fromZonedTime, toZonedTime } from 'date-fns-tz'
-import type { DashboardData, PaymentClassification, StoredPayment, WeeklyMetrics } from './dashboard-data'
+import type {
+  DashboardData,
+  GatewayId,
+  PaymentClassification,
+  StoredPayment,
+  WeeklyMetrics,
+} from './dashboard-data'
 
 export const TIME_ZONE = 'Asia/Kolkata'
 export const EXCLUDED_WEBINAR_WEEKS = new Set(['2026-03-22', '2026-05-03'])
+
+const GATEWAY_LABELS: Record<GatewayId, string> = {
+  instamojo: 'Instamojo',
+  payu: 'PayU',
+  cashfree: 'Cashfree',
+}
 
 type RawRequest = {
   id: string
@@ -38,7 +50,10 @@ function parseLocalDate(dateText: string) {
 }
 
 function makeLocalDate(dateText: string, hour: number, minute: number) {
-  return fromZonedTime(`${dateText}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00`, TIME_ZONE)
+  return fromZonedTime(
+    `${dateText}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00`,
+    TIME_ZONE,
+  )
 }
 
 export function isExcludedWebinarWeek(webinarDate: string) {
@@ -66,7 +81,10 @@ function webinarSundayForCourse(date: Date) {
   return date >= liveStart ? sundayDate : format(subDays(sameWeekSunday, 7), 'yyyy-MM-dd')
 }
 
-export function resolveWebinarDateForClassification(date: Date, classification: PaymentClassification) {
+export function resolveWebinarDateForClassification(
+  date: Date,
+  classification: PaymentClassification,
+) {
   return classification === 'course'
     ? webinarSundayForCourse(date)
     : webinarSundayForRegistration(date)
@@ -85,36 +103,42 @@ export function classifyPayment(amount: number, purpose: string): PaymentClassif
 export function normalizePayments(paymentRequests: RawRequest[], payments: RawPayment[]) {
   const requestIndex = new Map(paymentRequests.map((request) => [request.id, request]))
 
-  return payments.map((payment) => {
-    const requestId = payment.payment_request?.match(/payment-requests\/([^/]+)\//)?.[1] ?? null
-    const request = requestId ? requestIndex.get(requestId) : undefined
-    const amount = Number.parseFloat(payment.amount)
-    const purpose = request?.purpose ?? 'Unknown purpose'
-    const classification = classifyPayment(amount, purpose)
-    const createdAt = payment.created_at
-    const createdDate = new Date(createdAt)
-    const webinarDate = resolveWebinarDateForClassification(createdDate, classification)
+  return payments
+    .map((payment) => {
+      const requestId = payment.payment_request?.match(/payment-requests\/([^/]+)\//)?.[1] ?? null
+      const request = requestId ? requestIndex.get(requestId) : undefined
+      const amount = Number.parseFloat(payment.amount)
+      const purpose = request?.purpose ?? 'Unknown purpose'
+      const classification = classifyPayment(amount, purpose)
+      const createdAt = payment.created_at
+      const createdDate = new Date(createdAt)
+      const webinarDate = resolveWebinarDateForClassification(createdDate, classification)
 
-    return {
-      paymentId: payment.payment_id,
-      requestId,
-      purpose,
-      amount,
-      createdAt,
-      localCreatedAt: formatInTimeZone(createdAt, TIME_ZONE, 'dd MMM yyyy, hh:mm a'),
-      buyerName: payment.buyer_name ?? request?.buyer_name ?? '',
-      buyerEmail: payment.buyer_email ?? request?.email ?? '',
-      buyerPhone: payment.buyer_phone ?? request?.phone ?? '',
-      status: payment.status,
-      classification,
-      webinarDate,
-      requestCreatedAt: request?.created_at ?? null,
-    } satisfies StoredPayment
-  }).filter((payment) => !isExcludedWebinarWeek(payment.webinarDate))
+      return {
+        paymentId: payment.payment_id,
+        requestId,
+        purpose,
+        amount,
+        createdAt,
+        localCreatedAt: formatInTimeZone(createdAt, TIME_ZONE, 'dd MMM yyyy, hh:mm a'),
+        buyerName: payment.buyer_name ?? request?.buyer_name ?? '',
+        buyerEmail: payment.buyer_email ?? request?.email ?? '',
+        buyerPhone: payment.buyer_phone ?? request?.phone ?? '',
+        status: payment.status,
+        classification,
+        webinarDate,
+        requestCreatedAt: request?.created_at ?? null,
+      } satisfies StoredPayment
+    })
+    .filter((payment) => !isExcludedWebinarWeek(payment.webinarDate))
 }
 
 function registrationWindow(webinarDate: string) {
-  const weekStart = makeLocalDate(format(subDays(parseLocalDate(webinarDate), 7), 'yyyy-MM-dd'), 18, 31)
+  const weekStart = makeLocalDate(
+    format(subDays(parseLocalDate(webinarDate), 7), 'yyyy-MM-dd'),
+    18,
+    31,
+  )
   const weekEnd = makeLocalDate(webinarDate, 18, 30)
   return `${formatInTimeZone(weekStart, TIME_ZONE, 'dd MMM, hh:mm a')} to ${formatInTimeZone(weekEnd, TIME_ZONE, 'dd MMM, hh:mm a')} IST`
 }
@@ -126,15 +150,7 @@ function isLiveCoursePayment(payment: StoredPayment) {
   return createdAt >= liveStart && createdAt <= liveEnd
 }
 
-export function buildDashboardData(
-  paymentRequests: RawRequest[],
-  payments: RawPayment[],
-) {
-  const normalized = normalizePayments(paymentRequests, payments)
-  const successful = normalized
-    .filter((payment) => payment.status === 'Credit')
-    .sort((left, right) => right.createdAt.localeCompare(left.createdAt))
-
+function buildWeeklyMetrics(successful: StoredPayment[]) {
   const weeklyMap = new Map<string, WeeklyMetrics>()
 
   for (const payment of successful) {
@@ -214,7 +230,7 @@ export function buildDashboardData(
     courseBreakdown.set(payment.webinarDate, weekMap)
   }
 
-  const weekly = Array.from(weeklyMap.values())
+  return Array.from(weeklyMap.values())
     .sort((left, right) => right.webinarDate.localeCompare(left.webinarDate))
     .map((entry) => ({
       ...entry,
@@ -223,47 +239,104 @@ export function buildDashboardData(
         .sort((left, right) => right.revenue - left.revenue)
         .slice(0, 5),
     }))
+}
 
-  const summarizePurposes = (classifications: PaymentClassification[]) => {
-    const counts = new Map<string, number>()
-    for (const payment of successful.filter((entry) => classifications.includes(entry.classification))) {
-      counts.set(payment.purpose, (counts.get(payment.purpose) ?? 0) + 1)
-    }
-    return Array.from(counts.entries())
-      .map(([purpose, count]) => ({ purpose, count }))
-      .sort((left, right) => right.count - left.count)
-  }
-
-  const historicalSummary = {
-    webinarRegistrations: weekly.reduce((sum, entry) => sum + entry.registrations, 0),
-    webinarWeeksCount: weekly.length,
-    bundleRegistrations: weekly.reduce((sum, entry) => sum + entry.bundleRegistrations, 0),
-    coursePurchases: weekly.reduce(
-      (sum, entry) => sum + entry.coursePurchasesLive + entry.coursePurchasesExtended,
-      0,
-    ),
-    bundleConversionRate: weekly.reduce((sum, entry) => sum + entry.registrations, 0) === 0
-      ? 0
-      : (weekly.reduce((sum, entry) => sum + entry.bundleRegistrations, 0) /
-          weekly.reduce((sum, entry) => sum + entry.registrations, 0)) *
-        100,
-    courseConversionRate: weekly.reduce((sum, entry) => sum + entry.registrations, 0) === 0
-      ? 0
-      : (weekly.reduce(
-          (sum, entry) => sum + entry.coursePurchasesLive + entry.coursePurchasesExtended,
-          0,
-        ) /
-          weekly.reduce((sum, entry) => sum + entry.registrations, 0)) *
-        100,
-  }
+function buildHistoricalSummary(weekly: WeeklyMetrics[]) {
+  const webinarRegistrations = weekly.reduce((sum, entry) => sum + entry.registrations, 0)
+  const bundleRegistrations = weekly.reduce((sum, entry) => sum + entry.bundleRegistrations, 0)
+  const coursePurchases = weekly.reduce(
+    (sum, entry) => sum + entry.coursePurchasesLive + entry.coursePurchasesExtended,
+    0,
+  )
 
   return {
-    generatedAt: new Date().toISOString(),
+    webinarRegistrations,
+    webinarWeeksCount: weekly.length,
+    bundleRegistrations,
+    coursePurchases,
+    bundleConversionRate:
+      webinarRegistrations === 0 ? 0 : (bundleRegistrations / webinarRegistrations) * 100,
+    courseConversionRate:
+      webinarRegistrations === 0 ? 0 : (coursePurchases / webinarRegistrations) * 100,
+  }
+}
+
+function summarizePurposes(successful: StoredPayment[], classifications: PaymentClassification[]) {
+  const counts = new Map<string, number>()
+
+  for (const payment of successful.filter((entry) => classifications.includes(entry.classification))) {
+    counts.set(payment.purpose, (counts.get(payment.purpose) ?? 0) + 1)
+  }
+
+  return Array.from(counts.entries())
+    .map(([purpose, count]) => ({ purpose, count }))
+    .sort((left, right) => right.count - left.count)
+}
+
+export function emptyDashboardData(
+  gateway: GatewayId,
+  message: string,
+  generatedAt = new Date().toISOString(),
+): DashboardData {
+  return {
+    gateway,
+    label: GATEWAY_LABELS[gateway],
+    generatedAt,
     timezone: TIME_ZONE,
     source: {
-      paymentRequestCount: paymentRequests.length,
-      paymentCount: payments.length,
-      successfulPaymentCount: successful.length,
+      paymentRequestCount: 0,
+      paymentCount: 0,
+      successfulPaymentCount: 0,
+    },
+    syncStatus: {
+      state: 'error',
+      message,
+    },
+    totals: {
+      registrations: 0,
+      bundleRegistrations: 0,
+      coursePurchases: 0,
+      totalRevenue: 0,
+    },
+    historicalSummary: {
+      webinarRegistrations: 0,
+      webinarWeeksCount: 0,
+      bundleRegistrations: 0,
+      coursePurchases: 0,
+      bundleConversionRate: 0,
+      courseConversionRate: 0,
+    },
+    classificationSources: {
+      webinar: [],
+      bundle: [],
+      course: [],
+    },
+    weekly: [],
+  }
+}
+
+export function buildDashboardDataFromStoredPayments(
+  gateway: GatewayId,
+  storedPayments: StoredPayment[],
+  source: DashboardData['source'],
+  generatedAt = new Date().toISOString(),
+): DashboardData {
+  const successful = storedPayments
+    .filter((payment) => payment.status === 'Credit')
+    .sort((left, right) => right.createdAt.localeCompare(left.createdAt))
+
+  const weekly = buildWeeklyMetrics(successful)
+  const historicalSummary = buildHistoricalSummary(weekly)
+
+  return {
+    gateway,
+    label: GATEWAY_LABELS[gateway],
+    generatedAt,
+    timezone: TIME_ZONE,
+    source,
+    syncStatus: {
+      state: 'ready',
+      message: null,
     },
     totals: {
       registrations: historicalSummary.webinarRegistrations,
@@ -273,10 +346,24 @@ export function buildDashboardData(
     },
     historicalSummary,
     classificationSources: {
-      webinar: summarizePurposes(['webinar_only']),
-      bundle: summarizePurposes(['bundle_only', 'combo']),
-      course: summarizePurposes(['course']),
+      webinar: summarizePurposes(successful, ['webinar_only']),
+      bundle: summarizePurposes(successful, ['bundle_only', 'combo']),
+      course: summarizePurposes(successful, ['course']),
     },
     weekly,
-  } satisfies DashboardData
+  }
+}
+
+export function buildDashboardData(paymentRequests: RawRequest[], payments: RawPayment[]) {
+  const normalized = normalizePayments(paymentRequests, payments)
+
+  return buildDashboardDataFromStoredPayments(
+    'instamojo',
+    normalized,
+    {
+      paymentRequestCount: paymentRequests.length,
+      paymentCount: payments.length,
+      successfulPaymentCount: normalized.filter((payment) => payment.status === 'Credit').length,
+    },
+  )
 }

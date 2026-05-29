@@ -81,6 +81,12 @@
   gap: 16px;
 }
 
+.selector-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 .week-select {
   margin-top: 10px;
   min-width: 280px;
@@ -132,6 +138,11 @@
 .glass-card {
   border-radius: 28px;
   padding: 24px;
+}
+
+.status-copy {
+  margin: 14px 0 0;
+  max-width: 72ch;
 }
 
 .card-head {
@@ -256,6 +267,17 @@
 
 .bar-fill.registration {
   background: linear-gradient(90deg, #de8f29, #f0c26e);
+}
+
+@media (max-width: 900px) {
+  .control-panel {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .freshness {
+    text-align: left;
+  }
 }
 
 .bar-fill.revenue {

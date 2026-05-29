@@ -5,6 +5,8 @@ export type PaymentClassification =
   | 'course'
   | 'other'
 
+export type GatewayId = 'instamojo' | 'payu' | 'cashfree'
+
 export type StoredPayment = {
   paymentId: string
   requestId: string | null
@@ -57,12 +59,18 @@ export type HistoricalSummary = {
 }
 
 export type DashboardData = {
+  gateway: GatewayId
+  label: string
   generatedAt: string
   timezone: string
   source: {
     paymentRequestCount: number
     paymentCount: number
     successfulPaymentCount: number
+  }
+  syncStatus: {
+    state: 'ready' | 'error'
+    message: string | null
   }
   totals: {
     registrations: number
@@ -77,4 +85,10 @@ export type DashboardData = {
     course: Array<{ purpose: string; count: number }>
   }
   weekly: WeeklyMetrics[]
+}
+
+export type DashboardSnapshot = {
+  generatedAt: string
+  timezone: string
+  gateways: Record<GatewayId, DashboardData>
 }
