@@ -124,37 +124,6 @@ function App() {
       </section>
 
       <section className="glass-card section-card">
-        <p className="section-label">Historical valid weeks</p>
-        <h2>All-time summary after exclusions</h2>
-        <div className="metrics-grid">
-          <article className="metric-card">
-            <span>Webinar registrations</span>
-            <strong>{historicalSummary.webinarRegistrations}</strong>
-          </article>
-          <article className="metric-card">
-            <span>Webinars considered</span>
-            <strong>{historicalSummary.webinarWeeksCount}</strong>
-          </article>
-          <article className="metric-card">
-            <span>Bundle registrations</span>
-            <strong>{historicalSummary.bundleRegistrations}</strong>
-          </article>
-          <article className="metric-card">
-            <span>Course purchases</span>
-            <strong>{historicalSummary.coursePurchases}</strong>
-          </article>
-          <article className="metric-card">
-            <span>Bundle conversion</span>
-            <strong>{formatPercent(historicalSummary.bundleConversionRate)}</strong>
-          </article>
-          <article className="metric-card">
-            <span>Course conversion</span>
-            <strong>{formatPercent(historicalSummary.courseConversionRate)}</strong>
-          </article>
-        </div>
-      </section>
-
-      <section className="glass-card section-card">
         <p className="section-label">Selected week</p>
         <h2>{selected.label}</h2>
         <div className="metrics-grid">
@@ -182,6 +151,37 @@ function App() {
             <span>Course conversion</span>
             <strong>{formatPercent(selectedCourseConversion)}</strong>
             <p>Course purchases against webinar registrations</p>
+          </article>
+        </div>
+      </section>
+
+      <section className="glass-card section-card">
+        <p className="section-label">Historical valid weeks</p>
+        <h2>All-time summary after exclusions</h2>
+        <div className="metrics-grid">
+          <article className="metric-card">
+            <span>Webinar registrations</span>
+            <strong>{historicalSummary.webinarRegistrations}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Webinars considered</span>
+            <strong>{historicalSummary.webinarWeeksCount}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Bundle registrations</span>
+            <strong>{historicalSummary.bundleRegistrations}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Course purchases</span>
+            <strong>{historicalSummary.coursePurchases}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Bundle conversion</span>
+            <strong>{formatPercent(historicalSummary.bundleConversionRate)}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Course conversion</span>
+            <strong>{formatPercent(historicalSummary.courseConversionRate)}</strong>
           </article>
         </div>
       </section>
