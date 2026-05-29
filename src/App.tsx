@@ -50,6 +50,19 @@ const currency = new Intl.NumberFormat('en-IN', {
   maximumFractionDigits: 0,
 })
 
+function getDefaultWeek(weeks: WeeklyMetrics[]) {
+  if (weeks.length === 0) return ''
+
+  const today = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Kolkata',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date())
+
+  return weeks.find((entry) => entry.webinarDate <= today)?.webinarDate ?? weeks[0].webinarDate
+}
+
 function formatMoney(value: number) {
   return currency.format(value)
 }
@@ -78,7 +91,7 @@ function App() {
       .then((payload) => {
         if (!active) return
         setData(payload)
-        setSelectedWeek(payload.weekly[0]?.webinarDate ?? '')
+        setSelectedWeek(getDefaultWeek(payload.weekly))
       })
       .catch((error) => {
         console.error(error)
@@ -142,6 +155,10 @@ function App() {
             <span>Total revenue</span>
             <strong>{formatMoney(data.totals.totalRevenue)}</strong>
           </div>
+          <div className="hero-stat">
+            <span>Successful payments synced</span>
+            <strong>{data.source.successfulPaymentCount}</strong>
+          </div>
         </div>
       </section>
 
@@ -200,7 +217,12 @@ function App() {
               <p className="section-label">Weekly snapshot</p>
               <h2>{selected.label}</h2>
             </div>
-            <p className="window-note">{selected.registrationWindow}</p>
+            <p className="window-note">
+              {selected.registrationWindow}
+              <br />
+              Source records: {data.source.paymentRequestCount} requests, {data.source.paymentCount}{' '}
+              payments
+            </p>
           </div>
 
           <div className="money-band">
