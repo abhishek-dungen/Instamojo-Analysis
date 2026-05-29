@@ -158,33 +158,6 @@ function App() {
             ))}
           </div>
         </article>
-
-        <article className="glass-card">
-          <p className="section-label">Checks</p>
-          <h2>What the app is doing</h2>
-          <div className="rule-group">
-            <div className="rule-row">
-              <strong>Successful payments only</strong>
-              <span>{data.source.successfulPaymentCount} `Credit` payments counted</span>
-            </div>
-            <div className="rule-row">
-              <strong>Ignored for counts</strong>
-              <span>Pending, failed, and non-`Credit` payments are excluded</span>
-            </div>
-            <div className="rule-row">
-              <strong>Registration cutoff</strong>
-              <span>{selected.registrationWindow}</span>
-            </div>
-            <div className="rule-row">
-              <strong>Source volume</strong>
-              <span>{data.source.paymentRequestCount} requests and {data.source.paymentCount} payments synced</span>
-            </div>
-            <div className="rule-row">
-              <strong>Hourly refresh</strong>
-              <span>GitHub Actions schedule is set to run once every hour</span>
-            </div>
-          </div>
-        </article>
       </section>
     </main>
   )
