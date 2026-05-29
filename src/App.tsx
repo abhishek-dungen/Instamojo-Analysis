@@ -19,14 +19,35 @@ function formatPercent(value: number) {
   return `${value.toFixed(1)}%`
 }
 
+function deriveHistoricalSummary(weekly: WeeklyMetrics[]) {
+  const webinarRegistrations = weekly.reduce((sum, entry) => sum + entry.registrations, 0)
+  const bundleRegistrations = weekly.reduce((sum, entry) => sum + entry.bundleRegistrations, 0)
+  const coursePurchases = weekly.reduce(
+    (sum, entry) => sum + entry.coursePurchasesLive + entry.coursePurchasesExtended,
+    0,
+  )
+
+  return {
+    webinarRegistrations,
+    webinarWeeksCount: weekly.length,
+    bundleRegistrations,
+    coursePurchases,
+    bundleConversionRate: webinarRegistrations === 0 ? 0 : (bundleRegistrations / webinarRegistrations) * 100,
+    courseConversionRate: webinarRegistrations === 0 ? 0 : (coursePurchases / webinarRegistrations) * 100,
+  }
+}
+
 function App() {
   const [data, setData] = useState<DashboardData | null>(null)
+  const [error, setError] = useState('')
   const [selectedWeek, setSelectedWeek] = useState('')
 
   useEffect(() => {
     let active = true
 
-    fetch(`${import.meta.env.BASE_URL}dashboard-data.json`)
+    fetch(`${import.meta.env.BASE_URL}dashboard-data.json?v=2026-05-29-2`, {
+      cache: 'no-store',
+    })
       .then((response) => {
         if (!response.ok) {
           throw new Error('Unable to load dashboard data.')
@@ -38,9 +59,12 @@ function App() {
         if (!active) return
         setData(payload)
         setSelectedWeek(getDefaultWeek(payload.weekly))
+        setError('')
       })
       .catch((error) => {
         console.error(error)
+        if (!active) return
+        setError('Unable to load dashboard data right now.')
       })
 
     return () => {
@@ -53,7 +77,7 @@ function App() {
       <main className="shell">
         <section className="loading-panel">
           <p className="eyebrow">Instamojo Analysis</p>
-          <h1>Loading dashboard.</h1>
+          <h1>{error || 'Loading dashboard.'}</h1>
         </section>
       </main>
     )
@@ -71,6 +95,7 @@ function App() {
   }
 
   const selected = data.weekly.find((entry) => entry.webinarDate === selectedWeek) ?? data.weekly[0]
+  const historicalSummary = data.historicalSummary ?? deriveHistoricalSummary(data.weekly)
   const selectedCoursePurchases = selected.coursePurchasesLive + selected.coursePurchasesExtended
   const selectedBundleConversion = selected.registrations === 0 ? 0 : (selected.bundleRegistrations / selected.registrations) * 100
   const selectedCourseConversion = selected.registrations === 0 ? 0 : (selectedCoursePurchases / selected.registrations) * 100
@@ -104,27 +129,27 @@ function App() {
         <div className="metrics-grid">
           <article className="metric-card">
             <span>Webinar registrations</span>
-            <strong>{data.historicalSummary.webinarRegistrations}</strong>
+            <strong>{historicalSummary.webinarRegistrations}</strong>
           </article>
           <article className="metric-card">
             <span>Webinars considered</span>
-            <strong>{data.historicalSummary.webinarWeeksCount}</strong>
+            <strong>{historicalSummary.webinarWeeksCount}</strong>
           </article>
           <article className="metric-card">
             <span>Bundle registrations</span>
-            <strong>{data.historicalSummary.bundleRegistrations}</strong>
+            <strong>{historicalSummary.bundleRegistrations}</strong>
           </article>
           <article className="metric-card">
             <span>Course purchases</span>
-            <strong>{data.historicalSummary.coursePurchases}</strong>
+            <strong>{historicalSummary.coursePurchases}</strong>
           </article>
           <article className="metric-card">
             <span>Bundle conversion</span>
-            <strong>{formatPercent(data.historicalSummary.bundleConversionRate)}</strong>
+            <strong>{formatPercent(historicalSummary.bundleConversionRate)}</strong>
           </article>
           <article className="metric-card">
             <span>Course conversion</span>
-            <strong>{formatPercent(data.historicalSummary.courseConversionRate)}</strong>
+            <strong>{formatPercent(historicalSummary.courseConversionRate)}</strong>
           </article>
         </div>
       </section>
