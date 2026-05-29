@@ -69,7 +69,7 @@ export type DashboardData = {
     successfulPaymentCount: number
   }
   syncStatus: {
-    state: 'ready' | 'error'
+    state: 'ready' | 'error' | 'pending'
     message: string | null
   }
   totals: {

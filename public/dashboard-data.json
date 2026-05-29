@@ -1,34 +1,34 @@
 {
-  "generatedAt": "2026-05-29T18:07:37.115Z",
+  "generatedAt": "2026-05-29T18:16:52.635Z",
   "timezone": "Asia/Kolkata",
   "gateways": {
     "instamojo": {
       "gateway": "instamojo",
       "label": "Instamojo",
-      "generatedAt": "2026-05-29T18:07:37.115Z",
+      "generatedAt": "2026-05-29T18:16:52.635Z",
       "timezone": "Asia/Kolkata",
       "source": {
-        "paymentRequestCount": 1825,
-        "paymentCount": 1443,
-        "successfulPaymentCount": 1056
+        "paymentRequestCount": 1826,
+        "paymentCount": 1444,
+        "successfulPaymentCount": 1057
       },
       "syncStatus": {
         "state": "ready",
         "message": null
       },
       "totals": {
-        "registrations": 858,
-        "bundleRegistrations": 392,
+        "registrations": 859,
+        "bundleRegistrations": 393,
         "coursePurchases": 143,
-        "totalRevenue": 428909
+        "totalRevenue": 429107
       },
       "historicalSummary": {
-        "webinarRegistrations": 858,
+        "webinarRegistrations": 859,
         "webinarWeeksCount": 15,
-        "bundleRegistrations": 392,
+        "bundleRegistrations": 393,
         "coursePurchases": 143,
-        "bundleConversionRate": 45.68764568764569,
-        "courseConversionRate": 16.666666666666664
+        "bundleConversionRate": 45.75087310826543,
+        "courseConversionRate": 16.647264260768335
       },
       "classificationSources": {
         "webinar": [
@@ -40,7 +40,7 @@
         "bundle": [
           {
             "purpose": "Masterclass + Ultimate Resource Bundle",
-            "count": 357
+            "count": 358
           },
           {
             "purpose": "Ultimate Resource Bundle",
@@ -59,19 +59,27 @@
           "webinarDate": "2026-05-31",
           "label": "Webinar 31 May 2026",
           "registrationWindow": "24 May, 06:31 PM to 31 May, 06:30 PM IST",
-          "registrations": 46,
+          "registrations": 47,
           "webinarOnlyRegistrations": 25,
-          "comboRegistrations": 21,
-          "bundleRegistrations": 21,
+          "comboRegistrations": 22,
+          "bundleRegistrations": 22,
           "bundleOnlyRegistrations": 0,
           "coursePurchasesLive": 0,
           "coursePurchasesExtended": 0,
           "courseRevenueLive": 0,
           "courseRevenueExtended": 0,
-          "registrationRevenue": 6633,
-          "totalRevenue": 6633,
+          "registrationRevenue": 6831,
+          "totalRevenue": 6831,
           "topCoursePurposes": [],
           "recentPayments": [
+            {
+              "paymentId": "MOJO6529S05Q83030865",
+              "localCreatedAt": "29 May 2026, 11:42 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Adil Baig"
+            },
             {
               "paymentId": "MOJO6529B05Q83030565",
               "localCreatedAt": "29 May 2026, 10:46 PM",
@@ -159,14 +167,6 @@
               "purpose": "3 Hours Excel Career Masterclass",
               "classification": "webinar_only",
               "buyerName": "Kiran Kumawat"
-            },
-            {
-              "paymentId": "MOJO6529X05Q83024629",
-              "localCreatedAt": "29 May 2026, 09:44 AM",
-              "amount": 99,
-              "purpose": "3 Hours Excel Career Masterclass",
-              "classification": "webinar_only",
-              "buyerName": "Pratik Gaikwad"
             }
           ]
         },
@@ -1863,7 +1863,7 @@
     "payu": {
       "gateway": "payu",
       "label": "PayU",
-      "generatedAt": "2026-05-29T18:07:37.115Z",
+      "generatedAt": "2026-05-29T18:16:52.635Z",
       "timezone": "Asia/Kolkata",
       "source": {
         "paymentRequestCount": 0,
@@ -1871,8 +1871,8 @@
         "successfulPaymentCount": 0
       },
       "syncStatus": {
-        "state": "error",
-        "message": "PayU legacy request failed: 429 {\"status\":0,\"msg\":\"Requests limit reached\"}"
+        "state": "pending",
+        "message": "PayU is temporarily rate-limiting the historical backfill. The dashboard will retry automatically on the next hourly sync."
       },
       "totals": {
         "registrations": 0,
@@ -1898,30 +1898,30 @@
     "cashfree": {
       "gateway": "cashfree",
       "label": "Cashfree",
-      "generatedAt": "2026-05-29T18:07:37.115Z",
+      "generatedAt": "2026-05-29T18:16:52.635Z",
       "timezone": "Asia/Kolkata",
       "source": {
-        "paymentRequestCount": 983,
-        "paymentCount": 983,
-        "successfulPaymentCount": 720
+        "paymentRequestCount": 984,
+        "paymentCount": 984,
+        "successfulPaymentCount": 721
       },
       "syncStatus": {
         "state": "ready",
         "message": null
       },
       "totals": {
-        "registrations": 456,
-        "bundleRegistrations": 264,
+        "registrations": 457,
+        "bundleRegistrations": 265,
         "coursePurchases": 114,
-        "totalRevenue": 316731
+        "totalRevenue": 316929
       },
       "historicalSummary": {
-        "webinarRegistrations": 456,
+        "webinarRegistrations": 457,
         "webinarWeeksCount": 9,
-        "bundleRegistrations": 264,
+        "bundleRegistrations": 265,
         "coursePurchases": 114,
-        "bundleConversionRate": 57.89473684210527,
-        "courseConversionRate": 25
+        "bundleConversionRate": 57.98687089715536,
+        "courseConversionRate": 24.945295404814004
       },
       "classificationSources": {
         "webinar": [
@@ -2695,6 +2695,10 @@
           }
         ],
         "bundle": [
+          {
+            "purpose": "MOJad7394e8f013de68a04b4cb15e5d29af",
+            "count": 1
+          },
           {
             "purpose": "MOJ94a31ffb0409db30b33959a42aa34a1f",
             "count": 1
@@ -4216,19 +4220,27 @@
           "webinarDate": "2026-05-31",
           "label": "Webinar 31 May 2026",
           "registrationWindow": "24 May, 06:31 PM to 31 May, 06:30 PM IST",
-          "registrations": 21,
+          "registrations": 22,
           "webinarOnlyRegistrations": 0,
-          "comboRegistrations": 21,
-          "bundleRegistrations": 21,
+          "comboRegistrations": 22,
+          "bundleRegistrations": 22,
           "bundleOnlyRegistrations": 0,
           "coursePurchasesLive": 0,
           "coursePurchasesExtended": 0,
           "courseRevenueLive": 0,
           "courseRevenueExtended": 0,
-          "registrationRevenue": 4158,
-          "totalRevenue": 6633,
+          "registrationRevenue": 4356,
+          "totalRevenue": 6831,
           "topCoursePurposes": [],
           "recentPayments": [
+            {
+              "paymentId": "5683905681",
+              "localCreatedAt": "29/5/2026, 11:41:55 pm",
+              "amount": 198,
+              "purpose": "MOJad7394e8f013de68a04b4cb15e5d29af",
+              "classification": "combo",
+              "buyerName": ""
+            },
             {
               "paymentId": "5683727968",
               "localCreatedAt": "29/5/2026, 10:46:32 pm",
@@ -4314,14 +4326,6 @@
               "localCreatedAt": "29/5/2026, 10:04:29 am",
               "amount": 99,
               "purpose": "MOJ8487ed647bacdce68dc05dfa0c776ad1",
-              "classification": "other",
-              "buyerName": ""
-            },
-            {
-              "paymentId": "5679733586",
-              "localCreatedAt": "29/5/2026, 9:44:32 am",
-              "amount": 99,
-              "purpose": "MOJa16d74aa7c4dd3fa9d3c3f4f177e7939",
               "classification": "other",
               "buyerName": ""
             }

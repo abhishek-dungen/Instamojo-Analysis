@@ -30,6 +30,17 @@ function formatPercent(value: number) {
   return `${value.toFixed(1)}%`
 }
 
+function getWeekPlaceholder(data: DashboardData) {
+  if (data.syncStatus.state === 'pending') return `${data.label} backfill in progress`
+  if (data.syncStatus.state === 'error') return `${data.label} sync unavailable`
+  return 'No valid weeks'
+}
+
+function getStatusHeadline(data: DashboardData) {
+  if (data.syncStatus.state === 'pending') return `${data.label} sync in progress`
+  return `${data.label} sync unavailable`
+}
+
 function App() {
   const [snapshot, setSnapshot] = useState<DashboardSnapshot | null>(null)
   const [error, setError] = useState('')
@@ -121,7 +132,7 @@ function App() {
               disabled={data.weekly.length === 0}
             >
               {data.weekly.length === 0 ? (
-                <option value="">No valid weeks</option>
+                <option value="">{getWeekPlaceholder(data)}</option>
               ) : (
                 data.weekly.map((entry) => (
                   <option key={entry.webinarDate} value={entry.webinarDate}>
@@ -139,10 +150,10 @@ function App() {
         </div>
       </section>
 
-      {data.syncStatus.state === 'error' ? (
+      {data.syncStatus.state !== 'ready' ? (
         <section className="glass-card section-card">
           <p className="section-label">{data.label}</p>
-          <h2>Sync attention needed</h2>
+          <h2>{getStatusHeadline(data)}</h2>
           <p className="status-copy">{data.syncStatus.message}</p>
         </section>
       ) : selected ? (

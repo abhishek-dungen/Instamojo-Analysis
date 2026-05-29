@@ -68,6 +68,41 @@ function optionalEnv(name: string) {
   return process.env[name]?.trim() || undefined
 }
 
+function formatGatewaySyncMessage(gateway: GatewayId, error: unknown) {
+  const message = error instanceof Error ? error.message : `Unknown ${gateway} sync error`
+
+  if (gateway === 'payu') {
+    if (message.includes('Requests limit reached')) {
+      return {
+        state: 'pending' as const,
+        message:
+          'PayU is temporarily rate-limiting the historical backfill. The dashboard will retry automatically on the next hourly sync.',
+      }
+    }
+
+    if (message.includes('merchant ID is required')) {
+      return {
+        state: 'pending' as const,
+        message:
+          'PayU needs the merchant ID for the newer API path. The dashboard will keep retrying, but the faster full-history sync depends on that value.',
+      }
+    }
+  }
+
+  if (gateway === 'cashfree' && message.includes('cannot be more than')) {
+    return {
+      state: 'pending' as const,
+      message:
+        'Cashfree restricts how much history can be pulled per request. The dashboard is retrying within the provider limits.',
+    }
+  }
+
+  return {
+    state: 'error' as const,
+    message,
+  }
+}
+
 function toLocalText(createdAt: string) {
   return new Date(createdAt).toLocaleString('en-IN', { timeZone: TIME_ZONE })
 }
@@ -677,10 +712,13 @@ async function safeGatewaySync(
   try {
     return await syncFn()
   } catch (error) {
-    const message = error instanceof Error ? error.message : `Unknown ${gateway} sync error`
+    const syncStatus = formatGatewaySyncMessage(gateway, error)
     console.error(`${gateway} sync failed`, error)
     return {
-      dashboard: emptyDashboardData(gateway, message, generatedAt),
+      dashboard: {
+        ...emptyDashboardData(gateway, syncStatus.message, generatedAt),
+        syncStatus,
+      },
       payments: [],
     } satisfies GatewaySyncResult
   }
