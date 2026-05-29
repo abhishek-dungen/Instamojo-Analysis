@@ -211,6 +211,16 @@ export function buildDashboardData(
         .slice(0, 5),
     }))
 
+  const summarizePurposes = (classifications: PaymentClassification[]) => {
+    const counts = new Map<string, number>()
+    for (const payment of successful.filter((entry) => classifications.includes(entry.classification))) {
+      counts.set(payment.purpose, (counts.get(payment.purpose) ?? 0) + 1)
+    }
+    return Array.from(counts.entries())
+      .map(([purpose, count]) => ({ purpose, count }))
+      .sort((left, right) => right.count - left.count)
+  }
+
   return {
     generatedAt: new Date().toISOString(),
     timezone: TIME_ZONE,
@@ -227,6 +237,11 @@ export function buildDashboardData(
         0,
       ),
       totalRevenue: weekly.reduce((sum, entry) => sum + entry.totalRevenue, 0),
+    },
+    classificationSources: {
+      webinar: summarizePurposes(['webinar_only']),
+      bundle: summarizePurposes(['bundle_only', 'combo']),
+      course: summarizePurposes(['course']),
     },
     weekly,
   } satisfies DashboardData

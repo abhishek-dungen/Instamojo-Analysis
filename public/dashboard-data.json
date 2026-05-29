@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T15:46:56.898Z",
+  "generatedAt": "2026-05-29T16:02:33.094Z",
   "timezone": "Asia/Kolkata",
   "source": {
     "paymentRequestCount": 1822,
@@ -11,6 +11,34 @@
     "bundleRegistrations": 438,
     "coursePurchases": 160,
     "totalRevenue": 488087
+  },
+  "classificationSources": {
+    "webinar": [
+      {
+        "purpose": "3 Hours Excel Career Masterclass",
+        "count": 574
+      },
+      {
+        "purpose": "2 Hours Excel Career Masterclass",
+        "count": 17
+      }
+    ],
+    "bundle": [
+      {
+        "purpose": "Masterclass + Ultimate Resource Bundle",
+        "count": 384
+      },
+      {
+        "purpose": "Ultimate Resource Bundle",
+        "count": 54
+      }
+    ],
+    "course": [
+      {
+        "purpose": "Basic to Advance Excel Course",
+        "count": 160
+      }
+    ]
   },
   "weekly": [
     {

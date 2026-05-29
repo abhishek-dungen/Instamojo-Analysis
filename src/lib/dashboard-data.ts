@@ -61,5 +61,10 @@ export type DashboardData = {
     coursePurchases: number
     totalRevenue: number
   }
+  classificationSources: {
+    webinar: Array<{ purpose: string; count: number }>
+    bundle: Array<{ purpose: string; count: number }>
+    course: Array<{ purpose: string; count: number }>
+  }
   weekly: WeeklyMetrics[]
 }

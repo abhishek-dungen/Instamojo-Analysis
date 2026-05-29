@@ -1,48 +1,6 @@
-import { useDeferredValue, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
-
-type WeeklyMetrics = {
-  webinarDate: string
-  label: string
-  registrationWindow: string
-  registrations: number
-  webinarOnlyRegistrations: number
-  comboRegistrations: number
-  bundleRegistrations: number
-  bundleOnlyRegistrations: number
-  coursePurchasesLive: number
-  coursePurchasesExtended: number
-  courseRevenueLive: number
-  courseRevenueExtended: number
-  registrationRevenue: number
-  totalRevenue: number
-  topCoursePurposes: Array<{ purpose: string; count: number; revenue: number }>
-  recentPayments: Array<{
-    paymentId: string
-    localCreatedAt: string
-    amount: number
-    purpose: string
-    classification: string
-    buyerName: string
-  }>
-}
-
-type DashboardData = {
-  generatedAt: string
-  timezone: string
-  source: {
-    paymentRequestCount: number
-    paymentCount: number
-    successfulPaymentCount: number
-  }
-  totals: {
-    registrations: number
-    bundleRegistrations: number
-    coursePurchases: number
-    totalRevenue: number
-  }
-  weekly: WeeklyMetrics[]
-}
+import type { DashboardData, WeeklyMetrics } from './lib/dashboard-data'
 
 const currency = new Intl.NumberFormat('en-IN', {
   style: 'currency',
@@ -67,15 +25,9 @@ function formatMoney(value: number) {
   return currency.format(value)
 }
 
-function ratio(value: number, max: number) {
-  if (max <= 0) return '0%'
-  return `${Math.max(8, Math.round((value / max) * 100))}%`
-}
-
 function App() {
   const [data, setData] = useState<DashboardData | null>(null)
   const [selectedWeek, setSelectedWeek] = useState('')
-  const deferredWeek = useDeferredValue(selectedWeek)
 
   useEffect(() => {
     let active = true
@@ -107,7 +59,7 @@ function App() {
       <main className="shell">
         <section className="loading-panel">
           <p className="eyebrow">Instamojo Analysis</p>
-          <h1>Loading the weekly command center.</h1>
+          <h1>Loading dashboard.</h1>
         </section>
       </main>
     )
@@ -124,47 +76,13 @@ function App() {
     )
   }
 
-  const selected =
-    data.weekly.find((entry) => entry.webinarDate === deferredWeek) ?? data.weekly[0]
-
-  const maxRegistration = Math.max(...data.weekly.map((entry) => entry.registrations), 1)
-  const maxRevenue = Math.max(...data.weekly.map((entry) => entry.totalRevenue), 1)
+  const selected = data.weekly.find((entry) => entry.webinarDate === selectedWeek) ?? data.weekly[0]
 
   return (
     <main className="shell">
-      <section className="hero-panel">
-        <div className="hero-copy">
-          <p className="eyebrow">Instamojo Analysis</p>
-          <h1>Weekly webinar revenue, registrations, bundles, and course conversions.</h1>
-          <p className="lede">
-            Each webinar week closes at Sunday 6:30 PM IST for registrations. Course sales are
-            split into live webinar conversions and post-webinar extensions.
-          </p>
-        </div>
-
-        <div className="hero-meta">
-          <div className="hero-stat">
-            <span>Total registrations</span>
-            <strong>{data.totals.registrations}</strong>
-          </div>
-          <div className="hero-stat">
-            <span>Total bundle buyers</span>
-            <strong>{data.totals.bundleRegistrations}</strong>
-          </div>
-          <div className="hero-stat">
-            <span>Total revenue</span>
-            <strong>{formatMoney(data.totals.totalRevenue)}</strong>
-          </div>
-          <div className="hero-stat">
-            <span>Successful payments synced</span>
-            <strong>{data.source.successfulPaymentCount}</strong>
-          </div>
-        </div>
-      </section>
-
       <section className="control-panel">
         <div>
-          <p className="section-label">Select webinar week</p>
+          <p className="section-label">Webinar week</p>
           <select
             className="week-select"
             value={selected.webinarDate}
@@ -178,7 +96,7 @@ function App() {
           </select>
         </div>
         <div className="freshness">
-          <span>Snapshot updated</span>
+          <span>Last hourly sync</span>
           <strong>{new Date(data.generatedAt).toLocaleString('en-IN', { timeZone: data.timezone })}</strong>
         </div>
       </section>
@@ -187,132 +105,86 @@ function App() {
         <article className="metric-card">
           <span>Webinar registrations</span>
           <strong>{selected.registrations}</strong>
-          <p>
-            {selected.webinarOnlyRegistrations} webinar-only + {selected.comboRegistrations} combo
-          </p>
+          <p>{selected.webinarOnlyRegistrations} direct + {selected.comboRegistrations} combo</p>
         </article>
         <article className="metric-card">
           <span>Bundle registrations</span>
           <strong>{selected.bundleRegistrations}</strong>
+          <p>{selected.bundleOnlyRegistrations} direct + {selected.comboRegistrations} combo</p>
+        </article>
+        <article className="metric-card">
+          <span>Course purchases</span>
+          <strong>{selected.coursePurchasesLive + selected.coursePurchasesExtended}</strong>
           <p>
-            {selected.bundleOnlyRegistrations} bundle-only + {selected.comboRegistrations} combo
+            {selected.coursePurchasesLive} live + {selected.coursePurchasesExtended} extension
           </p>
         </article>
         <article className="metric-card">
-          <span>Live course sales</span>
-          <strong>{selected.coursePurchasesLive}</strong>
-          <p>{formatMoney(selected.courseRevenueLive)} during Sunday 7 PM to 12 AM</p>
-        </article>
-        <article className="metric-card">
-          <span>Extension course sales</span>
-          <strong>{selected.coursePurchasesExtended}</strong>
-          <p>{formatMoney(selected.courseRevenueExtended)} after the live window</p>
+          <span>Total revenue</span>
+          <strong>{formatMoney(selected.totalRevenue)}</strong>
+          <p>{formatMoney(selected.registrationRevenue)} from registration-linked payments</p>
         </article>
       </section>
 
-      <section className="insight-layout">
+      <section className="info-grid">
         <article className="glass-card">
-          <div className="card-head">
-            <div>
-              <p className="section-label">Weekly snapshot</p>
-              <h2>{selected.label}</h2>
-            </div>
-            <p className="window-note">
-              {selected.registrationWindow}
-              <br />
-              Source records: {data.source.paymentRequestCount} requests, {data.source.paymentCount}{' '}
-              payments
-            </p>
+          <p className="section-label">Classification used</p>
+          <h2>Purpose names currently counted</h2>
+          <div className="rule-group">
+            <h3>Webinar registration</h3>
+            {data.classificationSources.webinar.map((item) => (
+              <div key={`webinar-${item.purpose}`} className="rule-row">
+                <strong>{item.purpose}</strong>
+                <span>{item.count} successful payments</span>
+              </div>
+            ))}
           </div>
-
-          <div className="money-band">
-            <div>
-              <span>Registration revenue</span>
-              <strong>{formatMoney(selected.registrationRevenue)}</strong>
-            </div>
-            <div>
-              <span>Total revenue</span>
-              <strong>{formatMoney(selected.totalRevenue)}</strong>
-            </div>
+          <div className="rule-group">
+            <h3>Bundle registration</h3>
+            {data.classificationSources.bundle.map((item) => (
+              <div key={`bundle-${item.purpose}`} className="rule-row">
+                <strong>{item.purpose}</strong>
+                <span>{item.count} successful payments</span>
+              </div>
+            ))}
           </div>
-
-          <div className="course-list">
-            <div className="course-list-head">
-              <p className="section-label">Top course intents</p>
-              <span>{selected.topCoursePurposes.length} purposes</span>
-            </div>
-            {selected.topCoursePurposes.length === 0 ? (
-              <p className="empty-state">No course payments were attributed to this webinar yet.</p>
-            ) : (
-              selected.topCoursePurposes.map((purpose) => (
-                <div key={purpose.purpose} className="course-row">
-                  <div>
-                    <strong>{purpose.purpose}</strong>
-                    <span>{purpose.count} purchases</span>
-                  </div>
-                  <em>{formatMoney(purpose.revenue)}</em>
-                </div>
-              ))
-            )}
-          </div>
-        </article>
-
-        <article className="glass-card">
-          <div className="card-head">
-            <div>
-              <p className="section-label">Trendline</p>
-              <h2>Recent webinar weeks</h2>
-            </div>
-          </div>
-          <div className="bars">
-            {data.weekly.slice(0, 8).map((entry) => (
-              <button
-                key={entry.webinarDate}
-                type="button"
-                className={`bar-row ${entry.webinarDate === selected.webinarDate ? 'active' : ''}`}
-                onClick={() => setSelectedWeek(entry.webinarDate)}
-              >
-                <div>
-                  <strong>{entry.label}</strong>
-                  <span>{entry.registrations} registrations</span>
-                </div>
-                <div className="bar-stack">
-                  <div className="bar-fill registration" style={{ width: ratio(entry.registrations, maxRegistration) }} />
-                  <div className="bar-fill revenue" style={{ width: ratio(entry.totalRevenue, maxRevenue) }} />
-                </div>
-                <em>{formatMoney(entry.totalRevenue)}</em>
-              </button>
+          <div className="rule-group">
+            <h3>Course registration</h3>
+            {data.classificationSources.course.map((item) => (
+              <div key={`course-${item.purpose}`} className="rule-row">
+                <strong>{item.purpose}</strong>
+                <span>{item.count} successful payments</span>
+              </div>
             ))}
           </div>
         </article>
-      </section>
 
-      <section className="glass-card">
-        <div className="card-head">
-          <div>
-            <p className="section-label">Recent payments</p>
-            <h2>What fed this week</h2>
+        <article className="glass-card">
+          <p className="section-label">Checks</p>
+          <h2>What the app is doing</h2>
+          <div className="rule-group">
+            <div className="rule-row">
+              <strong>Successful payments only</strong>
+              <span>{data.source.successfulPaymentCount} `Credit` payments counted</span>
+            </div>
+            <div className="rule-row">
+              <strong>Ignored for counts</strong>
+              <span>Pending, failed, and non-`Credit` payments are excluded</span>
+            </div>
+            <div className="rule-row">
+              <strong>Registration cutoff</strong>
+              <span>{selected.registrationWindow}</span>
+            </div>
+            <div className="rule-row">
+              <strong>Source volume</strong>
+              <span>{data.source.paymentRequestCount} requests and {data.source.paymentCount} payments synced</span>
+            </div>
+            <div className="rule-row">
+              <strong>Hourly refresh</strong>
+              <span>GitHub Actions schedule is set to run once every hour</span>
+            </div>
           </div>
-        </div>
-        <div className="payment-table">
-          {selected.recentPayments.length === 0 ? (
-            <p className="empty-state">No successful payments available for this week.</p>
-          ) : (
-            selected.recentPayments.map((payment) => (
-              <div key={payment.paymentId} className="payment-row">
-                <div>
-                  <strong>{payment.purpose}</strong>
-                  <span>{payment.buyerName || 'Unknown buyer'}</span>
-                </div>
-                <div>
-                  <strong>{formatMoney(payment.amount)}</strong>
-                  <span>{payment.classification.replaceAll('_', ' ')}</span>
-                </div>
-                <time>{payment.localCreatedAt}</time>
-              </div>
-            ))
-          )}
-        </div>
+        </article>
       </section>
     </main>
   )

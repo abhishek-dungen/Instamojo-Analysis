@@ -118,6 +118,13 @@
   gap: 16px;
 }
 
+.info-grid {
+  margin-top: 22px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
 .glass-card {
   border-radius: 28px;
   padding: 24px;
@@ -164,6 +171,32 @@
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 14px;
+}
+
+.rule-group + .rule-group {
+  margin-top: 22px;
+}
+
+.rule-group h3 {
+  margin: 0 0 10px;
+  font-size: 1rem;
+}
+
+.rule-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-top: 1px solid rgba(33, 48, 43, 0.08);
+}
+
+.rule-row strong {
+  font-size: 1rem;
+}
+
+.rule-row span {
+  text-align: right;
 }
 
 .course-row,
@@ -247,7 +280,8 @@
 @media (max-width: 980px) {
   .hero-panel,
   .insight-layout,
-  .metrics-grid {
+  .metrics-grid,
+  .info-grid {
     grid-template-columns: 1fr;
   }
 
