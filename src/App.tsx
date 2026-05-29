@@ -2,12 +2,6 @@ import { useEffect, useState } from 'react'
 import './App.css'
 import type { DashboardData, WeeklyMetrics } from './lib/dashboard-data'
 
-const currency = new Intl.NumberFormat('en-IN', {
-  style: 'currency',
-  currency: 'INR',
-  maximumFractionDigits: 0,
-})
-
 function getDefaultWeek(weeks: WeeklyMetrics[]) {
   if (weeks.length === 0) return ''
 
@@ -21,8 +15,8 @@ function getDefaultWeek(weeks: WeeklyMetrics[]) {
   return weeks.find((entry) => entry.webinarDate <= today)?.webinarDate ?? weeks[0].webinarDate
 }
 
-function formatMoney(value: number) {
-  return currency.format(value)
+function formatPercent(value: number) {
+  return `${value.toFixed(1)}%`
 }
 
 function App() {
@@ -70,13 +64,16 @@ function App() {
       <main className="shell">
         <section className="loading-panel">
           <p className="eyebrow">Instamojo Analysis</p>
-          <h1>No synced payments yet.</h1>
+          <h1>No valid webinar weeks after exclusions.</h1>
         </section>
       </main>
     )
   }
 
   const selected = data.weekly.find((entry) => entry.webinarDate === selectedWeek) ?? data.weekly[0]
+  const selectedCoursePurchases = selected.coursePurchasesLive + selected.coursePurchasesExtended
+  const selectedBundleConversion = selected.registrations === 0 ? 0 : (selected.bundleRegistrations / selected.registrations) * 100
+  const selectedCourseConversion = selected.registrations === 0 ? 0 : (selectedCoursePurchases / selected.registrations) * 100
 
   return (
     <main className="shell">
@@ -101,29 +98,67 @@ function App() {
         </div>
       </section>
 
-      <section className="metrics-grid">
-        <article className="metric-card">
-          <span>Webinar registrations</span>
-          <strong>{selected.registrations}</strong>
-          <p>{selected.webinarOnlyRegistrations} direct + {selected.comboRegistrations} combo</p>
-        </article>
-        <article className="metric-card">
-          <span>Bundle registrations</span>
-          <strong>{selected.bundleRegistrations}</strong>
-          <p>{selected.bundleOnlyRegistrations} direct + {selected.comboRegistrations} combo</p>
-        </article>
-        <article className="metric-card">
-          <span>Course purchases</span>
-          <strong>{selected.coursePurchasesLive + selected.coursePurchasesExtended}</strong>
-          <p>
-            {selected.coursePurchasesLive} live + {selected.coursePurchasesExtended} extension
-          </p>
-        </article>
-        <article className="metric-card">
-          <span>Total revenue</span>
-          <strong>{formatMoney(selected.totalRevenue)}</strong>
-          <p>{formatMoney(selected.registrationRevenue)} from registration-linked payments</p>
-        </article>
+      <section className="glass-card section-card">
+        <p className="section-label">Historical valid weeks</p>
+        <h2>All-time summary after exclusions</h2>
+        <div className="metrics-grid">
+          <article className="metric-card">
+            <span>Webinar registrations</span>
+            <strong>{data.historicalSummary.webinarRegistrations}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Webinars considered</span>
+            <strong>{data.historicalSummary.webinarWeeksCount}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Bundle registrations</span>
+            <strong>{data.historicalSummary.bundleRegistrations}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Course purchases</span>
+            <strong>{data.historicalSummary.coursePurchases}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Bundle conversion</span>
+            <strong>{formatPercent(data.historicalSummary.bundleConversionRate)}</strong>
+          </article>
+          <article className="metric-card">
+            <span>Course conversion</span>
+            <strong>{formatPercent(data.historicalSummary.courseConversionRate)}</strong>
+          </article>
+        </div>
+      </section>
+
+      <section className="glass-card section-card">
+        <p className="section-label">Selected week</p>
+        <h2>{selected.label}</h2>
+        <div className="metrics-grid">
+          <article className="metric-card">
+            <span>Webinar registrations</span>
+            <strong>{selected.registrations}</strong>
+            <p>{selected.webinarOnlyRegistrations} direct + {selected.comboRegistrations} combo</p>
+          </article>
+          <article className="metric-card">
+            <span>Bundle registrations</span>
+            <strong>{selected.bundleRegistrations}</strong>
+            <p>{selected.bundleOnlyRegistrations} direct + {selected.comboRegistrations} combo</p>
+          </article>
+          <article className="metric-card">
+            <span>Course purchases</span>
+            <strong>{selectedCoursePurchases}</strong>
+            <p>{selected.coursePurchasesLive} live + {selected.coursePurchasesExtended} extension</p>
+          </article>
+          <article className="metric-card">
+            <span>Bundle conversion</span>
+            <strong>{formatPercent(selectedBundleConversion)}</strong>
+            <p>Bundle registrations against webinar registrations</p>
+          </article>
+          <article className="metric-card">
+            <span>Course conversion</span>
+            <strong>{formatPercent(selectedCourseConversion)}</strong>
+            <p>Course purchases against webinar registrations</p>
+          </article>
+        </div>
       </section>
 
       <section className="info-grid">

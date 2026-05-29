@@ -3,7 +3,13 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import process from 'node:process'
 import admin from 'firebase-admin'
-import { buildDashboardData, normalizePayments } from '../src/lib/analytics'
+import {
+  buildDashboardData,
+  classifyPayment,
+  isExcludedWebinarWeek,
+  normalizePayments,
+  resolveWebinarDateForClassification,
+} from '../src/lib/analytics'
 
 type PaymentRequest = {
   id: string
@@ -27,6 +33,12 @@ type Payment = {
   buyer_email: string | null
   payment_request: string | null
   created_at: string
+}
+
+type NormalizedRequest = PaymentRequest & {
+  amountValue: number
+  classification: string
+  webinarDate: string
 }
 
 const API_BASE = 'https://www.instamojo.com/api/1.1'
@@ -120,21 +132,57 @@ async function writeCollection(
   }
 }
 
+async function clearCollection(
+  firestore: FirebaseFirestore.Firestore,
+  collectionName: string,
+) {
+  while (true) {
+    const snapshot = await firestore.collection(collectionName).limit(400).get()
+    if (snapshot.empty) break
+
+    const batch = firestore.batch()
+    snapshot.docs.forEach((doc) => batch.delete(doc.ref))
+    await batch.commit()
+  }
+}
+
+function normalizeRequests(paymentRequests: PaymentRequest[]): NormalizedRequest[] {
+  return paymentRequests
+    .map((request) => {
+      const amountValue = Number.parseFloat(request.amount)
+      const classification = classifyPayment(amountValue, request.purpose)
+      const requestDate = new Date(request.created_at)
+
+      return {
+        ...request,
+        amountValue,
+        classification,
+        webinarDate: resolveWebinarDateForClassification(requestDate, classification),
+      }
+    })
+    .filter((request) => !isExcludedWebinarWeek(request.webinarDate))
+}
+
 async function main() {
   const firestore = initFirebase()
   const paymentRequests = await fetchAllPages<PaymentRequest>('payment-requests', 'payment_requests')
   const payments = await fetchAllPages<Payment>('payments', 'payments')
   const dashboardData = buildDashboardData(paymentRequests, payments)
   const normalized = normalizePayments(paymentRequests, payments)
+  const normalizedRequests = normalizeRequests(paymentRequests)
+
+  await clearCollection(firestore, 'instamojoPaymentRequests')
+  await clearCollection(firestore, 'instamojoPayments')
+  await clearCollection(firestore, 'webinarReports')
+  await firestore.collection('dashboardMetadata').doc('latest').delete().catch(() => undefined)
 
   await writeCollection(
     firestore,
     'instamojoPaymentRequests',
-    paymentRequests.map((request) => ({
+    normalizedRequests.map((request) => ({
       id: request.id,
       data: {
         ...request,
-        amountValue: Number.parseFloat(request.amount),
         syncedAt: new Date().toISOString(),
       },
     })),

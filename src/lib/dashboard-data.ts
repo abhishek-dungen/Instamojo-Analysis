@@ -47,6 +47,15 @@ export type WeeklyMetrics = {
   }>
 }
 
+export type HistoricalSummary = {
+  webinarRegistrations: number
+  webinarWeeksCount: number
+  bundleRegistrations: number
+  coursePurchases: number
+  bundleConversionRate: number
+  courseConversionRate: number
+}
+
 export type DashboardData = {
   generatedAt: string
   timezone: string
@@ -61,6 +70,7 @@ export type DashboardData = {
     coursePurchases: number
     totalRevenue: number
   }
+  historicalSummary: HistoricalSummary
   classificationSources: {
     webinar: Array<{ purpose: string; count: number }>
     bundle: Array<{ purpose: string; count: number }>

@@ -3,6 +3,7 @@ import { formatInTimeZone, fromZonedTime, toZonedTime } from 'date-fns-tz'
 import type { DashboardData, PaymentClassification, StoredPayment, WeeklyMetrics } from './dashboard-data'
 
 export const TIME_ZONE = 'Asia/Kolkata'
+export const EXCLUDED_WEBINAR_WEEKS = new Set(['2026-03-22', '2026-05-03'])
 
 type RawRequest = {
   id: string
@@ -40,6 +41,15 @@ function makeLocalDate(dateText: string, hour: number, minute: number) {
   return fromZonedTime(`${dateText}T${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}:00`, TIME_ZONE)
 }
 
+export function isExcludedWebinarWeek(webinarDate: string) {
+  if (EXCLUDED_WEBINAR_WEEKS.has(webinarDate)) {
+    return true
+  }
+
+  const monthDay = webinarDate.slice(5)
+  return monthDay >= '11-15' || monthDay <= '01-10'
+}
+
 function webinarSundayForRegistration(date: Date) {
   const local = asLocal(date)
   const sunday = previousSunday(addDays(startOfDay(local), 1))
@@ -54,6 +64,12 @@ function webinarSundayForCourse(date: Date) {
   const sundayDate = format(sameWeekSunday, 'yyyy-MM-dd')
   const liveStart = makeLocalDate(sundayDate, 19, 0)
   return date >= liveStart ? sundayDate : format(subDays(sameWeekSunday, 7), 'yyyy-MM-dd')
+}
+
+export function resolveWebinarDateForClassification(date: Date, classification: PaymentClassification) {
+  return classification === 'course'
+    ? webinarSundayForCourse(date)
+    : webinarSundayForRegistration(date)
 }
 
 export function classifyPayment(amount: number, purpose: string): PaymentClassification {
@@ -77,10 +93,7 @@ export function normalizePayments(paymentRequests: RawRequest[], payments: RawPa
     const classification = classifyPayment(amount, purpose)
     const createdAt = payment.created_at
     const createdDate = new Date(createdAt)
-    const webinarDate =
-      classification === 'course'
-        ? webinarSundayForCourse(createdDate)
-        : webinarSundayForRegistration(createdDate)
+    const webinarDate = resolveWebinarDateForClassification(createdDate, classification)
 
     return {
       paymentId: payment.payment_id,
@@ -97,7 +110,7 @@ export function normalizePayments(paymentRequests: RawRequest[], payments: RawPa
       webinarDate,
       requestCreatedAt: request?.created_at ?? null,
     } satisfies StoredPayment
-  })
+  }).filter((payment) => !isExcludedWebinarWeek(payment.webinarDate))
 }
 
 function registrationWindow(webinarDate: string) {
@@ -221,6 +234,29 @@ export function buildDashboardData(
       .sort((left, right) => right.count - left.count)
   }
 
+  const historicalSummary = {
+    webinarRegistrations: weekly.reduce((sum, entry) => sum + entry.registrations, 0),
+    webinarWeeksCount: weekly.length,
+    bundleRegistrations: weekly.reduce((sum, entry) => sum + entry.bundleRegistrations, 0),
+    coursePurchases: weekly.reduce(
+      (sum, entry) => sum + entry.coursePurchasesLive + entry.coursePurchasesExtended,
+      0,
+    ),
+    bundleConversionRate: weekly.reduce((sum, entry) => sum + entry.registrations, 0) === 0
+      ? 0
+      : (weekly.reduce((sum, entry) => sum + entry.bundleRegistrations, 0) /
+          weekly.reduce((sum, entry) => sum + entry.registrations, 0)) *
+        100,
+    courseConversionRate: weekly.reduce((sum, entry) => sum + entry.registrations, 0) === 0
+      ? 0
+      : (weekly.reduce(
+          (sum, entry) => sum + entry.coursePurchasesLive + entry.coursePurchasesExtended,
+          0,
+        ) /
+          weekly.reduce((sum, entry) => sum + entry.registrations, 0)) *
+        100,
+  }
+
   return {
     generatedAt: new Date().toISOString(),
     timezone: TIME_ZONE,
@@ -230,14 +266,12 @@ export function buildDashboardData(
       successfulPaymentCount: successful.length,
     },
     totals: {
-      registrations: weekly.reduce((sum, entry) => sum + entry.registrations, 0),
-      bundleRegistrations: weekly.reduce((sum, entry) => sum + entry.bundleRegistrations, 0),
-      coursePurchases: weekly.reduce(
-        (sum, entry) => sum + entry.coursePurchasesLive + entry.coursePurchasesExtended,
-        0,
-      ),
+      registrations: historicalSummary.webinarRegistrations,
+      bundleRegistrations: historicalSummary.bundleRegistrations,
+      coursePurchases: historicalSummary.coursePurchases,
       totalRevenue: weekly.reduce((sum, entry) => sum + entry.totalRevenue, 0),
     },
+    historicalSummary,
     classificationSources: {
       webinar: summarizePurposes(['webinar_only']),
       bundle: summarizePurposes(['bundle_only', 'combo']),
