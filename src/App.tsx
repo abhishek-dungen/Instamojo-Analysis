@@ -1,18 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import type {
-  DashboardData,
-  DashboardSnapshot,
-  GatewayId,
-  WeeklyMetrics,
-} from './lib/dashboard-data'
-
-const GATEWAY_OPTIONS: Array<{ id: GatewayId; label: string }> = [
-  { id: 'instamojo', label: 'Instamojo' },
-  { id: 'payu', label: 'PayU' },
-  { id: 'cashfree', label: 'Cashfree' },
-  { id: 'combined', label: 'Combined Unique' },
-]
+import type { DashboardData, DashboardSnapshot, WeeklyMetrics } from './lib/dashboard-data'
 
 function getDefaultWeek(weeks: WeeklyMetrics[]) {
   if (weeks.length === 0) return ''
@@ -58,13 +46,12 @@ function getStatusHeadline(data: DashboardData) {
 function App() {
   const [snapshot, setSnapshot] = useState<DashboardSnapshot | null>(null)
   const [error, setError] = useState('')
-  const [selectedGateway, setSelectedGateway] = useState<GatewayId>('instamojo')
   const [selectedWeek, setSelectedWeek] = useState('')
 
   useEffect(() => {
     let active = true
 
-    fetch(`${import.meta.env.BASE_URL}dashboard-data.json?v=2026-05-30-2`, {
+    fetch(`${import.meta.env.BASE_URL}dashboard-data.json?v=2026-05-30-6`, {
       cache: 'no-store',
     })
       .then((response) => {
@@ -77,7 +64,6 @@ function App() {
       .then((payload) => {
         if (!active) return
         setSnapshot(payload)
-        setSelectedGateway((current) => (payload.gateways[current] ? current : 'instamojo'))
         setError('')
       })
       .catch((loadError) => {
@@ -102,7 +88,7 @@ function App() {
     )
   }
 
-  const data: DashboardData = snapshot.gateways[selectedGateway]
+  const data: DashboardData = snapshot.gateways.combined
   const activeWeek = selectedWeek || getDefaultWeek(data.weekly)
   const selected = data.weekly.find((entry) => entry.webinarDate === activeWeek) ?? data.weekly[0] ?? null
   const selectedCoursePurchases = selected
@@ -119,24 +105,6 @@ function App() {
     <main className="shell">
       <section className="control-panel">
         <div className="selector-row">
-          <div>
-            <p className="section-label">Gateway</p>
-            <select
-              className="week-select"
-              value={selectedGateway}
-              onChange={(event) => {
-                setSelectedGateway(event.target.value as GatewayId)
-                setSelectedWeek('')
-              }}
-            >
-              {GATEWAY_OPTIONS.map((gateway) => (
-                <option key={gateway.id} value={gateway.id}>
-                  {gateway.label}
-                </option>
-              ))}
-            </select>
-          </div>
-
           <div>
             <p className="section-label">Webinar week</p>
             <select
@@ -159,7 +127,7 @@ function App() {
         </div>
 
         <div className="freshness">
-          <span>{data.label} hourly sync</span>
+          <span>Unified hourly sync</span>
           <strong>{new Date(data.generatedAt).toLocaleString('en-IN', { timeZone: data.timezone })}</strong>
         </div>
       </section>
@@ -250,7 +218,7 @@ function App() {
               <div className="rule-group">
                 <h3>Webinar registration</h3>
                 {data.classificationSources.webinar.map((item) => (
-                  <div key={`webinar-${selectedGateway}-${item.purpose}`} className="rule-row">
+                  <div key={`webinar-${item.purpose}`} className="rule-row">
                     <strong>{item.purpose}</strong>
                     <span>{item.count} successful payments</span>
                   </div>
@@ -259,7 +227,7 @@ function App() {
               <div className="rule-group">
                 <h3>Bundle registration</h3>
                 {data.classificationSources.bundle.map((item) => (
-                  <div key={`bundle-${selectedGateway}-${item.purpose}`} className="rule-row">
+                  <div key={`bundle-${item.purpose}`} className="rule-row">
                     <strong>{item.purpose}</strong>
                     <span>{item.count} successful payments</span>
                   </div>
@@ -268,7 +236,7 @@ function App() {
               <div className="rule-group">
                 <h3>Course registration</h3>
                 {data.classificationSources.course.map((item) => (
-                  <div key={`course-${selectedGateway}-${item.purpose}`} className="rule-row">
+                  <div key={`course-${item.purpose}`} className="rule-row">
                     <strong>{item.purpose}</strong>
                     <span>{item.count} successful payments</span>
                   </div>

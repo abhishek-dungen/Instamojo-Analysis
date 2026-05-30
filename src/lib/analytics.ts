@@ -9,13 +9,13 @@ import type {
 } from './dashboard-data'
 
 export const TIME_ZONE = 'Asia/Kolkata'
-export const EXCLUDED_WEBINAR_WEEKS = new Set(['2026-03-22', '2026-05-03'])
+export const EXCLUDED_WEBINAR_WEEKS = new Set<string>()
 
 const GATEWAY_LABELS: Record<GatewayId, string> = {
   instamojo: 'Instamojo',
   payu: 'PayU',
   cashfree: 'Cashfree',
-  combined: 'Combined Unique',
+  combined: 'All Gateways Unique',
 }
 
 type RawRequest = {

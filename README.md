@@ -1,12 +1,12 @@
 # Payment Gateway Analysis
 
-This project backs up webinar payment data into Firebase Firestore and publishes a GitHub Pages dashboard for three separate gateways:
+This project backs up webinar payment data into Firebase Firestore and publishes a GitHub Pages dashboard that merges all supported gateways into one deduplicated reporting view:
 
 - `Instamojo`
 - `PayU`
 - `Cashfree`
 
-The frontend uses one shared reporting model and lets you switch gateways from the dashboard without mixing their data together.
+The frontend now shows one unified dataset, while the sync pipeline still pulls each source separately and removes overlaps before reporting.
 
 ## Reporting logic
 
@@ -16,10 +16,8 @@ The frontend uses one shared reporting model and lets you switch gateways from t
 - `198`-range combo payments count as both webinar and bundle registrations.
 - Payments `>= 1500` count as course purchases.
 - Live course conversions are Sunday `7:00 PM` to `11:59 PM IST`.
-- The invalid webinar weeks remain excluded permanently:
-  - `2026-03-22`
-  - `2026-05-03`
-  - every webinar week between `November 15` and `January 10`
+- Webinar weeks between `November 15` and `January 10` remain excluded.
+- Duplicate Instamojo and Cashfree events are counted only once, with the Instamojo record preferred whenever both sources represent the same payment.
 
 ## Local commands
 
