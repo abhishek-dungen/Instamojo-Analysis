@@ -5,7 +5,7 @@ export type PaymentClassification =
   | 'course'
   | 'other'
 
-export type GatewayId = 'instamojo' | 'payu' | 'cashfree'
+export type GatewayId = 'instamojo' | 'payu' | 'cashfree' | 'combined'
 
 export type StoredPayment = {
   paymentId: string
@@ -21,6 +21,8 @@ export type StoredPayment = {
   classification: PaymentClassification
   webinarDate: string
   requestCreatedAt: string | null
+  sourceGateway?: GatewayId
+  sourceOrderId?: string | null
 }
 
 export type WeeklyMetrics = {

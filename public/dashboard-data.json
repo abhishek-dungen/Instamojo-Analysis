@@ -1,46 +1,46 @@
 {
-  "generatedAt": "2026-05-29T18:22:41.381Z",
+  "generatedAt": "2026-05-30T04:58:53.486Z",
   "timezone": "Asia/Kolkata",
   "gateways": {
     "instamojo": {
       "gateway": "instamojo",
       "label": "Instamojo",
-      "generatedAt": "2026-05-29T18:22:41.381Z",
+      "generatedAt": "2026-05-30T04:58:53.486Z",
       "timezone": "Asia/Kolkata",
       "source": {
-        "paymentRequestCount": 1826,
-        "paymentCount": 1444,
-        "successfulPaymentCount": 1057
+        "paymentRequestCount": 1833,
+        "paymentCount": 1451,
+        "successfulPaymentCount": 1062
       },
       "syncStatus": {
         "state": "ready",
         "message": null
       },
       "totals": {
-        "registrations": 859,
-        "bundleRegistrations": 393,
+        "registrations": 864,
+        "bundleRegistrations": 395,
         "coursePurchases": 143,
-        "totalRevenue": 429107
+        "totalRevenue": 429800
       },
       "historicalSummary": {
-        "webinarRegistrations": 859,
+        "webinarRegistrations": 864,
         "webinarWeeksCount": 15,
-        "bundleRegistrations": 393,
+        "bundleRegistrations": 395,
         "coursePurchases": 143,
-        "bundleConversionRate": 45.75087310826543,
-        "courseConversionRate": 16.647264260768335
+        "bundleConversionRate": 45.717592592592595,
+        "courseConversionRate": 16.550925925925927
       },
       "classificationSources": {
         "webinar": [
           {
             "purpose": "3 Hours Excel Career Masterclass",
-            "count": 501
+            "count": 504
           }
         ],
         "bundle": [
           {
             "purpose": "Masterclass + Ultimate Resource Bundle",
-            "count": 358
+            "count": 360
           },
           {
             "purpose": "Ultimate Resource Bundle",
@@ -59,19 +59,59 @@
           "webinarDate": "2026-05-31",
           "label": "Webinar 31 May 2026",
           "registrationWindow": "24 May, 06:31 PM to 31 May, 06:30 PM IST",
-          "registrations": 47,
-          "webinarOnlyRegistrations": 25,
-          "comboRegistrations": 22,
-          "bundleRegistrations": 22,
+          "registrations": 52,
+          "webinarOnlyRegistrations": 28,
+          "comboRegistrations": 24,
+          "bundleRegistrations": 24,
           "bundleOnlyRegistrations": 0,
           "coursePurchasesLive": 0,
           "coursePurchasesExtended": 0,
           "courseRevenueLive": 0,
           "courseRevenueExtended": 0,
-          "registrationRevenue": 6831,
-          "totalRevenue": 6831,
+          "registrationRevenue": 7524,
+          "totalRevenue": 7524,
           "topCoursePurposes": [],
           "recentPayments": [
+            {
+              "paymentId": "MOJO6530Y05Q20972955",
+              "localCreatedAt": "30 May 2026, 09:18 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Poornima  Khatri"
+            },
+            {
+              "paymentId": "MOJO6530505Q20972872",
+              "localCreatedAt": "30 May 2026, 09:06 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Sahil Wingakar"
+            },
+            {
+              "paymentId": "MOJO6530305Q20972544",
+              "localCreatedAt": "30 May 2026, 07:45 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Namita Anand"
+            },
+            {
+              "paymentId": "MOJO6529M05Q83031068",
+              "localCreatedAt": "30 May 2026, 12:26 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Adil Baig"
+            },
+            {
+              "paymentId": "MOJO6529805Q83030930",
+              "localCreatedAt": "29 May 2026, 11:56 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Jignesh prajapati"
+            },
             {
               "paymentId": "MOJO6529S05Q83030865",
               "localCreatedAt": "29 May 2026, 11:42 PM",
@@ -127,46 +167,6 @@
               "purpose": "3 Hours Excel Career Masterclass",
               "classification": "webinar_only",
               "buyerName": "Meetrajsinh Zala"
-            },
-            {
-              "paymentId": "MOJO6529Q05Q83025584",
-              "localCreatedAt": "29 May 2026, 11:56 AM",
-              "amount": 198,
-              "purpose": "Masterclass + Ultimate Resource Bundle",
-              "classification": "combo",
-              "buyerName": "Sonu Yadav"
-            },
-            {
-              "paymentId": "MOJO6529N05Q83025328",
-              "localCreatedAt": "29 May 2026, 11:22 AM",
-              "amount": 99,
-              "purpose": "3 Hours Excel Career Masterclass",
-              "classification": "webinar_only",
-              "buyerName": "jeet pratap"
-            },
-            {
-              "paymentId": "MOJO6529K05Q83024867",
-              "localCreatedAt": "29 May 2026, 10:21 AM",
-              "amount": 198,
-              "purpose": "Masterclass + Ultimate Resource Bundle",
-              "classification": "combo",
-              "buyerName": "Manvi Chib"
-            },
-            {
-              "paymentId": "MOJO6529305Q83024809",
-              "localCreatedAt": "29 May 2026, 10:13 AM",
-              "amount": 198,
-              "purpose": "Masterclass + Ultimate Resource Bundle",
-              "classification": "combo",
-              "buyerName": "Aastha  Bhatt"
-            },
-            {
-              "paymentId": "MOJO6529805Q83024758",
-              "localCreatedAt": "29 May 2026, 10:04 AM",
-              "amount": 99,
-              "purpose": "3 Hours Excel Career Masterclass",
-              "classification": "webinar_only",
-              "buyerName": "Kiran Kumawat"
             }
           ]
         },
@@ -1863,7 +1863,7 @@
     "payu": {
       "gateway": "payu",
       "label": "PayU",
-      "generatedAt": "2026-05-29T18:22:41.381Z",
+      "generatedAt": "2026-05-30T04:58:53.486Z",
       "timezone": "Asia/Kolkata",
       "source": {
         "paymentRequestCount": 4,
@@ -1872,7 +1872,7 @@
       },
       "syncStatus": {
         "state": "pending",
-        "message": "PayU history is loading week by week. Recent data through 2026-05-29 is available now, and older weeks will continue syncing automatically every hour."
+        "message": "PayU history is loading week by week. Recent data through 2026-05-30 is available now, and older weeks will continue syncing automatically every hour."
       },
       "totals": {
         "registrations": 0,
@@ -1961,30 +1961,30 @@
     "cashfree": {
       "gateway": "cashfree",
       "label": "Cashfree",
-      "generatedAt": "2026-05-29T18:22:41.381Z",
+      "generatedAt": "2026-05-30T04:58:53.486Z",
       "timezone": "Asia/Kolkata",
       "source": {
-        "paymentRequestCount": 984,
-        "paymentCount": 984,
-        "successfulPaymentCount": 721
+        "paymentRequestCount": 991,
+        "paymentCount": 991,
+        "successfulPaymentCount": 726
       },
       "syncStatus": {
         "state": "ready",
         "message": null
       },
       "totals": {
-        "registrations": 457,
-        "bundleRegistrations": 265,
+        "registrations": 459,
+        "bundleRegistrations": 267,
         "coursePurchases": 114,
-        "totalRevenue": 316929
+        "totalRevenue": 317622
       },
       "historicalSummary": {
-        "webinarRegistrations": 457,
+        "webinarRegistrations": 459,
         "webinarWeeksCount": 9,
-        "bundleRegistrations": 265,
+        "bundleRegistrations": 267,
         "coursePurchases": 114,
-        "bundleConversionRate": 57.98687089715536,
-        "courseConversionRate": 24.945295404814004
+        "bundleConversionRate": 58.16993464052288,
+        "courseConversionRate": 24.836601307189543
       },
       "classificationSources": {
         "webinar": [
@@ -2758,6 +2758,14 @@
           }
         ],
         "bundle": [
+          {
+            "purpose": "MOJ86b924711ea3d53eb96d5e52d27ae0d6",
+            "count": 1
+          },
+          {
+            "purpose": "MOJ21e61352c399dda096ace87a3d6194f4",
+            "count": 1
+          },
           {
             "purpose": "MOJad7394e8f013de68a04b4cb15e5d29af",
             "count": 1
@@ -4283,19 +4291,59 @@
           "webinarDate": "2026-05-31",
           "label": "Webinar 31 May 2026",
           "registrationWindow": "24 May, 06:31 PM to 31 May, 06:30 PM IST",
-          "registrations": 22,
+          "registrations": 24,
           "webinarOnlyRegistrations": 0,
-          "comboRegistrations": 22,
-          "bundleRegistrations": 22,
+          "comboRegistrations": 24,
+          "bundleRegistrations": 24,
           "bundleOnlyRegistrations": 0,
           "coursePurchasesLive": 0,
           "coursePurchasesExtended": 0,
           "courseRevenueLive": 0,
           "courseRevenueExtended": 0,
-          "registrationRevenue": 4356,
-          "totalRevenue": 6831,
+          "registrationRevenue": 4752,
+          "totalRevenue": 7524,
           "topCoursePurposes": [],
           "recentPayments": [
+            {
+              "paymentId": "5686651880",
+              "localCreatedAt": "30/5/2026, 9:18:19 am",
+              "amount": 99,
+              "purpose": "MOJa31365a5a851d91bbc9cc6164b04510b",
+              "classification": "other",
+              "buyerName": ""
+            },
+            {
+              "paymentId": "5686602805",
+              "localCreatedAt": "30/5/2026, 9:05:32 am",
+              "amount": 99,
+              "purpose": "MOJ0ae39580eea5d863aa16398a0e625f42",
+              "classification": "other",
+              "buyerName": ""
+            },
+            {
+              "paymentId": "5686332669",
+              "localCreatedAt": "30/5/2026, 7:44:45 am",
+              "amount": 99,
+              "purpose": "MOJfd437210ef26d385ae42d0b0de663d57",
+              "classification": "other",
+              "buyerName": ""
+            },
+            {
+              "paymentId": "5684014197",
+              "localCreatedAt": "30/5/2026, 12:26:35 am",
+              "amount": 198,
+              "purpose": "MOJ86b924711ea3d53eb96d5e52d27ae0d6",
+              "classification": "combo",
+              "buyerName": ""
+            },
+            {
+              "paymentId": "5683942297",
+              "localCreatedAt": "29/5/2026, 11:56:08 pm",
+              "amount": 198,
+              "purpose": "MOJ21e61352c399dda096ace87a3d6194f4",
+              "classification": "combo",
+              "buyerName": ""
+            },
             {
               "paymentId": "5683905681",
               "localCreatedAt": "29/5/2026, 11:41:55 pm",
@@ -4349,46 +4397,6 @@
               "localCreatedAt": "29/5/2026, 3:19:45 pm",
               "amount": 99,
               "purpose": "MOJ5465f1254b40d452b8b1d2ef199113e8",
-              "classification": "other",
-              "buyerName": ""
-            },
-            {
-              "paymentId": "5680367381",
-              "localCreatedAt": "29/5/2026, 11:55:48 am",
-              "amount": 198,
-              "purpose": "MOJ1a0047bb3f83de94b243f664c26e1c67",
-              "classification": "combo",
-              "buyerName": ""
-            },
-            {
-              "paymentId": "5680204013",
-              "localCreatedAt": "29/5/2026, 11:22:41 am",
-              "amount": 99,
-              "purpose": "MOJ73d1fa03cd9ad3809272dcc895b0d9f7",
-              "classification": "other",
-              "buyerName": ""
-            },
-            {
-              "paymentId": "5679907483",
-              "localCreatedAt": "29/5/2026, 10:19:49 am",
-              "amount": 198,
-              "purpose": "MOJ84a539174128d732a63afaa33acc52e6",
-              "classification": "combo",
-              "buyerName": ""
-            },
-            {
-              "paymentId": "5679876288",
-              "localCreatedAt": "29/5/2026, 10:13:29 am",
-              "amount": 198,
-              "purpose": "MOJ08fded20b723d64c806ebf3ac3688132",
-              "classification": "combo",
-              "buyerName": ""
-            },
-            {
-              "paymentId": "5679829631",
-              "localCreatedAt": "29/5/2026, 10:04:29 am",
-              "amount": 99,
-              "purpose": "MOJ8487ed647bacdce68dc05dfa0c776ad1",
               "classification": "other",
               "buyerName": ""
             }
@@ -5493,6 +5501,3994 @@
               "purpose": "CFPay_basic-to-advance-excel-course_1ad460ca_1774797219294",
               "classification": "course",
               "buyerName": "Mahek Soneji"
+            }
+          ]
+        }
+      ]
+    },
+    "combined": {
+      "gateway": "combined",
+      "label": "Combined Unique",
+      "generatedAt": "2026-05-30T04:58:53.486Z",
+      "timezone": "Asia/Kolkata",
+      "source": {
+        "paymentRequestCount": 2828,
+        "paymentCount": 1893,
+        "successfulPaymentCount": 1462
+      },
+      "syncStatus": {
+        "state": "pending",
+        "message": "330 cross-gateway duplicates removed, 330 deterministic Instamojo/Cashfree mirrors. PayU still has history loading in the background."
+      },
+      "totals": {
+        "registrations": 1175,
+        "bundleRegistrations": 514,
+        "coursePurchases": 224,
+        "totalRevenue": 637433
+      },
+      "historicalSummary": {
+        "webinarRegistrations": 1175,
+        "webinarWeeksCount": 19,
+        "bundleRegistrations": 514,
+        "coursePurchases": 224,
+        "bundleConversionRate": 43.744680851063826,
+        "courseConversionRate": 19.06382978723404
+      },
+      "classificationSources": {
+        "webinar": [
+          {
+            "purpose": "3 Hours Excel Career Masterclass",
+            "count": 504
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4b5ab219_rty9f1a3ceb_1776878270988",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c92da526_1776841671568",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b4ff92dd_1776825482080",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4bb432f3_1776790453595",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_aa8a616b_1776785286993",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a7e9984a_1776759677992",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_95d08e5a_rtyf15f9c6a_1776671033949",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d11bdb63_1776586082079",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f8b48b2b_rty93b9304e_1776582223750",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_de58ccbc_1776575192993",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_2137890b_1776571666071",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_98d732cc_1776551535152",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5f6a9ff9_rty9367219d_1776546012555",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_fde7c2d7_1776532259322",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a8a55e15_1776527480388",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_979bac39_1776525711875",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a1003379_1776503322865",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e82f8573_1776474519611",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ee6dec63_1776451530400",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ea646e1a_1776431426108",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5ebd119d_1776427191482",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c6f140b3_1776411055736",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_fa445a49_1776395687141",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e55c67c9_1776374080494",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ff4562ff_1776373408937",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9ec545d6_1776369849123",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_1ab32a79_1776366855151",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a135be6a_1776365947565",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_6a8f49e8_1776350683113",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_46d0bb85_1776347492699",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c4335d5e_1776344061193",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8cc754de_1776331009225",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_32fe439e_rtyf33e7977_1776325266026",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9f2dbafa_1776324622707",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c3f15343_1776320153282",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ebfed373_1776274359370",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_46aa15ce_1776272356304",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9eb674b5_1776271939022",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b6618d57_1776270473931",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7d115eca_1776269758887",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ce1be1c7_1776269080539",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9fa539d2_1776268339020",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_498ea2fe_rtya2161401_1776261414281",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_223374fe_1776258127312",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_90cb99be_1776257547322",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_78850d73_1776244444612",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bc0da293_1776235850363",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_fcbe7480_1776226961999",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bd19ce2e_1776220169911",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bdfd8858_1776210292008",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8a2910f0_1776183172972",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b283567f_1776180724641",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_295bbf3e_1776154901718",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_6faa1287_1776147907580",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b8d6af40_1776110709565",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_94c95fde_1776094354930",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b93edaf9_1776091210852",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_43e49166_1776089436148",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0b94927f_1776066438343",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8b5c170d_1776064923837",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_594efe7b_1776049468390",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8b7d3621_1776041867302",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e9bacb15_1776020727551",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_92e09fd4_1776003310238",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b813b75a_1776001903151",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5130ce08_1776001874757",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a9e20fab_rty8201767e_1775994552762",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_807e50e3_1775989393141",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_60358be1_rty23acaa36_1775983461431",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_847a0a00_1775980548974",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_3ff5ccc5_1775978278972",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9fa964dd_1775969609186",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f318e450_rty35c5481e_1775959300078",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_80d749ba_1775956997294",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_34d8340d_rty4339b2a0_1775927509037",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7a174184_1775921922445",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_67413612_1775920209522",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0128f48d_1775901564849",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_67233478_1775899974437",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0fc4d919_1775898683194",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b0cfe6a4_1775888513957",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_df6e9cb9_1775887066754",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_30a37592_1775885714861",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_10b49239_rty63ca8ca7_1775876507349",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_3790b783_1775871871716",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f2d26013_1775849568517",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bae0efd8_1775842543163",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cda0aea1_1775841731748",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_56055840_1775837652635",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4b8c7285_1775813254841",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f93c6fda_1775809637753",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_477ef75a_rty3b0320fe_1775809371919",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7eab4313_1775805347768",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_2c8a1c88_1775802682798",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_88713cd0_1775796042963",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_1dbdfcab_1775795699266",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b408b756_1775794461550",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_19dfba9b_1775792361435",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9498532d_1775790147939",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_6832ab93_rty2ba5822b_1775757033417",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a68e2a69_1775756685222",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_74ab0be7_1775754915691",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d4ec3059_1775753380441",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e86cf9a9_1775751381614",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_673b52fc_1775744458392",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_79784f1a_1775723373452",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_39ed474a_1775721126308",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f153f4be_1775712627647",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_64829c2f_rty204fedc8_1775709829614",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0879fef4_1775703320997",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_6cea4fb8_1775703221457",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_91779c76_1775703081903",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_689ce17d_1775701555119",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cfcc8c99_1775692328241",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_fbb7cc68_1775671368358",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d1f56735_1775666908752",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e7478246_1775664920151",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c41b24c5_rtybd744037_1775664625935",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_da0386b9_1775661600422",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e5a742ec_1775660005795",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4584915d_1775651407991",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_244596fb_rty1a4657c9_1775651413394",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_1d8e5276_1775642593030",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cc9277d7_1775638302604",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d4acf5d9_1775634192842",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a7ed54c4_1775628205093",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_03da5dd7_1775625913497",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7352492b_1775619583684",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_057ae5ba_1775619263517",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_915f11e2_1775613719124",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_195e241f_rtyea45aca2_1775612272019",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_84eb35a0_1775589797019",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_afa180c0_1775581774598",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_2ab7b400_1775580214610",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_084196a3_1775543304861",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d0699f7a_1775535288047",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_eec26765_1775530390879",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_91abcdf7_1775529447735",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_367f0293_1775524115357",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8b0cb30b_1775498430377",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_206d1bd7_1775466818923",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a0416160_1775464963782",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bf976cda_1775461358439",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7579211e_1775459101228",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_14a8688c_1775455163646",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c2fcc908_1775455162703",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b1ad5c90_1775451944353",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cc644d40_1775446789980",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e49cadb2_1775445919624",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d03423c3_1775445260024",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_1a87ca58_1775424829814",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a115ea68_1775417087412",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9906e4b0_1775387523137",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8a7cf103_1775369067897",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5e4ae62f_1775363060832",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_97e65aa1_1775362222831",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0e91b6e0_1775361244053",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_99fff8ef_1775357171130",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4dbac5a0_1775328902348",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c5cc9b15_1775303408699",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f0af3652_1775299190202",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_380270dd_1775293802342",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8ff9c206_1775279417806",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c6651943_1775275582612",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c37b7a66_1775271907668",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cfe9769a_1775270179332",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b31935bd_1775269749199",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a96b122f_1775239368092",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4182dc94_1775235415212",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e800da1e_1775204281271",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bcad7490_1775203813424",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_6719bbfa_1775191840591",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_59e1f3f7_1775189222516",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b762cf16_1775167747280",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4ef2f812_1775165810164",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9738e49a_1775160169104",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b50dfd1f_1775157579626",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_39f90c23_1775156711872",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_45ba8431_rtyb35bd062_1775154298212",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_901204d7_1775149781872",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a5ad1fc9_1775147483788",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_687db063_1775134623870",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_84598628_1775116743093",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ed1ee386_1775114731793",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c5ed299b_1775112182052",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ac18e2f5_1775104665050",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7f49435e_1775101946510",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cb635061_1775063937760",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ad5675c2_1775062714588",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f2d84ad9_1775010838439",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5699b876_1775002890403",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9b8151a3_1774980907737",
+            "count": 1
+          }
+        ],
+        "bundle": [
+          {
+            "purpose": "Masterclass + Ultimate Resource Bundle",
+            "count": 360
+          },
+          {
+            "purpose": "Ultimate Resource Bundle",
+            "count": 35
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c2d1977c_1776877085993",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_893c9787_1776832916563",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a0450129_1776786875993",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_32d6e42f_1776783284112",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4dc0e843_1776767951689",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5a0516da_1776580156933",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7b77fb5d_1776568838379",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a16f95fa_1776530792102",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_dfccd99a_1776500800479",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e4afba9b_1776499848952",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_fe52f5e3_1776450526817",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_daa5d280_1776449271267",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_fd7fe490_rty9545eb86_1776446439658",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0d425a5d_1776442859257",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5fe486f2_1776417719909",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_6d8a7e6d_1776414325469",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f9db1d68_1776405198976",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_161cf970_1776361631317",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a80409ec_1776357431668",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ea12c2bd_1776335623241",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d097a8fc_1776326635617",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_563e14ef_1776317162044",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ca133f91_1776316995390",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9520019f_1776311790477",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f1d43912_1776310948047",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7b43664d_1776308903352",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_2d51b3b7_1776307681098",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7269be18_1776271856016",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_14cd71d0_1776266237274",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e016e218_1776235337843",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ed730b97_1776182575889",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_986e8793_1776164201558",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f7b28bc8_1776157264547",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c248571c_1776147959808",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_52b3368e_1776145406304",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_abaf84b8_1776133186774",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d28fc84e_1776113419772",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_022a94e8_1776105485131",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8ea03d07_rtye16a7616_1776096169710",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_05b69935_1776086546058",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_953caa2e_1776076759996",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bb3f7204_1776068954445",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ed1e8338_1776064343483",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_22177c61_1776036255652",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d61cd27e_1776017437720",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f2abfa33_1775997294486",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_785445b3_1775991286545",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_61225371_1775990596942",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_519bc2e0_1775984724723",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_208aaa1a_1775979606844",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_bf853e69_1775978376206",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_78118c3e_1775973450278",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c27c1b7f_1775972553438",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_48b3a3c3_rty1485ae03_1775971918576",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f739e27a_1775959939144",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e9172cdf_1775950953981",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4d54a0a1_1775925217425",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0f8408f2_1775895767701",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_228bf9eb_1775875790273",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c1fe1834_1775853206599",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ee582cdc_1775846636152",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e23b3382_1775809007127",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_80815e8f_1775790521463",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a355f89b_1775789483571",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_80e89f1e_1775755552923",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c1a028bf_1775753265168",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_3a52f705_1775738386394",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a52d0f35_1775729994651",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_7e689221_1775723454285",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_13ffa5e5_1775719583384",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f58ec07d_1775716548842",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cd06fd15_1775715289418",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5febd466_1775710347871",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5e87be23_1775710003145",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b99258a3_1775709729826",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a2f34731_1775704139984",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f49808d9_1775700922021",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_3a185f9e_1775648945021",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_567b32d2_rtyc7631c22_1775647293624",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_02af2ea8_1775633353101",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_6d4de40a_1775622120547",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_a5d4c225_1775617345433",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f42be245_1775616070244",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c1cd17d1_1775586758798",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9f920325_1775583984834",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_efc7f62d_1775580396646",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cb67fe01_1775579181159",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_abd520cd_1775572878352",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_408b7022_1775552938341",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_f45639af_1775549306424",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_964bcd30_1775538055825",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4ce9b6d1_1775534580452",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_5d2a06f9_1775528714941",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c0160724_1775496632766",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_3778cf23_1775474415785",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d6e98d3f_1775449998062",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_0578fbdf_1775443580807",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_60a94d71_1775439785917",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c6992e91_1775415407228",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b9f4f03a_1775387434694",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_58415c6a_1775383629098",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b4c89444_1775381632459",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_d3a613d2_1775381651786",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_4657eed8_rty4c3084ef_1775378848768",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8401aad9_1775373279630",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_8f82d54c_1775370091433",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_ca33a27c_1775368758158",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_1618596b_1775364405597",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e6f27031_1775334565018",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_46e5b497_1775291490952",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_9545a190_1775280756529",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_cc0f2a9e_1775276177961",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b193ec5c_1775272106235",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_176ffc24_1775188279116",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b5263224_1775161137092",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_33566099_1775140608560",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_e328f909_1775132841142",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_b7e87e1b_1775117197533",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_excel-career-3hours-live-masterclass_c1f7c45d_1774988671683",
+            "count": 1
+          }
+        ],
+        "course": [
+          {
+            "purpose": "Basic to Advance Excel Course",
+            "count": 143
+          },
+          {
+            "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+            "count": 4
+          },
+          {
+            "purpose": "MOJ5b33977bc6c8d994a17c327800af0832",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_007085a1_1776873464676",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_7de0d73d_1776783371310",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_a21bae5c_1776620218359",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_f2643594_1776619673385",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_96f72ae8_1776617006647",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_9d825f5a_1776615788776",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_98ad294a_1776615443096",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_00b0de36_1776612825855",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_304a78ab_1776612968305",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_f35e0779_1776612972264",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_593b12b9_1776612790534",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_0fceb2ab_1776612791441",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_d58df67e_1776612825515",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_d43a9fb0_1776612751298",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_63723c09_1776612690468",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_de41ee56_1776612600951",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_150ece7d_1776612542043",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_b77597dc_1776612493689",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_bbe203d8_1776579712700",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_ef8bab79_1776015553879",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_69da7e26_1776011975479",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_80679a78_1776011101110",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_05c7ad22_rtyc4a95935_1776010476517",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_4380bfad_1776010495230",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_3a67a9ff_rtyde5bb90f_1776010162246",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_3a8ef326_1776009385864",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_5106e998_rty8e5e4174_1776008497781",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_c9d14c60_1776007599843",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_976cbb71_1776008003534",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_d7af401e_1776007686398",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_7217f3be_1776007666183",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_18dfa136_1776007746330",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_3d9a3835_1776007694436",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_1f9d791c_1776007522497",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_65088ac8_1776007451122",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_7e7ac43a_1776007529414",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_1a4ad1e6_1776007555051",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_3f5cebcd_1776007540511",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_96e5a841_1776007436113",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_07fe04f1_1776007389156",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_ec9dcb8d_1776007302849",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_20482bde_1776007225629",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_445b391b_1776007227150",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_775a4a37_1776007243435",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_d18918b2_1776007217932",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_b34d14be_1776007224013",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_1480ed18_1775402650982",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_8388b3e5_1775410906213",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_cfdd37e7_1775410374885",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_3bf42c4f_1775409528641",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_9362b5d8_1775409355209",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_f5fcecf1_1775408755148",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_e3b9164b_1775403520456",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_7225b914_1775403462745",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_ba470e65_1775403422252",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_c1c97df3_1775403357679",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_e905d33a_1775403223139",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_5f213fff_1775402736875",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_98ea2e57_1775402946016",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_fd20497f_1775403098587",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_c88ccef7_1775402958558",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_8d36d337_1775402796033",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_87290220_1775402688859",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_524adf51_1775402643921",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_95998b68_1774802582500",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_5ed76b1f_1774800793798",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_ee35f732_1774801219010",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_b9f4a82e_1774798743369",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_31b7749b_1774797852401",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_b83d2ab3_1774797977047",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_a8451633_1774797914733",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_99f351c8_1774797782951",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_92d47507_1774797221848",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_667d8e6c_1774797601440",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_5dc502c4_1774797319938",
+            "count": 1
+          },
+          {
+            "purpose": "CFPay_basic-to-advance-excel-course_1ad460ca_1774797219294",
+            "count": 1
+          }
+        ]
+      },
+      "weekly": [
+        {
+          "webinarDate": "2026-05-31",
+          "label": "Webinar 31 May 2026",
+          "registrationWindow": "24 May, 06:31 PM to 31 May, 06:30 PM IST",
+          "registrations": 52,
+          "webinarOnlyRegistrations": 28,
+          "comboRegistrations": 24,
+          "bundleRegistrations": 24,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 0,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 0,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 7524,
+          "totalRevenue": 7524,
+          "topCoursePurposes": [],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6530Y05Q20972955",
+              "localCreatedAt": "30 May 2026, 09:18 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Poornima  Khatri"
+            },
+            {
+              "paymentId": "MOJO6530505Q20972872",
+              "localCreatedAt": "30 May 2026, 09:06 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Sahil Wingakar"
+            },
+            {
+              "paymentId": "MOJO6530305Q20972544",
+              "localCreatedAt": "30 May 2026, 07:45 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Namita Anand"
+            },
+            {
+              "paymentId": "MOJO6529M05Q83031068",
+              "localCreatedAt": "30 May 2026, 12:26 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Adil Baig"
+            },
+            {
+              "paymentId": "MOJO6529805Q83030930",
+              "localCreatedAt": "29 May 2026, 11:56 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Jignesh prajapati"
+            },
+            {
+              "paymentId": "MOJO6529S05Q83030865",
+              "localCreatedAt": "29 May 2026, 11:42 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Adil Baig"
+            },
+            {
+              "paymentId": "MOJO6529B05Q83030565",
+              "localCreatedAt": "29 May 2026, 10:46 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "AKASH YADAV"
+            },
+            {
+              "paymentId": "MOJO6529O05Q83030052",
+              "localCreatedAt": "29 May 2026, 09:40 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Rishab Kumar Borah"
+            },
+            {
+              "paymentId": "MOJO6529I05Q83028138",
+              "localCreatedAt": "29 May 2026, 05:01 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "RIDHAM JAIN"
+            },
+            {
+              "paymentId": "MOJO6529C05Q83027907",
+              "localCreatedAt": "29 May 2026, 04:37 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Rashmi Makwana"
+            },
+            {
+              "paymentId": "MOJO6529L05Q83027522",
+              "localCreatedAt": "29 May 2026, 03:43 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Vidhi Nathwani"
+            },
+            {
+              "paymentId": "MOJO6529J05Q83027337",
+              "localCreatedAt": "29 May 2026, 03:20 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Meetrajsinh Zala"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-05-24",
+          "label": "Webinar 24 May 2026",
+          "registrationWindow": "17 May, 06:31 PM to 24 May, 06:30 PM IST",
+          "registrations": 53,
+          "webinarOnlyRegistrations": 22,
+          "comboRegistrations": 31,
+          "bundleRegistrations": 34,
+          "bundleOnlyRegistrations": 3,
+          "coursePurchasesLive": 11,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 27500,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 8613,
+          "totalRevenue": 36113,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 7,
+              "revenue": 17500
+            },
+            {
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "count": 4,
+              "revenue": 10000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "28740836522",
+              "localCreatedAt": "24/5/2026, 9:43:43 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Megha Bhardwaj"
+            },
+            {
+              "paymentId": "28740787816",
+              "localCreatedAt": "24/5/2026, 9:40:24 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Tribeni Kumar Panda"
+            },
+            {
+              "paymentId": "28740288665",
+              "localCreatedAt": "24/5/2026, 9:09:46 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Avinash Borade"
+            },
+            {
+              "paymentId": "28740129293",
+              "localCreatedAt": "24/5/2026, 9:00:10 pm",
+              "amount": 2500,
+              "purpose": "Basic To Advance Excel Course Now At Limited Time Special Offer ",
+              "classification": "course",
+              "buyerName": "Bhagyashri Dhakare"
+            },
+            {
+              "paymentId": "MOJO6524S05Q13886105",
+              "localCreatedAt": "24 May 2026, 10:26 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Priyanka Lokhande"
+            },
+            {
+              "paymentId": "MOJO6524Z05Q13886004",
+              "localCreatedAt": "24 May 2026, 10:11 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Ravindra Dehuri"
+            },
+            {
+              "paymentId": "MOJO6524105Q13885827",
+              "localCreatedAt": "24 May 2026, 09:44 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Abhishek Rovin"
+            },
+            {
+              "paymentId": "MOJO6524I05Q13885766",
+              "localCreatedAt": "24 May 2026, 09:32 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "ANIL  KUMAR"
+            },
+            {
+              "paymentId": "MOJO6524205A13885760",
+              "localCreatedAt": "24 May 2026, 09:31 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Kalyan Panja"
+            },
+            {
+              "paymentId": "MOJO6524D05Q13885607",
+              "localCreatedAt": "24 May 2026, 09:07 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Moses Paul"
+            },
+            {
+              "paymentId": "MOJO6524305Q13885550",
+              "localCreatedAt": "24 May 2026, 09:01 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Gawher Nazir Dar"
+            },
+            {
+              "paymentId": "MOJO6524Y05Q13883712",
+              "localCreatedAt": "24 May 2026, 05:46 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Moses Paul"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-05-17",
+          "label": "Webinar 17 May 2026",
+          "registrationWindow": "10 May, 06:31 PM to 17 May, 06:30 PM IST",
+          "registrations": 65,
+          "webinarOnlyRegistrations": 33,
+          "comboRegistrations": 32,
+          "bundleRegistrations": 33,
+          "bundleOnlyRegistrations": 1,
+          "coursePurchasesLive": 12,
+          "coursePurchasesExtended": 3,
+          "courseRevenueLive": 24000,
+          "courseRevenueExtended": 6000,
+          "registrationRevenue": 9702,
+          "totalRevenue": 39747,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 15,
+              "revenue": 30000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6521C05Q79737673",
+              "localCreatedAt": "21 May 2026, 06:57 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sinan A"
+            },
+            {
+              "paymentId": "MOJO6521J05Q79737614",
+              "localCreatedAt": "21 May 2026, 06:48 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Om raj"
+            },
+            {
+              "paymentId": "MOJO6518K05Q99144284",
+              "localCreatedAt": "18 May 2026, 09:06 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Mohammad tabraiz  Shaikh"
+            },
+            {
+              "paymentId": "MOJO6517Z05Q38910950",
+              "localCreatedAt": "17 May 2026, 10:44 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Davinder Singh"
+            },
+            {
+              "paymentId": "MOJO6517V05Q38910643",
+              "localCreatedAt": "17 May 2026, 10:04 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Prashasti  Singh"
+            },
+            {
+              "paymentId": "MOJO6517705D38910642",
+              "localCreatedAt": "17 May 2026, 10:04 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "RAVI THAKKAR"
+            },
+            {
+              "paymentId": "MOJO6517L05Q38910623",
+              "localCreatedAt": "17 May 2026, 10:00 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Raktim Choudhury"
+            },
+            {
+              "paymentId": "MOJO6517F05Q38910389",
+              "localCreatedAt": "17 May 2026, 09:26 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Rohan Mahajan"
+            },
+            {
+              "paymentId": "MOJO6517H05Q38910263",
+              "localCreatedAt": "17 May 2026, 09:10 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Swati Gour"
+            },
+            {
+              "paymentId": "MOJO6517A05Q38910227",
+              "localCreatedAt": "17 May 2026, 09:03 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "priti Ranjan"
+            },
+            {
+              "paymentId": "MOJO6517X05Q38910219",
+              "localCreatedAt": "17 May 2026, 09:03 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Shivendra  Srivastava"
+            },
+            {
+              "paymentId": "MOJO6517J05Q38910213",
+              "localCreatedAt": "17 May 2026, 09:02 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Rupa Bhandare"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-05-10",
+          "label": "Webinar 10 May 2026",
+          "registrationWindow": "03 May, 06:31 PM to 10 May, 06:30 PM IST",
+          "registrations": 94,
+          "webinarOnlyRegistrations": 40,
+          "comboRegistrations": 54,
+          "bundleRegistrations": 54,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 16,
+          "coursePurchasesExtended": 1,
+          "courseRevenueLive": 32000,
+          "courseRevenueExtended": 2000,
+          "registrationRevenue": 14652,
+          "totalRevenue": 48652,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 16,
+              "revenue": 32000
+            },
+            {
+              "purpose": "MOJ5b33977bc6c8d994a17c327800af0832",
+              "count": 1,
+              "revenue": 2000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6516505Q99042957",
+              "localCreatedAt": "16 May 2026, 09:28 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Ashish Deshwal"
+            },
+            {
+              "paymentId": "5549729444",
+              "localCreatedAt": "10/5/2026, 9:07:57 pm",
+              "amount": 2000,
+              "purpose": "MOJ5b33977bc6c8d994a17c327800af0832",
+              "classification": "course",
+              "buyerName": ""
+            },
+            {
+              "paymentId": "MOJO6510M05Q01271480",
+              "localCreatedAt": "10 May 2026, 11:12 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Joy Roy Roy"
+            },
+            {
+              "paymentId": "MOJO6510S05Q01271230",
+              "localCreatedAt": "10 May 2026, 10:48 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Aditya Parashar"
+            },
+            {
+              "paymentId": "MOJO6510Y05D01271101",
+              "localCreatedAt": "10 May 2026, 10:41 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Naveen S"
+            },
+            {
+              "paymentId": "MOJO6510005D01270569",
+              "localCreatedAt": "10 May 2026, 09:52 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Nishikant Samudre"
+            },
+            {
+              "paymentId": "MOJO6510A05Q01270378",
+              "localCreatedAt": "10 May 2026, 09:28 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Nandini Bahety"
+            },
+            {
+              "paymentId": "MOJO6510905Q01270318",
+              "localCreatedAt": "10 May 2026, 09:22 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Pranoy  Acharya"
+            },
+            {
+              "paymentId": "MOJO6510W05Q01270209",
+              "localCreatedAt": "10 May 2026, 09:10 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Aman Srivastava"
+            },
+            {
+              "paymentId": "MOJO6510R05D01270199",
+              "localCreatedAt": "10 May 2026, 09:09 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Anuj Sareen"
+            },
+            {
+              "paymentId": "MOJO6510605Q01270182",
+              "localCreatedAt": "10 May 2026, 09:08 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Gyanaranjan Dash"
+            },
+            {
+              "paymentId": "MOJO6510005Q01270160",
+              "localCreatedAt": "10 May 2026, 09:06 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Vidhi Lodha"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-04-26",
+          "label": "Webinar 26 Apr 2026",
+          "registrationWindow": "19 Apr, 06:31 PM to 26 Apr, 06:30 PM IST",
+          "registrations": 24,
+          "webinarOnlyRegistrations": 12,
+          "comboRegistrations": 12,
+          "bundleRegistrations": 12,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 0,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 0,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 3564,
+          "totalRevenue": 3636,
+          "topCoursePurposes": [],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6426Z05Q46607878",
+              "localCreatedAt": "26 Apr 2026, 11:47 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Manvi Bashisth"
+            },
+            {
+              "paymentId": "MOJO6426805Q46607430",
+              "localCreatedAt": "26 Apr 2026, 10:50 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Prakriti  Dwesar"
+            },
+            {
+              "paymentId": "MOJO6426Z05Q46606746",
+              "localCreatedAt": "26 Apr 2026, 09:11 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Girish Kulkarni"
+            },
+            {
+              "paymentId": "MOJO6425N05Q91105489",
+              "localCreatedAt": "26 Apr 2026, 12:06 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Shubhi Sanadhya"
+            },
+            {
+              "paymentId": "MOJO6425305Q91105133",
+              "localCreatedAt": "25 Apr 2026, 11:10 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Prathamesh Hadpad"
+            },
+            {
+              "paymentId": "MOJO6425G05Q91104463",
+              "localCreatedAt": "25 Apr 2026, 09:31 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Sagnika Chatterjee"
+            },
+            {
+              "paymentId": "MOJO6425105Q91098113",
+              "localCreatedAt": "25 Apr 2026, 09:13 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Akash Jain"
+            },
+            {
+              "paymentId": "MOJO6424Q05Q62390174",
+              "localCreatedAt": "24 Apr 2026, 03:04 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "pragya Chauhan"
+            },
+            {
+              "paymentId": "MOJO6424505Q62388827",
+              "localCreatedAt": "24 Apr 2026, 12:43 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Aditya Anjungikar"
+            },
+            {
+              "paymentId": "MOJO6424105Q62386398",
+              "localCreatedAt": "24 Apr 2026, 06:39 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Debasis  Panda"
+            },
+            {
+              "paymentId": "MOJO6423505Q75440135",
+              "localCreatedAt": "23 Apr 2026, 11:00 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Hiren Bamania"
+            },
+            {
+              "paymentId": "MOJO6423E05Q75434494",
+              "localCreatedAt": "23 Apr 2026, 11:43 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Atish Deshpande"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-04-19",
+          "label": "Webinar 19 Apr 2026",
+          "registrationWindow": "12 Apr, 06:31 PM to 19 Apr, 06:30 PM IST",
+          "registrations": 99,
+          "webinarOnlyRegistrations": 59,
+          "comboRegistrations": 40,
+          "bundleRegistrations": 40,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 16,
+          "coursePurchasesExtended": 2,
+          "courseRevenueLive": 32000,
+          "courseRevenueExtended": 4000,
+          "registrationRevenue": 13761,
+          "totalRevenue": 49761,
+          "topCoursePurposes": [
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_007085a1_1776873464676",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_7de0d73d_1776783371310",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_a21bae5c_1776620218359",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_f2643594_1776619673385",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_96f72ae8_1776617006647",
+              "count": 1,
+              "revenue": 2000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "5418653549",
+              "localCreatedAt": "22/4/2026, 9:28:38 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_007085a1_1776873464676",
+              "classification": "course",
+              "buyerName": "Mahesh Kumar Rajput"
+            },
+            {
+              "paymentId": "5411790590",
+              "localCreatedAt": "21/4/2026, 8:27:43 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_7de0d73d_1776783371310",
+              "classification": "course",
+              "buyerName": "Suyog savale"
+            },
+            {
+              "paymentId": "5398955398",
+              "localCreatedAt": "19/4/2026, 11:07:38 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_a21bae5c_1776620218359",
+              "classification": "course",
+              "buyerName": "Umesh Motgi"
+            },
+            {
+              "paymentId": "5398927015",
+              "localCreatedAt": "19/4/2026, 10:58:59 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_f2643594_1776619673385",
+              "classification": "course",
+              "buyerName": "Sachin Kamble"
+            },
+            {
+              "paymentId": "5398764827",
+              "localCreatedAt": "19/4/2026, 10:14:43 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_96f72ae8_1776617006647",
+              "classification": "course",
+              "buyerName": "Chitta Ranjan Das"
+            },
+            {
+              "paymentId": "5398671222",
+              "localCreatedAt": "19/4/2026, 9:53:36 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_9d825f5a_1776615788776",
+              "classification": "course",
+              "buyerName": "Akash Pal"
+            },
+            {
+              "paymentId": "5398640736",
+              "localCreatedAt": "19/4/2026, 9:47:50 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_98ad294a_1776615443096",
+              "classification": "course",
+              "buyerName": "Anushree Dey"
+            },
+            {
+              "paymentId": "5398468876",
+              "localCreatedAt": "19/4/2026, 9:08:09 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_00b0de36_1776612825855",
+              "classification": "course",
+              "buyerName": "Shashank Jain"
+            },
+            {
+              "paymentId": "5398466938",
+              "localCreatedAt": "19/4/2026, 9:07:40 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_304a78ab_1776612968305",
+              "classification": "course",
+              "buyerName": "mahboob"
+            },
+            {
+              "paymentId": "5398464982",
+              "localCreatedAt": "19/4/2026, 9:07:12 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_f35e0779_1776612972264",
+              "classification": "course",
+              "buyerName": "Yeshwanth Kumar"
+            },
+            {
+              "paymentId": "5398461485",
+              "localCreatedAt": "19/4/2026, 9:06:21 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_593b12b9_1776612790534",
+              "classification": "course",
+              "buyerName": "Mohammed Tariq Riaz"
+            },
+            {
+              "paymentId": "5398455346",
+              "localCreatedAt": "19/4/2026, 9:04:49 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_0fceb2ab_1776612791441",
+              "classification": "course",
+              "buyerName": "Vishal Madamolla"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-04-12",
+          "label": "Webinar 12 Apr 2026",
+          "registrationWindow": "05 Apr, 06:31 PM to 12 Apr, 06:30 PM IST",
+          "registrations": 140,
+          "webinarOnlyRegistrations": 86,
+          "comboRegistrations": 54,
+          "bundleRegistrations": 54,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 27,
+          "coursePurchasesExtended": 1,
+          "courseRevenueLive": 54000,
+          "courseRevenueExtended": 2000,
+          "registrationRevenue": 19206,
+          "totalRevenue": 75206,
+          "topCoursePurposes": [
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_bbe203d8_1776579712700",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_ef8bab79_1776015553879",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_69da7e26_1776011975479",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_80679a78_1776011101110",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_05c7ad22_rtyc4a95935_1776010476517",
+              "count": 1,
+              "revenue": 2000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "5395694314",
+              "localCreatedAt": "19/4/2026, 11:57:22 am",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_bbe203d8_1776579712700",
+              "classification": "course",
+              "buyerName": "Guruvary Vitthal Gawas"
+            },
+            {
+              "paymentId": "5352282373",
+              "localCreatedAt": "12/4/2026, 11:10:31 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_ef8bab79_1776015553879",
+              "classification": "course",
+              "buyerName": "Prasenjeet Fulzele"
+            },
+            {
+              "paymentId": "5352066052",
+              "localCreatedAt": "12/4/2026, 10:10:24 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_69da7e26_1776011975479",
+              "classification": "course",
+              "buyerName": "Sheetal Patil"
+            },
+            {
+              "paymentId": "5352009897",
+              "localCreatedAt": "12/4/2026, 9:56:05 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_80679a78_1776011101110",
+              "classification": "course",
+              "buyerName": "Kirti Joshi"
+            },
+            {
+              "paymentId": "5351972261",
+              "localCreatedAt": "12/4/2026, 9:46:37 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_05c7ad22_rtyc4a95935_1776010476517",
+              "classification": "course",
+              "buyerName": "Rajanikanth"
+            },
+            {
+              "paymentId": "5351967691",
+              "localCreatedAt": "12/4/2026, 9:45:29 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_4380bfad_1776010495230",
+              "classification": "course",
+              "buyerName": "Ram Kumar"
+            },
+            {
+              "paymentId": "5351946629",
+              "localCreatedAt": "12/4/2026, 9:40:13 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_3a67a9ff_rtyde5bb90f_1776010162246",
+              "classification": "course",
+              "buyerName": "Milind J"
+            },
+            {
+              "paymentId": "5351896202",
+              "localCreatedAt": "12/4/2026, 9:27:20 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_3a8ef326_1776009385864",
+              "classification": "course",
+              "buyerName": "Manish Suresh Gowda"
+            },
+            {
+              "paymentId": "5351866988",
+              "localCreatedAt": "12/4/2026, 9:19:49 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_5106e998_rty8e5e4174_1776008497781",
+              "classification": "course",
+              "buyerName": "Harsh Jagetiya"
+            },
+            {
+              "paymentId": "5351814140",
+              "localCreatedAt": "12/4/2026, 9:05:36 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_c9d14c60_1776007599843",
+              "classification": "course",
+              "buyerName": "Sachin S"
+            },
+            {
+              "paymentId": "5351809393",
+              "localCreatedAt": "12/4/2026, 9:04:25 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_976cbb71_1776008003534",
+              "classification": "course",
+              "buyerName": "Kiran Dhanule"
+            },
+            {
+              "paymentId": "5351798621",
+              "localCreatedAt": "12/4/2026, 9:01:41 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_d7af401e_1776007686398",
+              "classification": "course",
+              "buyerName": "Shiksha Rajput"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-04-05",
+          "label": "Webinar 05 Apr 2026",
+          "registrationWindow": "29 Mar, 06:31 PM to 05 Apr, 06:30 PM IST",
+          "registrations": 60,
+          "webinarOnlyRegistrations": 40,
+          "comboRegistrations": 20,
+          "bundleRegistrations": 20,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 18,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 36000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 7920,
+          "totalRevenue": 44974,
+          "topCoursePurposes": [
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_1480ed18_1775402650982",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_8388b3e5_1775410906213",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_cfdd37e7_1775410374885",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_3bf42c4f_1775409528641",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_9362b5d8_1775409355209",
+              "count": 1,
+              "revenue": 2000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "5304162226",
+              "localCreatedAt": "5/4/2026, 11:29:25 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_1480ed18_1775402650982",
+              "classification": "course",
+              "buyerName": "Ritesh Narain Saxena"
+            },
+            {
+              "paymentId": "5304109399",
+              "localCreatedAt": "5/4/2026, 11:12:30 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_8388b3e5_1775410906213",
+              "classification": "course",
+              "buyerName": "Pooja Malde"
+            },
+            {
+              "paymentId": "5304095826",
+              "localCreatedAt": "5/4/2026, 11:08:11 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_cfdd37e7_1775410374885",
+              "classification": "course",
+              "buyerName": "Anita Yadav"
+            },
+            {
+              "paymentId": "5304031183",
+              "localCreatedAt": "5/4/2026, 10:49:18 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_3bf42c4f_1775409528641",
+              "classification": "course",
+              "buyerName": "Chetan Bhandari"
+            },
+            {
+              "paymentId": "5304021375",
+              "localCreatedAt": "5/4/2026, 10:46:19 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_9362b5d8_1775409355209",
+              "classification": "course",
+              "buyerName": "Deshank Jain"
+            },
+            {
+              "paymentId": "5303988187",
+              "localCreatedAt": "5/4/2026, 10:36:49 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_f5fcecf1_1775408755148",
+              "classification": "course",
+              "buyerName": "Khushal Patel"
+            },
+            {
+              "paymentId": "5303631604",
+              "localCreatedAt": "5/4/2026, 9:09:36 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_e3b9164b_1775403520456",
+              "classification": "course",
+              "buyerName": "Nidhi Diwakar"
+            },
+            {
+              "paymentId": "5303629584",
+              "localCreatedAt": "5/4/2026, 9:09:06 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_7225b914_1775403462745",
+              "classification": "course",
+              "buyerName": "Himanshu"
+            },
+            {
+              "paymentId": "5303626565",
+              "localCreatedAt": "5/4/2026, 9:08:19 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_ba470e65_1775403422252",
+              "classification": "course",
+              "buyerName": "Mansi Kirtane"
+            },
+            {
+              "paymentId": "5303625206",
+              "localCreatedAt": "5/4/2026, 9:07:59 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_c1c97df3_1775403357679",
+              "classification": "course",
+              "buyerName": "Tejal"
+            },
+            {
+              "paymentId": "5303614356",
+              "localCreatedAt": "5/4/2026, 9:05:21 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_e905d33a_1775403223139",
+              "classification": "course",
+              "buyerName": "Ankush Berry"
+            },
+            {
+              "paymentId": "5303612023",
+              "localCreatedAt": "5/4/2026, 9:04:46 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_5f213fff_1775402736875",
+              "classification": "course",
+              "buyerName": "Sohel Saleem Shaikh"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-03-29",
+          "label": "Webinar 29 Mar 2026",
+          "registrationWindow": "22 Mar, 06:31 PM to 29 Mar, 06:30 PM IST",
+          "registrations": 0,
+          "webinarOnlyRegistrations": 0,
+          "comboRegistrations": 0,
+          "bundleRegistrations": 0,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 12,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 24000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 0,
+          "totalRevenue": 24009,
+          "topCoursePurposes": [
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_95998b68_1774802582500",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_5ed76b1f_1774800793798",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_ee35f732_1774801219010",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_b9f4a82e_1774798743369",
+              "count": 1,
+              "revenue": 2000
+            },
+            {
+              "purpose": "CFPay_basic-to-advance-excel-course_31b7749b_1774797852401",
+              "count": 1,
+              "revenue": 2000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "5256308054",
+              "localCreatedAt": "29/3/2026, 10:13:24 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_95998b68_1774802582500",
+              "classification": "course",
+              "buyerName": "tanmoy Maity"
+            },
+            {
+              "paymentId": "5256278525",
+              "localCreatedAt": "29/3/2026, 10:05:07 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_5ed76b1f_1774800793798",
+              "classification": "course",
+              "buyerName": "Vinay Jain"
+            },
+            {
+              "paymentId": "5256229238",
+              "localCreatedAt": "29/3/2026, 9:51:24 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_ee35f732_1774801219010",
+              "classification": "course",
+              "buyerName": "Amitav Borah"
+            },
+            {
+              "paymentId": "5256074075",
+              "localCreatedAt": "29/3/2026, 9:09:55 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_b9f4a82e_1774798743369",
+              "classification": "course",
+              "buyerName": "Riddhi agrawal"
+            },
+            {
+              "paymentId": "5256029439",
+              "localCreatedAt": "29/3/2026, 8:58:19 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_31b7749b_1774797852401",
+              "classification": "course",
+              "buyerName": "Sakshi Singhal"
+            },
+            {
+              "paymentId": "5256023387",
+              "localCreatedAt": "29/3/2026, 8:56:49 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_b83d2ab3_1774797977047",
+              "classification": "course",
+              "buyerName": "Isha Agarwal"
+            },
+            {
+              "paymentId": "5256023085",
+              "localCreatedAt": "29/3/2026, 8:56:45 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_a8451633_1774797914733",
+              "classification": "course",
+              "buyerName": "Anantha padmanabhan"
+            },
+            {
+              "paymentId": "5256011350",
+              "localCreatedAt": "29/3/2026, 8:53:44 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_99f351c8_1774797782951",
+              "classification": "course",
+              "buyerName": "Richa"
+            },
+            {
+              "paymentId": "5256004076",
+              "localCreatedAt": "29/3/2026, 8:51:50 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_92d47507_1774797221848",
+              "classification": "course",
+              "buyerName": "mahender"
+            },
+            {
+              "paymentId": "5256003759",
+              "localCreatedAt": "29/3/2026, 8:51:45 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_667d8e6c_1774797601440",
+              "classification": "course",
+              "buyerName": "Sunit Bhaskar"
+            },
+            {
+              "paymentId": "5255983273",
+              "localCreatedAt": "29/3/2026, 8:46:25 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_5dc502c4_1774797319938",
+              "classification": "course",
+              "buyerName": "Prajin Kamble"
+            },
+            {
+              "paymentId": "5255975479",
+              "localCreatedAt": "29/3/2026, 8:44:21 pm",
+              "amount": 2000,
+              "purpose": "CFPay_basic-to-advance-excel-course_1ad460ca_1774797219294",
+              "classification": "course",
+              "buyerName": "Mahek Soneji"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-03-15",
+          "label": "Webinar 15 Mar 2026",
+          "registrationWindow": "08 Mar, 06:31 PM to 15 Mar, 06:30 PM IST",
+          "registrations": 77,
+          "webinarOnlyRegistrations": 38,
+          "comboRegistrations": 39,
+          "bundleRegistrations": 40,
+          "bundleOnlyRegistrations": 1,
+          "coursePurchasesLive": 21,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 42000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 11583,
+          "totalRevenue": 53583,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 21,
+              "revenue": 42000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6315005Q32484478",
+              "localCreatedAt": "15 Mar 2026, 11:17 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Bhawana Agarwal"
+            },
+            {
+              "paymentId": "MOJO6315R05Q32484277",
+              "localCreatedAt": "15 Mar 2026, 11:00 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Keval Joshi"
+            },
+            {
+              "paymentId": "MOJO6315D05Q32483900",
+              "localCreatedAt": "15 Mar 2026, 10:33 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Anuradha Singh  Nikhar"
+            },
+            {
+              "paymentId": "MOJO6315005Q32483671",
+              "localCreatedAt": "15 Mar 2026, 10:17 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Pinki Gurjar"
+            },
+            {
+              "paymentId": "MOJO6315N05Q32483597",
+              "localCreatedAt": "15 Mar 2026, 10:10 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Anjali Mourya"
+            },
+            {
+              "paymentId": "MOJO6315X05Q32483536",
+              "localCreatedAt": "15 Mar 2026, 10:07 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Alka Mishra"
+            },
+            {
+              "paymentId": "MOJO6315X05Q32483486",
+              "localCreatedAt": "15 Mar 2026, 10:03 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Jayant Tirole"
+            },
+            {
+              "paymentId": "MOJO6315H05Q32483298",
+              "localCreatedAt": "15 Mar 2026, 09:49 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Ashutosh Mandal Mandal"
+            },
+            {
+              "paymentId": "MOJO6315V05Q32483242",
+              "localCreatedAt": "15 Mar 2026, 09:46 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Shivam Shrivastava"
+            },
+            {
+              "paymentId": "MOJO6315H05Q32483077",
+              "localCreatedAt": "15 Mar 2026, 09:34 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Dhaarna Rustagi"
+            },
+            {
+              "paymentId": "MOJO6315I05Q32483030",
+              "localCreatedAt": "15 Mar 2026, 09:30 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Prem Horo"
+            },
+            {
+              "paymentId": "MOJO6315F05Q32482897",
+              "localCreatedAt": "15 Mar 2026, 09:20 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "ROBIN Samudre"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-03-08",
+          "label": "Webinar 08 Mar 2026",
+          "registrationWindow": "01 Mar, 06:31 PM to 08 Mar, 06:30 PM IST",
+          "registrations": 68,
+          "webinarOnlyRegistrations": 31,
+          "comboRegistrations": 37,
+          "bundleRegistrations": 39,
+          "bundleOnlyRegistrations": 2,
+          "coursePurchasesLive": 6,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 17994,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 10593,
+          "totalRevenue": 29087,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 6,
+              "revenue": 17994
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6308405Q23666959",
+              "localCreatedAt": "08 Mar 2026, 10:35 PM",
+              "amount": 2999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Himani Jain"
+            },
+            {
+              "paymentId": "MOJO6308705Q23666679",
+              "localCreatedAt": "08 Mar 2026, 10:08 PM",
+              "amount": 2999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "KHUSHI GOEL"
+            },
+            {
+              "paymentId": "MOJO6308U05Q23666491",
+              "localCreatedAt": "08 Mar 2026, 09:50 PM",
+              "amount": 2999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Himanshu Joshi"
+            },
+            {
+              "paymentId": "MOJO6308D05Q23666033",
+              "localCreatedAt": "08 Mar 2026, 08:59 PM",
+              "amount": 2999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sabita Balakrishnan"
+            },
+            {
+              "paymentId": "MOJO6308305Q23665945",
+              "localCreatedAt": "08 Mar 2026, 08:52 PM",
+              "amount": 2999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Aniruddh Kumar  Gupta"
+            },
+            {
+              "paymentId": "MOJO6308905Q23665906",
+              "localCreatedAt": "08 Mar 2026, 08:49 PM",
+              "amount": 2999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Deependra Malik"
+            },
+            {
+              "paymentId": "MOJO6308A05Q23664073",
+              "localCreatedAt": "08 Mar 2026, 05:49 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Ankita Jha"
+            },
+            {
+              "paymentId": "MOJO6308205Q23662298",
+              "localCreatedAt": "08 Mar 2026, 03:22 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Adesh Mahajan"
+            },
+            {
+              "paymentId": "MOJO6308V05Q23661574",
+              "localCreatedAt": "08 Mar 2026, 02:26 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Vijay Bipin"
+            },
+            {
+              "paymentId": "MOJO6308005Q23659375",
+              "localCreatedAt": "08 Mar 2026, 12:05 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "prince jaiswal"
+            },
+            {
+              "paymentId": "MOJO6308H05Q23658057",
+              "localCreatedAt": "08 Mar 2026, 10:29 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Himani Jain"
+            },
+            {
+              "paymentId": "MOJO6308305Q23657207",
+              "localCreatedAt": "08 Mar 2026, 09:19 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Joshna Chhangani"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-03-01",
+          "label": "Webinar 01 Mar 2026",
+          "registrationWindow": "22 Feb, 06:31 PM to 01 Mar, 06:30 PM IST",
+          "registrations": 89,
+          "webinarOnlyRegistrations": 44,
+          "comboRegistrations": 45,
+          "bundleRegistrations": 45,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 18,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 45000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 13266,
+          "totalRevenue": 58302,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 18,
+              "revenue": 45000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6301O05Q63310089",
+              "localCreatedAt": "01 Mar 2026, 11:02 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Amey  Bhosale"
+            },
+            {
+              "paymentId": "MOJO6301905Q63310011",
+              "localCreatedAt": "01 Mar 2026, 10:57 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Ankit Sharma"
+            },
+            {
+              "paymentId": "MOJO6301N05Q63309669",
+              "localCreatedAt": "01 Mar 2026, 10:32 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "ARYA SHUBHAM"
+            },
+            {
+              "paymentId": "MOJO6301605Q63309565",
+              "localCreatedAt": "01 Mar 2026, 10:22 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Keshab Panigrahi"
+            },
+            {
+              "paymentId": "MOJO6301S05Q63309012",
+              "localCreatedAt": "01 Mar 2026, 09:39 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Shubhangi Das"
+            },
+            {
+              "paymentId": "MOJO6301B05Q63308812",
+              "localCreatedAt": "01 Mar 2026, 09:24 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Shivam  Swaraj"
+            },
+            {
+              "paymentId": "MOJO6301D05Q63308800",
+              "localCreatedAt": "01 Mar 2026, 09:23 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Hiteshita Kapoor"
+            },
+            {
+              "paymentId": "MOJO6301H05Q63308427",
+              "localCreatedAt": "01 Mar 2026, 08:56 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Anurag  Tiwary"
+            },
+            {
+              "paymentId": "MOJO6301I05Q63308409",
+              "localCreatedAt": "01 Mar 2026, 08:55 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Syeda Quadri"
+            },
+            {
+              "paymentId": "MOJO6301R05Q63308384",
+              "localCreatedAt": "01 Mar 2026, 08:54 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "mansi jani"
+            },
+            {
+              "paymentId": "MOJO6301705Q63308298",
+              "localCreatedAt": "01 Mar 2026, 08:51 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sharadbabu Narayanan"
+            },
+            {
+              "paymentId": "MOJO6301V05Q63308289",
+              "localCreatedAt": "01 Mar 2026, 08:51 PM",
+              "amount": 2500,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sakshi Mishra"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-02-22",
+          "label": "Webinar 22 Feb 2026",
+          "registrationWindow": "15 Feb, 06:31 PM to 22 Feb, 06:30 PM IST",
+          "registrations": 54,
+          "webinarOnlyRegistrations": 29,
+          "comboRegistrations": 25,
+          "bundleRegistrations": 25,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 13,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 26000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 7821,
+          "totalRevenue": 33821,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 13,
+              "revenue": 26000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6222I05Q33492451",
+              "localCreatedAt": "22 Feb 2026, 10:11 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Paramita Mitra"
+            },
+            {
+              "paymentId": "MOJO6222J05Q33491778",
+              "localCreatedAt": "22 Feb 2026, 09:13 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Jaydeep Jagani"
+            },
+            {
+              "paymentId": "MOJO6222K05Q33491737",
+              "localCreatedAt": "22 Feb 2026, 09:09 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Nikhil Khetan"
+            },
+            {
+              "paymentId": "MOJO6222V05Q33491658",
+              "localCreatedAt": "22 Feb 2026, 09:02 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Md Asif Iqbal"
+            },
+            {
+              "paymentId": "MOJO6222W05Q33491612",
+              "localCreatedAt": "22 Feb 2026, 08:59 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "RAJESH Kumar"
+            },
+            {
+              "paymentId": "MOJO6222M05Q33491607",
+              "localCreatedAt": "22 Feb 2026, 08:58 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Shubhra  Nigudkar"
+            },
+            {
+              "paymentId": "MOJO6222Z05D33491606",
+              "localCreatedAt": "22 Feb 2026, 08:58 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Reshu Teotia"
+            },
+            {
+              "paymentId": "MOJO6222A05Q33491592",
+              "localCreatedAt": "22 Feb 2026, 08:56 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Shivali Dawar"
+            },
+            {
+              "paymentId": "MOJO6222705Q33491563",
+              "localCreatedAt": "22 Feb 2026, 08:55 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Priyanka  Dangi"
+            },
+            {
+              "paymentId": "MOJO6222N05D33491556",
+              "localCreatedAt": "22 Feb 2026, 08:54 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Neelam Patil"
+            },
+            {
+              "paymentId": "MOJO6222B05Q33491536",
+              "localCreatedAt": "22 Feb 2026, 08:52 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Anjali  Lasiyal"
+            },
+            {
+              "paymentId": "MOJO6222P05D33491492",
+              "localCreatedAt": "22 Feb 2026, 08:48 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Gouri Fiske Kadu"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-02-15",
+          "label": "Webinar 15 Feb 2026",
+          "registrationWindow": "08 Feb, 06:31 PM to 15 Feb, 06:30 PM IST",
+          "registrations": 65,
+          "webinarOnlyRegistrations": 29,
+          "comboRegistrations": 36,
+          "bundleRegistrations": 38,
+          "bundleOnlyRegistrations": 2,
+          "coursePurchasesLive": 19,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 38000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 10197,
+          "totalRevenue": 48215,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 19,
+              "revenue": 38000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6215P05Q94169523",
+              "localCreatedAt": "15 Feb 2026, 10:55 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Pritesh Patil"
+            },
+            {
+              "paymentId": "MOJO6215Z05Q94169513",
+              "localCreatedAt": "15 Feb 2026, 10:54 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Jyoti Kashyap"
+            },
+            {
+              "paymentId": "MOJO6215005D94169378",
+              "localCreatedAt": "15 Feb 2026, 10:46 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Deepak  Sharma"
+            },
+            {
+              "paymentId": "MOJO6215D05Q94169322",
+              "localCreatedAt": "15 Feb 2026, 10:42 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Arpita  Sutar"
+            },
+            {
+              "paymentId": "MOJO6215X05Q94168911",
+              "localCreatedAt": "15 Feb 2026, 10:21 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "ROHIT KUMAR"
+            },
+            {
+              "paymentId": "MOJO6215405Q94168902",
+              "localCreatedAt": "15 Feb 2026, 10:20 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Tushar  Patra"
+            },
+            {
+              "paymentId": "MOJO6215Q05Q94168901",
+              "localCreatedAt": "15 Feb 2026, 10:20 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "sukalp tripathi"
+            },
+            {
+              "paymentId": "MOJO6215005Q94168889",
+              "localCreatedAt": "15 Feb 2026, 10:19 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Heena Dhiman"
+            },
+            {
+              "paymentId": "MOJO6215I05Q94168887",
+              "localCreatedAt": "15 Feb 2026, 10:19 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "DIBYENDU KANRAR"
+            },
+            {
+              "paymentId": "MOJO6215I05Q94168886",
+              "localCreatedAt": "15 Feb 2026, 10:19 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Tarun Kumar  CHANAPE"
+            },
+            {
+              "paymentId": "MOJO6215805Q94168792",
+              "localCreatedAt": "15 Feb 2026, 10:13 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Girish Kulkarni"
+            },
+            {
+              "paymentId": "MOJO6215005Q94168253",
+              "localCreatedAt": "15 Feb 2026, 09:40 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Antara Bhave"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-02-08",
+          "label": "Webinar 08 Feb 2026",
+          "registrationWindow": "01 Feb, 06:31 PM to 08 Feb, 06:30 PM IST",
+          "registrations": 43,
+          "webinarOnlyRegistrations": 19,
+          "comboRegistrations": 24,
+          "bundleRegistrations": 24,
+          "bundleOnlyRegistrations": 0,
+          "coursePurchasesLive": 4,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 8000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 6633,
+          "totalRevenue": 14633,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 4,
+              "revenue": 8000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6208A05Q13180648",
+              "localCreatedAt": "08 Feb 2026, 10:56 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "BIPLAB SUTRADHAR"
+            },
+            {
+              "paymentId": "MOJO6208M05D13178803",
+              "localCreatedAt": "08 Feb 2026, 09:12 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sanjay Kumar"
+            },
+            {
+              "paymentId": "MOJO6208G05Q13178740",
+              "localCreatedAt": "08 Feb 2026, 09:08 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "vaishnavi vaishnavi"
+            },
+            {
+              "paymentId": "MOJO6208M05Q13178251",
+              "localCreatedAt": "08 Feb 2026, 08:45 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Shivani Kumari"
+            },
+            {
+              "paymentId": "MOJO6208R05Q13174948",
+              "localCreatedAt": "08 Feb 2026, 05:16 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Shaik Daniya"
+            },
+            {
+              "paymentId": "MOJO6208U05Q13173602",
+              "localCreatedAt": "08 Feb 2026, 03:43 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Sanjay Kumar"
+            },
+            {
+              "paymentId": "MOJO6208Q05Q13168994",
+              "localCreatedAt": "08 Feb 2026, 10:57 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "MD REHAN ALAM"
+            },
+            {
+              "paymentId": "MOJO6208U05Q13167447",
+              "localCreatedAt": "08 Feb 2026, 09:14 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Dibyendu Kanrar"
+            },
+            {
+              "paymentId": "MOJO6207U05Q30029431",
+              "localCreatedAt": "07 Feb 2026, 02:15 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Sajjadul Haque Ansari"
+            },
+            {
+              "paymentId": "MOJO6207X05Q30026890",
+              "localCreatedAt": "07 Feb 2026, 11:48 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Amrit Raj"
+            },
+            {
+              "paymentId": "MOJO6207C05Q30026809",
+              "localCreatedAt": "07 Feb 2026, 11:45 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Riddhi Jain"
+            },
+            {
+              "paymentId": "MOJO6207V05Q30025959",
+              "localCreatedAt": "07 Feb 2026, 11:01 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Rakesh Mishra"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-02-01",
+          "label": "Webinar 01 Feb 2026",
+          "registrationWindow": "25 Jan, 06:31 PM to 01 Feb, 06:30 PM IST",
+          "registrations": 43,
+          "webinarOnlyRegistrations": 37,
+          "comboRegistrations": 6,
+          "bundleRegistrations": 9,
+          "bundleOnlyRegistrations": 3,
+          "coursePurchasesLive": 6,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 12000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 5148,
+          "totalRevenue": 17148,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 6,
+              "revenue": 12000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6201S05Q81099394",
+              "localCreatedAt": "01 Feb 2026, 10:27 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Pramod  Kumar"
+            },
+            {
+              "paymentId": "MOJO6201Y05Q81099231",
+              "localCreatedAt": "01 Feb 2026, 10:20 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Mamta Gupta"
+            },
+            {
+              "paymentId": "MOJO6201005Q81098267",
+              "localCreatedAt": "01 Feb 2026, 09:36 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sachin Roy"
+            },
+            {
+              "paymentId": "MOJO6201I05Q81098116",
+              "localCreatedAt": "01 Feb 2026, 09:28 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Reshma Jambhulkar"
+            },
+            {
+              "paymentId": "MOJO6201Y05Q81097328",
+              "localCreatedAt": "01 Feb 2026, 08:50 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "PALASH RAJPUT"
+            },
+            {
+              "paymentId": "MOJO6201J05D81097120",
+              "localCreatedAt": "01 Feb 2026, 08:39 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sheetal Indise"
+            },
+            {
+              "paymentId": "MOJO6201R05Q81087997",
+              "localCreatedAt": "01 Feb 2026, 01:41 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Pramod Kumar"
+            },
+            {
+              "paymentId": "MOJO6201605Q81087851",
+              "localCreatedAt": "01 Feb 2026, 01:34 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Shivani joshi"
+            },
+            {
+              "paymentId": "MOJO6201205Q81086423",
+              "localCreatedAt": "01 Feb 2026, 12:41 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Neha chugh"
+            },
+            {
+              "paymentId": "MOJO6201705Q81082091",
+              "localCreatedAt": "01 Feb 2026, 09:13 AM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Mamta  Gupta"
+            },
+            {
+              "paymentId": "MOJO6131405Q31691015",
+              "localCreatedAt": "01 Feb 2026, 12:33 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Gautam Kumar"
+            },
+            {
+              "paymentId": "MOJO6131R05Q31689751",
+              "localCreatedAt": "31 Jan 2026, 11:06 PM",
+              "amount": 198,
+              "purpose": "Masterclass + Ultimate Resource Bundle",
+              "classification": "combo",
+              "buyerName": "Palash Singh"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-01-25",
+          "label": "Webinar 25 Jan 2026",
+          "registrationWindow": "18 Jan, 06:31 PM to 25 Jan, 06:30 PM IST",
+          "registrations": 31,
+          "webinarOnlyRegistrations": 31,
+          "comboRegistrations": 0,
+          "bundleRegistrations": 6,
+          "bundleOnlyRegistrations": 6,
+          "coursePurchasesLive": 5,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 10000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 3663,
+          "totalRevenue": 13663,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 5,
+              "revenue": 10000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6125D05Q22051699",
+              "localCreatedAt": "25 Jan 2026, 10:25 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Wasim Tarique"
+            },
+            {
+              "paymentId": "MOJO6125G05Q22050888",
+              "localCreatedAt": "25 Jan 2026, 09:38 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Bhanupratap  Kumar"
+            },
+            {
+              "paymentId": "MOJO6125N05Q22049790",
+              "localCreatedAt": "25 Jan 2026, 08:44 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Priyanjali Daga"
+            },
+            {
+              "paymentId": "MOJO6125105Q22049733",
+              "localCreatedAt": "25 Jan 2026, 08:42 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Ankit Sharma"
+            },
+            {
+              "paymentId": "MOJO6125G05Q22049610",
+              "localCreatedAt": "25 Jan 2026, 08:38 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Subhajit Murmu"
+            },
+            {
+              "paymentId": "MOJO6125E05Q22046363",
+              "localCreatedAt": "25 Jan 2026, 05:35 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Pradeep Chaugule"
+            },
+            {
+              "paymentId": "MOJO6125M05Q22043807",
+              "localCreatedAt": "25 Jan 2026, 03:06 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Mohammed Yusuf"
+            },
+            {
+              "paymentId": "MOJO6122505Q51298542",
+              "localCreatedAt": "23 Jan 2026, 01:33 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Vrushali Chikode"
+            },
+            {
+              "paymentId": "MOJO6122M05Q51295357",
+              "localCreatedAt": "22 Jan 2026, 09:37 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Arshad  Ansari"
+            },
+            {
+              "paymentId": "MOJO6122W05Q51294651",
+              "localCreatedAt": "22 Jan 2026, 09:01 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Deepak Sharma"
+            },
+            {
+              "paymentId": "MOJO6122E05Q51283063",
+              "localCreatedAt": "22 Jan 2026, 09:42 AM",
+              "amount": 99,
+              "purpose": "Ultimate Resource Bundle",
+              "classification": "bundle_only",
+              "buyerName": "Priyanka Taklikar"
+            },
+            {
+              "paymentId": "MOJO6122F05Q51283039",
+              "localCreatedAt": "22 Jan 2026, 09:40 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Priyanka Taklikar"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-01-18",
+          "label": "Webinar 18 Jan 2026",
+          "registrationWindow": "11 Jan, 06:31 PM to 18 Jan, 06:30 PM IST",
+          "registrations": 57,
+          "webinarOnlyRegistrations": 57,
+          "comboRegistrations": 0,
+          "bundleRegistrations": 13,
+          "bundleOnlyRegistrations": 13,
+          "coursePurchasesLive": 7,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 14000,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 6930,
+          "totalRevenue": 20930,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 7,
+              "revenue": 14000
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6118905Q07338691",
+              "localCreatedAt": "18 Jan 2026, 10:41 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Rohit Jain"
+            },
+            {
+              "paymentId": "MOJO6118Q05Q07338260",
+              "localCreatedAt": "18 Jan 2026, 10:16 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Mainak Mukherjee"
+            },
+            {
+              "paymentId": "MOJO6118805Q07337241",
+              "localCreatedAt": "18 Jan 2026, 09:18 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Vaishali  Narkar"
+            },
+            {
+              "paymentId": "MOJO6118205Q07337058",
+              "localCreatedAt": "18 Jan 2026, 09:06 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Avani Shah"
+            },
+            {
+              "paymentId": "MOJO6118905D07336811",
+              "localCreatedAt": "18 Jan 2026, 08:52 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Tejaswini  Joshi"
+            },
+            {
+              "paymentId": "MOJO6118205Q07336747",
+              "localCreatedAt": "18 Jan 2026, 08:48 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Prasad  Sadawarte"
+            },
+            {
+              "paymentId": "MOJO6118E05Q07336666",
+              "localCreatedAt": "18 Jan 2026, 08:43 PM",
+              "amount": 2000,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "KETAN PATEL"
+            },
+            {
+              "paymentId": "MOJO6118E05Q07333363",
+              "localCreatedAt": "18 Jan 2026, 05:24 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Kajal Nagarkoti"
+            },
+            {
+              "paymentId": "MOJO6118F05Q07331129",
+              "localCreatedAt": "18 Jan 2026, 03:13 PM",
+              "amount": 99,
+              "purpose": "Ultimate Resource Bundle",
+              "classification": "bundle_only",
+              "buyerName": "sagar rawat"
+            },
+            {
+              "paymentId": "MOJO6118R05Q07331110",
+              "localCreatedAt": "18 Jan 2026, 03:12 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "sagar rawat"
+            },
+            {
+              "paymentId": "MOJO6118H05Q07327411",
+              "localCreatedAt": "18 Jan 2026, 12:04 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Sukesh Anuj"
+            },
+            {
+              "paymentId": "MOJO6118505Q07325921",
+              "localCreatedAt": "18 Jan 2026, 10:39 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Avani Shah"
+            }
+          ]
+        },
+        {
+          "webinarDate": "2026-01-11",
+          "label": "Webinar 11 Jan 2026",
+          "registrationWindow": "04 Jan, 06:31 PM to 11 Jan, 06:30 PM IST",
+          "registrations": 61,
+          "webinarOnlyRegistrations": 61,
+          "comboRegistrations": 0,
+          "bundleRegistrations": 4,
+          "bundleOnlyRegistrations": 4,
+          "coursePurchasesLive": 6,
+          "coursePurchasesExtended": 0,
+          "courseRevenueLive": 11994,
+          "courseRevenueExtended": 0,
+          "registrationRevenue": 6435,
+          "totalRevenue": 18429,
+          "topCoursePurposes": [
+            {
+              "purpose": "Basic to Advance Excel Course",
+              "count": 6,
+              "revenue": 11994
+            }
+          ],
+          "recentPayments": [
+            {
+              "paymentId": "MOJO6111F05Q15599677",
+              "localCreatedAt": "11 Jan 2026, 09:43 PM",
+              "amount": 1999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Jay Shirure"
+            },
+            {
+              "paymentId": "MOJO6111V05Q15599620",
+              "localCreatedAt": "11 Jan 2026, 09:39 PM",
+              "amount": 1999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Md Mojahid Hussain"
+            },
+            {
+              "paymentId": "MOJO6111D05Q15599408",
+              "localCreatedAt": "11 Jan 2026, 09:25 PM",
+              "amount": 1999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Yash Bhola"
+            },
+            {
+              "paymentId": "MOJO6111G05Q15599178",
+              "localCreatedAt": "11 Jan 2026, 09:09 PM",
+              "amount": 1999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sumit Negi"
+            },
+            {
+              "paymentId": "MOJO6111705Q15598645",
+              "localCreatedAt": "11 Jan 2026, 08:42 PM",
+              "amount": 1999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Lalit Khillare"
+            },
+            {
+              "paymentId": "MOJO6111U05Q15598105",
+              "localCreatedAt": "11 Jan 2026, 08:14 PM",
+              "amount": 1999,
+              "purpose": "Basic to Advance Excel Course",
+              "classification": "course",
+              "buyerName": "Sudipta Sankha Mukhopadhyay"
+            },
+            {
+              "paymentId": "MOJO6111905Q15596585",
+              "localCreatedAt": "11 Jan 2026, 06:05 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Safwan Chappu"
+            },
+            {
+              "paymentId": "MOJO6111T05Q15595380",
+              "localCreatedAt": "11 Jan 2026, 04:19 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Bhairavi Noolekar"
+            },
+            {
+              "paymentId": "MOJO6111V05Q15595088",
+              "localCreatedAt": "11 Jan 2026, 03:53 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Kishan  Modha"
+            },
+            {
+              "paymentId": "MOJO6111B05Q15593350",
+              "localCreatedAt": "11 Jan 2026, 01:38 PM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Rupa Sherkhanne"
+            },
+            {
+              "paymentId": "MOJO6111S05Q15590319",
+              "localCreatedAt": "11 Jan 2026, 10:02 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Sabir Acharjee"
+            },
+            {
+              "paymentId": "MOJO6111Q05Q15589972",
+              "localCreatedAt": "11 Jan 2026, 09:30 AM",
+              "amount": 99,
+              "purpose": "3 Hours Excel Career Masterclass",
+              "classification": "webinar_only",
+              "buyerName": "Vikas Thakur"
             }
           ]
         }

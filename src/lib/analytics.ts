@@ -15,6 +15,7 @@ const GATEWAY_LABELS: Record<GatewayId, string> = {
   instamojo: 'Instamojo',
   payu: 'PayU',
   cashfree: 'Cashfree',
+  combined: 'Combined Unique',
 }
 
 type RawRequest = {
@@ -128,6 +129,8 @@ export function normalizePayments(paymentRequests: RawRequest[], payments: RawPa
         classification,
         webinarDate,
         requestCreatedAt: request?.created_at ?? null,
+        sourceGateway: 'instamojo',
+        sourceOrderId: null,
       } satisfies StoredPayment
     })
     .filter((payment) => !isExcludedWebinarWeek(payment.webinarDate))

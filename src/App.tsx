@@ -11,6 +11,7 @@ const GATEWAY_OPTIONS: Array<{ id: GatewayId; label: string }> = [
   { id: 'instamojo', label: 'Instamojo' },
   { id: 'payu', label: 'PayU' },
   { id: 'cashfree', label: 'Cashfree' },
+  { id: 'combined', label: 'Combined Unique' },
 ]
 
 function getDefaultWeek(weeks: WeeklyMetrics[]) {
@@ -50,7 +51,7 @@ function App() {
   useEffect(() => {
     let active = true
 
-    fetch(`${import.meta.env.BASE_URL}dashboard-data.json?v=2026-05-29-3`, {
+    fetch(`${import.meta.env.BASE_URL}dashboard-data.json?v=2026-05-30-1`, {
       cache: 'no-store',
     })
       .then((response) => {

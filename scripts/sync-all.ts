@@ -69,6 +69,18 @@ function optionalEnv(name: string) {
   return process.env[name]?.trim() || undefined
 }
 
+function normalizePhone(value: string) {
+  return value.replace(/\D/g, '').slice(-10)
+}
+
+function normalizeEmail(value: string) {
+  return value.trim().toLowerCase()
+}
+
+function normalizeName(value: string) {
+  return value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ')
+}
+
 function formatGatewaySyncMessage(gateway: GatewayId, error: unknown) {
   const message = error instanceof Error ? error.message : `Unknown ${gateway} sync error`
 
@@ -119,6 +131,8 @@ function buildStoredPayment(input: {
   buyerPhone?: string | null
   status: string
   requestCreatedAt?: string | null
+  sourceGateway?: GatewayId
+  sourceOrderId?: string | null
 }) {
   const classification = classifyPayment(input.amount, input.purpose)
   const webinarDate = resolveWebinarDateForClassification(new Date(input.createdAt), classification)
@@ -137,11 +151,103 @@ function buildStoredPayment(input: {
     classification,
     webinarDate,
     requestCreatedAt: input.requestCreatedAt ?? null,
+    sourceGateway: input.sourceGateway,
+    sourceOrderId: input.sourceOrderId ?? null,
   } satisfies StoredPayment
 }
 
 function filterExcluded(payments: StoredPayment[]) {
   return payments.filter((payment) => !isExcludedWebinarWeek(payment.webinarDate))
+}
+
+function scoreDuplicateCandidate(left: StoredPayment, right: StoredPayment) {
+  const leftPhone = normalizePhone(left.buyerPhone)
+  const rightPhone = normalizePhone(right.buyerPhone)
+  const leftEmail = normalizeEmail(left.buyerEmail)
+  const rightEmail = normalizeEmail(right.buyerEmail)
+  const leftName = normalizeName(left.buyerName)
+  const rightName = normalizeName(right.buyerName)
+  const timeDiffMs = Math.abs(new Date(left.createdAt).getTime() - new Date(right.createdAt).getTime())
+
+  const identityMatch =
+    (leftPhone && rightPhone && leftPhone === rightPhone) ||
+    (leftEmail && rightEmail && leftEmail === rightEmail) ||
+    (leftName && rightName && leftName === rightName)
+
+  return {
+    identityMatch,
+    amountMatch: left.amount === right.amount,
+    classificationMatch: left.classification === right.classification,
+    timeDiffMs,
+  }
+}
+
+function isDeterministicMirrorDuplicate(candidate: StoredPayment, existing: StoredPayment) {
+  if (candidate.sourceGateway !== 'cashfree' || existing.sourceGateway !== 'instamojo') {
+    return false
+  }
+
+  const { identityMatch, amountMatch, timeDiffMs } = scoreDuplicateCandidate(candidate, existing)
+  return candidate.purpose.startsWith('MOJ') && identityMatch && amountMatch && timeDiffMs <= 10 * 60 * 1000
+}
+
+function isGenericCrossGatewayDuplicate(candidate: StoredPayment, existing: StoredPayment) {
+  if (candidate.sourceGateway === existing.sourceGateway) {
+    return false
+  }
+
+  const { identityMatch, amountMatch, classificationMatch, timeDiffMs } = scoreDuplicateCandidate(
+    candidate,
+    existing,
+  )
+
+  return identityMatch && amountMatch && classificationMatch && timeDiffMs <= 2 * 60 * 1000
+}
+
+function dedupeCombinedPayments(payments: StoredPayment[]) {
+  const sorted = [...payments].sort(
+    (left, right) => new Date(left.createdAt).getTime() - new Date(right.createdAt).getTime(),
+  )
+  const unique: StoredPayment[] = []
+  let duplicateCount = 0
+  let deterministicMirrorCount = 0
+  let heuristicDuplicateCount = 0
+
+  for (const payment of sorted) {
+    const match = unique.find((existing) => {
+      if (isDeterministicMirrorDuplicate(payment, existing)) return true
+      if (isDeterministicMirrorDuplicate(existing, payment)) return true
+      return isGenericCrossGatewayDuplicate(payment, existing)
+    })
+
+    if (match) {
+      duplicateCount += 1
+      if (
+        isDeterministicMirrorDuplicate(payment, match) ||
+        isDeterministicMirrorDuplicate(match, payment)
+      ) {
+        deterministicMirrorCount += 1
+        if (payment.sourceGateway === 'instamojo' && match.sourceGateway === 'cashfree') {
+          const index = unique.findIndex((entry) => entry.paymentId === match.paymentId)
+          if (index >= 0) {
+            unique[index] = payment
+          }
+        }
+      } else {
+        heuristicDuplicateCount += 1
+      }
+      continue
+    }
+
+    unique.push(payment)
+  }
+
+  return {
+    unique,
+    duplicateCount,
+    deterministicMirrorCount,
+    heuristicDuplicateCount,
+  }
 }
 
 async function readStoredPayments(
@@ -465,6 +571,8 @@ async function fetchPayuPaymentLinksByOauth(generatedAt: string): Promise<Gatewa
             buyerPhone: item.customerPhone,
             status: item.status?.toLowerCase() === 'success' ? 'Credit' : item.status ?? 'Failed',
             requestCreatedAt: link.createDate ?? null,
+            sourceGateway: 'payu',
+            sourceOrderId: link.invoiceNumber,
           }),
         )
       }
@@ -594,6 +702,8 @@ async function fetchPayuByLegacyBackfill(
         buyerPhone: String(details.phone ?? ''),
         status,
         requestCreatedAt: normalizedCreatedAt,
+        sourceGateway: 'payu',
+        sourceOrderId: String(details.txnid ?? ''),
       }),
     )
   }
@@ -759,6 +869,8 @@ async function syncCashfree(generatedAt: string): Promise<GatewaySyncResult> {
             buyerPhone: String(customerDetails.customer_phone ?? ''),
             status: paymentStatus.toUpperCase() === 'SUCCESS' ? 'Credit' : paymentStatus,
             requestCreatedAt: String(orderDetails.order_expiry_time ?? ''),
+            sourceGateway: 'cashfree',
+            sourceOrderId: String(orderDetails.order_id ?? item.order_id ?? ''),
           }),
         )
       }
@@ -872,6 +984,58 @@ async function main() {
     safeGatewaySync('cashfree', generatedAt, () => syncCashfree(generatedAt)),
   ])
 
+  const combinedDedupe = dedupeCombinedPayments([
+    ...instamojo.payments,
+    ...payu.payments,
+    ...cashfree.payments,
+  ])
+
+  const combined = buildDashboardDataFromStoredPayments(
+    'combined',
+    combinedDedupe.unique,
+    {
+      paymentRequestCount:
+        instamojo.dashboard.source.paymentRequestCount +
+        payu.dashboard.source.paymentRequestCount +
+        cashfree.dashboard.source.paymentRequestCount,
+      paymentCount: combinedDedupe.unique.length,
+      successfulPaymentCount: combinedDedupe.unique.filter((payment) => payment.status === 'Credit').length,
+    },
+    generatedAt,
+  )
+
+  const pendingGateways = [instamojo.dashboard, payu.dashboard, cashfree.dashboard].filter(
+    (gateway) => gateway.syncStatus.state === 'pending',
+  )
+
+  const combinedMessageParts = [
+    `${combinedDedupe.duplicateCount} cross-gateway duplicates removed`,
+    `${combinedDedupe.deterministicMirrorCount} deterministic Instamojo/Cashfree mirrors`,
+  ]
+
+  if (combinedDedupe.heuristicDuplicateCount > 0) {
+    combinedMessageParts.push(`${combinedDedupe.heuristicDuplicateCount} heuristic duplicates`)
+  }
+
+  const combinedDashboard =
+    pendingGateways.length > 0
+      ? {
+          ...combined,
+          syncStatus: {
+            state: 'pending' as const,
+            message: `${combinedMessageParts.join(', ')}. ${pendingGateways
+              .map((gateway) => gateway.label)
+              .join(', ')} still has history loading in the background.`,
+          },
+        }
+      : {
+          ...combined,
+          syncStatus: {
+            state: 'ready' as const,
+            message: `${combinedMessageParts.join(', ')}.`,
+          },
+        }
+
   const snapshot: DashboardSnapshot = {
     generatedAt,
     timezone: TIME_ZONE,
@@ -879,6 +1043,7 @@ async function main() {
       instamojo: instamojo.dashboard,
       payu: payu.dashboard,
       cashfree: cashfree.dashboard,
+      combined: combinedDashboard,
     },
   }
 
@@ -890,6 +1055,12 @@ async function main() {
       writeGatewayToFirestore(firestore, 'instamojo', instamojo, generatedAt),
       writeGatewayToFirestore(firestore, 'payu', payu, generatedAt),
       writeGatewayToFirestore(firestore, 'cashfree', cashfree, generatedAt),
+      writeGatewayToFirestore(
+        firestore,
+        'combined',
+        { dashboard: combinedDashboard, payments: combinedDedupe.unique },
+        generatedAt,
+      ),
     ])
 
     await firestore.collection('dashboardMetadata').doc('latest').set(snapshot, { merge: true })
@@ -903,6 +1074,7 @@ async function main() {
           instamojo: instamojo.dashboard.syncStatus,
           payu: payu.dashboard.syncStatus,
           cashfree: cashfree.dashboard.syncStatus,
+          combined: combinedDashboard.syncStatus,
         },
       },
       null,
