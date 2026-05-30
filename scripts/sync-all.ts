@@ -382,21 +382,31 @@ function toDatabaseCourseRow(payment: StoredPayment): DatabaseCourseRow {
   }
 }
 
+function mergeStoredPayments(primary: StoredPayment, secondary: StoredPayment): StoredPayment {
+  return {
+    ...secondary,
+    ...primary,
+    requestId: primary.requestId || secondary.requestId,
+    purpose: primary.purpose || secondary.purpose,
+    buyerName: primary.buyerName || secondary.buyerName,
+    buyerEmail: primary.buyerEmail || secondary.buyerEmail,
+    buyerPhone: primary.buyerPhone || secondary.buyerPhone,
+    requestCreatedAt: primary.requestCreatedAt || secondary.requestCreatedAt,
+    sourceOrderId: primary.sourceOrderId || secondary.sourceOrderId || null,
+  }
+}
+
 function buildDatabaseSnapshot(payments: StoredPayment[]) {
   const successful = [...payments]
     .filter((payment) => payment.status === 'Credit')
     .sort((left, right) => right.createdAt.localeCompare(left.createdAt))
 
   const bundleIdentities = new Set<string>()
-  const courseIdentities = new Set<string>()
 
   for (const payment of successful) {
     const key = identityKey(payment)
     if (payment.classification === 'bundle_only' || payment.classification === 'combo') {
       bundleIdentities.add(key)
-    }
-    if (payment.classification === 'course') {
-      courseIdentities.add(key)
     }
   }
 
@@ -410,7 +420,6 @@ function buildDatabaseSnapshot(payments: StoredPayment[]) {
     if (
       payment.classification === 'webinar_only' &&
       !bundleIdentities.has(key) &&
-      !courseIdentities.has(key) &&
       !webinarOnly.has(key)
     ) {
       webinarOnly.set(key, toDatabasePersonRow(payment))
@@ -923,21 +932,59 @@ async function syncPayu(
   generatedAt: string,
   firestore?: FirebaseFirestore.Firestore,
 ): Promise<GatewaySyncResult> {
-  try {
-    return await fetchPayuPaymentLinksByOauth(generatedAt)
-  } catch (oauthError) {
-    const merchantId = optionalEnv('PAYU_MERCHANT_ID')
-    if (merchantId) {
-      throw oauthError
-    }
-  }
-
   const existingPayments =
     firestore ? await readStoredPayments(firestore, 'payuPayments').catch(() => []) : []
   const progress =
     firestore ? await readBackfillState(firestore, 'payuBackfill').catch(() => null) : null
   const nextWindowEnd =
     typeof progress?.nextWindowEnd === 'string' ? progress.nextWindowEnd : null
+
+  try {
+    const oauthResult = await fetchPayuPaymentLinksByOauth(generatedAt)
+    const legacyResult = await fetchPayuByLegacyBackfill(generatedAt, existingPayments, nextWindowEnd)
+    const mergedPayments = new Map<string, StoredPayment>()
+
+    for (const payment of legacyResult.payments) {
+      mergedPayments.set(payment.paymentId, payment)
+    }
+
+    for (const payment of oauthResult.payments) {
+      const existing = mergedPayments.get(payment.paymentId)
+      mergedPayments.set(payment.paymentId, existing ? mergeStoredPayments(payment, existing) : payment)
+    }
+
+    const merged = Array.from(mergedPayments.values())
+    const dashboard = buildDashboardDataFromStoredPayments(
+      'payu',
+      merged,
+      {
+        paymentRequestCount: Math.max(
+          oauthResult.dashboard.source.paymentRequestCount,
+          legacyResult.dashboard.source.paymentRequestCount,
+        ),
+        paymentCount: merged.length,
+        successfulPaymentCount: merged.filter((payment) => payment.status === 'Credit').length,
+      },
+      generatedAt,
+    )
+
+    return {
+      dashboard:
+        legacyResult.dashboard.syncStatus.state === 'ready'
+          ? dashboard
+          : {
+              ...dashboard,
+              syncStatus: legacyResult.dashboard.syncStatus,
+            },
+      payments: merged,
+      backfillState: legacyResult.backfillState,
+    }
+  } catch (oauthError) {
+    const merchantId = optionalEnv('PAYU_MERCHANT_ID')
+    if (merchantId) {
+      throw oauthError
+    }
+  }
 
   return fetchPayuByLegacyBackfill(generatedAt, existingPayments, nextWindowEnd)
 }

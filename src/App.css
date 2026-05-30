@@ -166,6 +166,10 @@
   line-height: 1;
 }
 
+.database-count p {
+  margin: 10px 0 0;
+}
+
 .section-label,
 .eyebrow {
   margin: 0 0 8px;
@@ -220,6 +224,12 @@
   padding: 12px 14px;
   background: #fffdfa;
   color: inherit;
+}
+
+.date-filter-group {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .database-table-wrap {

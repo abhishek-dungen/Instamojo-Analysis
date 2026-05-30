@@ -15,11 +15,10 @@ type DatabaseFilters = {
   name: string
   email: string
   phone: string
-  date: string
-  month: string
-  year: string
-  amountMin: string
-  amountMax: string
+  dateYear: string
+  dateMonth: string
+  dateDay: string
+  amount: string
 }
 
 const DEFAULT_FILTERS: DatabaseFilters = {
@@ -27,11 +26,10 @@ const DEFAULT_FILTERS: DatabaseFilters = {
   name: '',
   email: '',
   phone: '',
-  date: '',
-  month: '',
-  year: '',
-  amountMin: '',
-  amountMax: '',
+  dateYear: '',
+  dateMonth: '',
+  dateDay: '',
+  amount: '',
 }
 
 function getDefaultWeek(weeks: WeeklyMetrics[]) {
@@ -69,28 +67,25 @@ function filterDatabaseRows<T extends DatabasePersonRow | DatabaseCourseRow>(
   filters: DatabaseFilters,
   includeAmount: boolean,
 ) {
-  const amountMin = Number(filters.amountMin)
-  const amountMax = Number(filters.amountMax)
-  const hasAmountMin = filters.amountMin.trim() !== '' && !Number.isNaN(amountMin)
-  const hasAmountMax = filters.amountMax.trim() !== '' && !Number.isNaN(amountMax)
+  const amount = Number(filters.amount)
+  const hasAmount = filters.amount.trim() !== '' && !Number.isNaN(amount)
 
   return rows.filter((row) => {
     const quickHaystack = [row.name, row.email, row.phone, row.date, 'amount' in row ? String(row.amount) : '']
       .join(' ')
       .toLowerCase()
-    const { month, year } = getDateParts(row.date)
+    const { day, month, year } = getDateParts(row.date)
 
     if (filters.quick && !quickHaystack.includes(normalizeSearch(filters.quick))) return false
     if (filters.name && !includesSearch(row.name, filters.name)) return false
     if (filters.email && !includesSearch(row.email, filters.email)) return false
     if (filters.phone && !includesSearch(row.phone, filters.phone)) return false
-    if (filters.date && !includesSearch(row.date, filters.date)) return false
-    if (filters.month && month !== filters.month) return false
-    if (filters.year && year !== filters.year) return false
+    if (filters.dateYear && year !== filters.dateYear) return false
+    if (filters.dateMonth && month !== filters.dateMonth) return false
+    if (filters.dateDay && day !== filters.dateDay) return false
 
     if (includeAmount && 'amount' in row) {
-      if (hasAmountMin && row.amount < amountMin) return false
-      if (hasAmountMax && row.amount > amountMax) return false
+      if (hasAmount && row.amount !== amount) return false
     }
 
     return true
@@ -191,13 +186,37 @@ function App() {
       : databaseTab === 'bundle'
         ? filterDatabaseRows(database.bundleBuyers, filters, false)
         : filterDatabaseRows(database.courseBuyers, filters, true)
-  const yearOptions = Array.from(
+  const tabRows =
+    databaseTab === 'webinar'
+      ? database.webinarOnly
+      : databaseTab === 'bundle'
+        ? database.bundleBuyers
+        : database.courseBuyers
+  const totalCount = tabRows.length
+  const filteredCount = activeRows.length
+  const dateRows = tabRows
+  const yearOptions = Array.from(new Set(dateRows.map((row) => getDateParts(row.date).year))).sort((left, right) =>
+    right.localeCompare(left),
+  )
+  const monthOptions = Array.from(
     new Set(
-      [...database.webinarOnly, ...database.bundleBuyers, ...database.courseBuyers].map(
-        (row) => getDateParts(row.date).year,
-      ),
+      dateRows
+        .filter((row) => !filters.dateYear || getDateParts(row.date).year === filters.dateYear)
+        .map((row) => getDateParts(row.date).month),
     ),
-  ).sort((left, right) => right.localeCompare(left))
+  ).sort()
+  const dayOptions = Array.from(
+    new Set(
+      dateRows
+        .filter((row) => !filters.dateYear || getDateParts(row.date).year === filters.dateYear)
+        .filter((row) => !filters.dateMonth || getDateParts(row.date).month === filters.dateMonth)
+        .map((row) => getDateParts(row.date).day),
+    ),
+  ).sort()
+  const amountOptions =
+    databaseTab === 'course'
+      ? Array.from(new Set(database.courseBuyers.map((row) => row.amount))).sort((left, right) => right - left)
+      : []
 
   return (
     <main className="shell">
@@ -314,10 +333,24 @@ function App() {
               <div>
                 <p className="section-label">Report database</p>
                 <h2>Searchable people lists</h2>
+                <p className="lede">
+                  {databaseTab === 'webinar'
+                    ? 'Unique webinar registrations who did not buy the bundle.'
+                    : databaseTab === 'bundle'
+                      ? 'Unique bundle buyers in latest-first order.'
+                      : 'Unique course buyers with paid amount in latest-first order.'}
+                </p>
               </div>
               <div className="database-count">
-                <span>Visible rows</span>
-                <strong>{activeRows.length}</strong>
+                <span>
+                  {databaseTab === 'webinar'
+                    ? 'Total webinar-only people'
+                    : databaseTab === 'bundle'
+                      ? 'Total bundle buyers'
+                      : 'Total course buyers'}
+                </span>
+                <strong>{totalCount}</strong>
+                <p>{filteredCount} matching current filters</p>
               </div>
             </div>
 
@@ -386,70 +419,70 @@ function App() {
               </label>
               <label className="filter-field">
                 <span>Date</span>
-                <input
-                  value={filters.date}
-                  onChange={(event) => setFilters((current) => ({ ...current, date: event.target.value }))}
-                  placeholder="dd-mm-yyyy"
-                />
-              </label>
-              <label className="filter-field">
-                <span>Month</span>
-                <select
-                  value={filters.month}
-                  onChange={(event) => setFilters((current) => ({ ...current, month: event.target.value }))}
-                >
-                  <option value="">All months</option>
-                  <option value="01">January</option>
-                  <option value="02">February</option>
-                  <option value="03">March</option>
-                  <option value="04">April</option>
-                  <option value="05">May</option>
-                  <option value="06">June</option>
-                  <option value="07">July</option>
-                  <option value="08">August</option>
-                  <option value="09">September</option>
-                  <option value="10">October</option>
-                  <option value="11">November</option>
-                  <option value="12">December</option>
-                </select>
-              </label>
-              <label className="filter-field">
-                <span>Year</span>
-                <select
-                  value={filters.year}
-                  onChange={(event) => setFilters((current) => ({ ...current, year: event.target.value }))}
-                >
-                  <option value="">All years</option>
-                  {yearOptions.map((year) => (
-                    <option key={year} value={year}>
-                      {year}
-                    </option>
-                  ))}
-                </select>
+                <div className="date-filter-group">
+                  <select
+                    value={filters.dateYear}
+                    onChange={(event) =>
+                      setFilters((current) => ({
+                        ...current,
+                        dateYear: event.target.value,
+                        dateMonth: '',
+                        dateDay: '',
+                      }))
+                    }
+                  >
+                    <option value="">All years</option>
+                    {yearOptions.map((year) => (
+                      <option key={year} value={year}>
+                        {year}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={filters.dateMonth}
+                    onChange={(event) =>
+                      setFilters((current) => ({
+                        ...current,
+                        dateMonth: event.target.value,
+                        dateDay: '',
+                      }))
+                    }
+                  >
+                    <option value="">All months</option>
+                    {monthOptions.map((month) => (
+                      <option key={month} value={month}>
+                        {month}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    value={filters.dateDay}
+                    onChange={(event) => setFilters((current) => ({ ...current, dateDay: event.target.value }))}
+                  >
+                    <option value="">All dates</option>
+                    {dayOptions.map((day) => (
+                      <option key={day} value={day}>
+                        {day}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </label>
               {databaseTab === 'course' ? (
-                <>
-                  <label className="filter-field">
-                    <span>Min amount</span>
-                    <input
-                      value={filters.amountMin}
-                      onChange={(event) =>
-                        setFilters((current) => ({ ...current, amountMin: event.target.value }))
-                      }
-                      placeholder="1500"
-                    />
-                  </label>
-                  <label className="filter-field">
-                    <span>Max amount</span>
-                    <input
-                      value={filters.amountMax}
-                      onChange={(event) =>
-                        setFilters((current) => ({ ...current, amountMax: event.target.value }))
-                      }
-                      placeholder="2500"
-                    />
-                  </label>
-                </>
+                <label className="filter-field">
+                  <span>Amount</span>
+                  <select
+                    value={filters.amount}
+                    onChange={(event) => setFilters((current) => ({ ...current, amount: event.target.value }))}
+                  >
+                    <option value="">All amounts</option>
+                    {amountOptions.map((amount) => (
+                      <option key={amount} value={String(amount)}>
+                        {amount.toLocaleString('en-IN')}
+                      </option>
+                    ))}
+                  </select>
+                </label>
               ) : null}
             </div>
 
