@@ -56,6 +56,10 @@ const PAYU_LEGACY_URL = 'https://info.payu.in/merchant/postservice.php?form=2'
 const DEFAULT_CASHFREE_RECON_URL = 'https://api.cashfree.com/pg/recon'
 const HISTORY_START = '2018-01-01'
 const PAYU_LEGACY_WINDOW_DAYS = 7
+const PAYU_LEGACY_PAUSE_MS = 3200
+const PAYU_LEGACY_RATE_LIMIT_BACKOFF_MS = 15000
+const PAYU_LEGACY_MAX_RATE_LIMIT_RETRIES = 3
+const PAYU_LEGACY_RECENT_REFRESH_DAYS = 60
 const CASHFREE_WINDOW_DAYS = 30
 const CASHFREE_MAX_LOOKBACK_DAYS = 700
 
@@ -425,6 +429,21 @@ function dayRangeWindows(startDate: string, endDate: Date, windowDays: number) {
   return windows
 }
 
+function addDays(date: Date, days: number) {
+  const next = new Date(date)
+  next.setDate(next.getDate() + days)
+  return next
+}
+
+function clampToHistoryStart(date: Date) {
+  const historyStartDate = new Date(`${HISTORY_START}T00:00:00+05:30`)
+  return date < historyStartDate ? historyStartDate : date
+}
+
+function sleep(ms: number) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
 async function getPayuAccessToken() {
   const clientId = optionalEnv('PAYU_CLIENT_ID')
   const clientSecret = optionalEnv('PAYU_CLIENT_SECRET')
@@ -632,85 +651,127 @@ async function fetchPayuByLegacyBackfill(
   const mergedPayments = new Map(existingPayments.map((payment) => [payment.paymentId, payment]))
   const today = new Date()
   const historyStartDate = new Date(`${HISTORY_START}T00:00:00+05:30`)
-  const activeWindowEnd = nextWindowEnd ? new Date(`${nextWindowEnd}T00:00:00+05:30`) : today
-  const activeWindowStart = new Date(activeWindowEnd)
-  activeWindowStart.setDate(activeWindowStart.getDate() - (PAYU_LEGACY_WINDOW_DAYS - 1))
-  if (activeWindowStart < historyStartDate) {
-    activeWindowStart.setTime(historyStartDate.getTime())
+  const completedBackfill =
+    nextWindowEnd === null && existingPayments.length > 0
+  let activeWindowEnd = nextWindowEnd ? new Date(`${nextWindowEnd}T00:00:00+05:30`) : today
+
+  if (completedBackfill) {
+    activeWindowEnd = today
   }
 
-  const var1 = activeWindowStart.toISOString().slice(0, 10)
-  const var2 = activeWindowEnd.toISOString().slice(0, 10)
-  const hash = crypto
-    .createHash('sha512')
-    .update(`${key}|get_Transaction_Details|${var1}|${salt}`)
-    .digest('hex')
+  let completed = completedBackfill
+  let lastFetchedStart = ''
+  let lastFetchedEnd = ''
+  let rateLimited = false
+  let rateLimitRetries = 0
 
-  const response = await fetch(PAYU_LEGACY_URL, {
-    method: 'POST',
-    headers: {
-      accept: 'application/json',
-      'content-type': 'application/x-www-form-urlencoded',
-    },
-    body: new URLSearchParams({
-      key,
-      command: 'get_Transaction_Details',
-      var1,
-      var2,
-      hash,
-    }),
-  })
+  while (activeWindowEnd >= historyStartDate) {
+    let activeWindowStart = addDays(activeWindowEnd, -(PAYU_LEGACY_WINDOW_DAYS - 1))
+    activeWindowStart = clampToHistoryStart(activeWindowStart)
 
-  if (!response.ok) {
-    const message = await response.text()
-    throw new Error(`PayU legacy request failed: ${response.status} ${message}`)
-  }
+    if (completedBackfill) {
+      const recentStart = clampToHistoryStart(addDays(today, -(PAYU_LEGACY_RECENT_REFRESH_DAYS - 1)))
+      if (activeWindowEnd < recentStart) {
+        completed = true
+        break
+      }
+      if (activeWindowStart < recentStart) {
+        activeWindowStart = recentStart
+      }
+    }
 
-  const payload = (await response.json()) as {
-    status?: number
-    msg?: string
-    Transaction_details?: Array<Record<string, unknown>>
-    transaction_details?: Record<string, Record<string, unknown>>
-  }
+    const var1 = activeWindowStart.toISOString().slice(0, 10)
+    const var2 = activeWindowEnd.toISOString().slice(0, 10)
+    const hash = crypto
+      .createHash('sha512')
+      .update(`${key}|get_Transaction_Details|${var1}|${salt}`)
+      .digest('hex')
 
-  if (payload.status === 0) {
-    throw new Error(`PayU legacy transaction API error: ${payload.msg ?? 'Unknown error'}`)
-  }
-
-  for (const details of parsePayuLegacyTransactions(payload)) {
-    const paymentId = String(details.id ?? details.mihpayid ?? details.txnid ?? '')
-    if (!paymentId) continue
-
-    const amount = Number(details.amount ?? details.transaction_fee ?? 0)
-    const purpose = String(details.productinfo ?? details.field9 ?? 'PayU Payment')
-    const createdAt = String(details.addedon ?? details.created_on ?? '')
-    const normalizedCreatedAt = createdAt
-      ? createdAt.replace(' ', 'T').replace('.0', '') + '+05:30'
-      : new Date().toISOString()
-    const status = normalizePayuStatus(String(details.status ?? ''))
-
-    mergedPayments.set(
-      paymentId,
-      buildStoredPayment({
-        paymentId,
-        requestId: String(details.txnid ?? ''),
-        purpose,
-        amount,
-        createdAt: normalizedCreatedAt,
-        buyerName: [String(details.firstname ?? ''), String(details.lastname ?? '')].join(' ').trim(),
-        buyerEmail: String(details.email ?? ''),
-        buyerPhone: String(details.phone ?? ''),
-        status,
-        requestCreatedAt: normalizedCreatedAt,
-        sourceGateway: 'payu',
-        sourceOrderId: String(details.txnid ?? ''),
+    const response = await fetch(PAYU_LEGACY_URL, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams({
+        key,
+        command: 'get_Transaction_Details',
+        var1,
+        var2,
+        hash,
       }),
-    )
+    })
+
+    if (!response.ok) {
+      const message = await response.text()
+      throw new Error(`PayU legacy request failed: ${response.status} ${message}`)
+    }
+
+    const payload = (await response.json()) as {
+      status?: number
+      msg?: string
+      Transaction_details?: Array<Record<string, unknown>>
+      transaction_details?: Record<string, Record<string, unknown>>
+    }
+
+    if (payload.status === 0) {
+      if ((payload.msg ?? '').includes('Requests limit reached')) {
+        rateLimitRetries += 1
+        if (rateLimitRetries <= PAYU_LEGACY_MAX_RATE_LIMIT_RETRIES) {
+          await sleep(PAYU_LEGACY_RATE_LIMIT_BACKOFF_MS)
+          continue
+        }
+        rateLimited = true
+        break
+      }
+      throw new Error(`PayU legacy transaction API error: ${payload.msg ?? 'Unknown error'}`)
+    }
+
+    rateLimitRetries = 0
+
+    for (const details of parsePayuLegacyTransactions(payload)) {
+      const paymentId = String(details.id ?? details.mihpayid ?? details.txnid ?? '')
+      if (!paymentId) continue
+
+      const amount = Number(details.amount ?? details.transaction_fee ?? 0)
+      const purpose = String(details.productinfo ?? details.field9 ?? 'PayU Payment')
+      const createdAt = String(details.addedon ?? details.created_on ?? '')
+      const normalizedCreatedAt = createdAt
+        ? createdAt.replace(' ', 'T').replace('.0', '') + '+05:30'
+        : new Date().toISOString()
+      const status = normalizePayuStatus(String(details.status ?? ''))
+
+      mergedPayments.set(
+        paymentId,
+        buildStoredPayment({
+          paymentId,
+          requestId: String(details.txnid ?? ''),
+          purpose,
+          amount,
+          createdAt: normalizedCreatedAt,
+          buyerName: [String(details.firstname ?? ''), String(details.lastname ?? '')].join(' ').trim(),
+          buyerEmail: String(details.email ?? ''),
+          buyerPhone: String(details.phone ?? ''),
+          status,
+          requestCreatedAt: normalizedCreatedAt,
+          sourceGateway: 'payu',
+          sourceOrderId: String(details.txnid ?? ''),
+        }),
+      )
+    }
+
+    lastFetchedStart = var1
+    lastFetchedEnd = var2
+
+    if (activeWindowStart.getTime() <= historyStartDate.getTime()) {
+      completed = true
+      break
+    }
+
+    activeWindowEnd = addDays(activeWindowStart, -1)
+    await sleep(PAYU_LEGACY_PAUSE_MS)
   }
 
-  const nextEndDate = new Date(activeWindowStart)
-  nextEndDate.setDate(nextEndDate.getDate() - 1)
-  const completed = activeWindowStart.getTime() <= historyStartDate.getTime()
   const filteredPayments = filterExcluded(Array.from(mergedPayments.values()))
   const dashboard = buildDashboardDataFromStoredPayments(
     'payu',
@@ -730,15 +791,17 @@ async function fetchPayuByLegacyBackfill(
           ...dashboard,
           syncStatus: {
             state: 'pending',
-            message: `PayU history is loading week by week. Recent data through ${var2} is available now, and older weeks will continue syncing automatically every hour.`,
+            message: rateLimited
+              ? `PayU returned a temporary rate limit after syncing through ${lastFetchedEnd}. The dashboard will continue from ${lastFetchedStart || 'the next remaining week'} on the next hourly run.`
+              : `PayU history is loading week by week. Recent data through ${lastFetchedEnd} is available now, and older weeks will continue syncing automatically every hour.`,
           },
         },
     payments: filteredPayments,
     backfillState: {
-      nextWindowEnd: completed ? null : nextEndDate.toISOString().slice(0, 10),
+      nextWindowEnd: completed ? null : activeWindowEnd.toISOString().slice(0, 10),
       completed,
-      lastFetchedStart: var1,
-      lastFetchedEnd: var2,
+      lastFetchedStart,
+      lastFetchedEnd,
     },
   }
 }
