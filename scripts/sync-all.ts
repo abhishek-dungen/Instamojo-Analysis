@@ -1114,19 +1114,23 @@ async function main() {
   await writeFile(path.join(publicDir, 'dashboard-data.json'), JSON.stringify(snapshot, null, 2), 'utf8')
 
   if (firestore) {
-    await Promise.all([
-      writeGatewayToFirestore(firestore, 'instamojo', instamojo, generatedAt),
-      writeGatewayToFirestore(firestore, 'payu', payu, generatedAt),
-      writeGatewayToFirestore(firestore, 'cashfree', cashfree, generatedAt),
-      writeGatewayToFirestore(
-        firestore,
-        'combined',
-        { dashboard: combinedDashboard, payments: combinedDedupe.unique },
-        generatedAt,
-      ),
-    ])
+    try {
+      await Promise.all([
+        writeGatewayToFirestore(firestore, 'instamojo', instamojo, generatedAt),
+        writeGatewayToFirestore(firestore, 'payu', payu, generatedAt),
+        writeGatewayToFirestore(firestore, 'cashfree', cashfree, generatedAt),
+        writeGatewayToFirestore(
+          firestore,
+          'combined',
+          { dashboard: combinedDashboard, payments: combinedDedupe.unique },
+          generatedAt,
+        ),
+      ])
 
-    await firestore.collection('dashboardMetadata').doc('latest').set(snapshot, { merge: true })
+      await firestore.collection('dashboardMetadata').doc('latest').set(snapshot, { merge: true })
+    } catch (error) {
+      console.error('Firestore backup skipped after snapshot generation', error)
+    }
   }
 
   console.log(
