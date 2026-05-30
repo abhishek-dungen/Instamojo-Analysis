@@ -211,39 +211,6 @@ function App() {
             </div>
           </section>
 
-          <section className="info-grid">
-            <article className="glass-card">
-              <p className="section-label">Classification used</p>
-              <h2>Purpose names currently counted</h2>
-              <div className="rule-group">
-                <h3>Webinar registration</h3>
-                {data.classificationSources.webinar.map((item) => (
-                  <div key={`webinar-${item.purpose}`} className="rule-row">
-                    <strong>{item.purpose}</strong>
-                    <span>{item.count} successful payments</span>
-                  </div>
-                ))}
-              </div>
-              <div className="rule-group">
-                <h3>Bundle registration</h3>
-                {data.classificationSources.bundle.map((item) => (
-                  <div key={`bundle-${item.purpose}`} className="rule-row">
-                    <strong>{item.purpose}</strong>
-                    <span>{item.count} successful payments</span>
-                  </div>
-                ))}
-              </div>
-              <div className="rule-group">
-                <h3>Course registration</h3>
-                {data.classificationSources.course.map((item) => (
-                  <div key={`course-${item.purpose}`} className="rule-row">
-                    <strong>{item.purpose}</strong>
-                    <span>{item.count} successful payments</span>
-                  </div>
-                ))}
-              </div>
-            </article>
-          </section>
         </>
       ) : (
         data.syncStatus.state === 'ready' ? (
