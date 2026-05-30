@@ -52,6 +52,7 @@ jobs:
           CASHFREE_CLIENT_ID: ${{ secrets.CASHFREE_CLIENT_ID }}
           CASHFREE_CLIENT_SECRET: ${{ secrets.CASHFREE_CLIENT_SECRET }}
           FIREBASE_SERVICE_ACCOUNT_PATH: firebase-service-account.json
+          SKIP_FIREBASE: '1'
         run: npm run sync
 
       - name: Build site
