@@ -335,6 +335,10 @@ export function buildCanonicalDatabase(
   const grouped = new Map<string, GroupedPersonPayments>();
 
   for (const payment of sortedPayments) {
+    if (payment.status !== "Credit") {
+      continue;
+    }
+
     const key = getPersonIdentityKey(payment);
     const current = grouped.get(key) ?? {};
 

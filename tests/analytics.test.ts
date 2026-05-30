@@ -72,6 +72,15 @@ test("historical summary matches the unique-person database buckets", () => {
       buyerEmail: "course@example.com",
       buyerName: "Course Buyer",
     }),
+    makePayment({
+      paymentId: "failed-1",
+      classification: "bundle_only",
+      createdAt: "2026-05-01T15:00:00+05:30",
+      webinarDate: "2026-05-03",
+      buyerPhone: "9999990999",
+      buyerName: "Failed Buyer",
+      status: "Failed",
+    }),
   ];
 
   const database = buildCanonicalDatabase(payments);
@@ -83,6 +92,10 @@ test("historical summary matches the unique-person database buckets", () => {
   assert.equal(database.webinarOnly.length, 1);
   assert.equal(database.bundleBuyers.length, 2);
   assert.equal(database.courseBuyers.length, 1);
+  assert.equal(
+    database.bundleBuyers.some((row) => row.paymentId === "failed-1"),
+    false,
+  );
   assert.match(database.bundleBuyers[0].createdAt, /2026-05-01T13:00:00/);
   assert.equal(
     database.webinarOnly.some((row) => row.paymentId === "combo-webinar"),
