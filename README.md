@@ -7,6 +7,7 @@ This project backs up webinar payment data into Firebase Firestore and publishes
 - `Cashfree`
 
 The frontend now shows one unified dataset, while the sync pipeline still pulls each source separately and removes overlaps before reporting.
+The all-time summary and the searchable database tabs are derived from the same unique-person grouping, so their counts are expected to match.
 
 ## Reporting logic
 

@@ -156,7 +156,11 @@
   min-width: 120px;
   padding: 16px 18px;
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(240, 225, 192, 0.7), rgba(248, 243, 229, 0.95));
+  background: linear-gradient(
+    135deg,
+    rgba(240, 225, 192, 0.7),
+    rgba(248, 243, 229, 0.95)
+  );
 }
 
 .database-count strong {
@@ -240,7 +244,7 @@
 .database-table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 760px;
+  min-width: 920px;
 }
 
 .database-table th,
@@ -251,11 +255,17 @@
 }
 
 .database-table th {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: "Space Grotesk", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.76rem;
   color: #805f2a;
+}
+
+.payment-id {
+  word-break: break-word;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.92rem;
 }
 
 .money-band {
@@ -268,7 +278,11 @@
 .money-band > div {
   padding: 18px;
   border-radius: 18px;
-  background: linear-gradient(135deg, rgba(240, 225, 192, 0.7), rgba(248, 243, 229, 0.95));
+  background: linear-gradient(
+    135deg,
+    rgba(240, 225, 192, 0.7),
+    rgba(248, 243, 229, 0.95)
+  );
 }
 
 .course-list,
@@ -348,7 +362,11 @@
 }
 
 .bar-row.active {
-  background: linear-gradient(135deg, rgba(255, 225, 178, 0.65), rgba(255, 248, 233, 1));
+  background: linear-gradient(
+    135deg,
+    rgba(255, 225, 178, 0.65),
+    rgba(255, 248, 233, 1)
+  );
   outline: 1px solid rgba(128, 95, 42, 0.18);
 }
 

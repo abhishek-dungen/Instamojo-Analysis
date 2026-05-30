@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "sync": "tsx scripts/sync-all.ts"
+    "sync": "tsx scripts/sync-all.ts",
+    "test": "tsx --test tests/analytics.test.ts"
   },
   "dependencies": {
     "date-fns": "^4.3.0",
