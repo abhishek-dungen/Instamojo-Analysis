@@ -31,14 +31,27 @@ function formatPercent(value: number) {
   return `${value.toFixed(1)}%`
 }
 
+function hasVisibleData(data: DashboardData) {
+  return data.source.paymentCount > 0 || data.weekly.length > 0
+}
+
 function getWeekPlaceholder(data: DashboardData) {
+  if (!hasVisibleData(data)) {
+    if (data.syncStatus.state === 'pending') return `${data.label} history sync in progress`
+    if (data.syncStatus.state === 'error') return `${data.label} sync unavailable`
+  }
+
   if (data.syncStatus.state === 'pending') return `${data.label} backfill in progress`
   if (data.syncStatus.state === 'error') return `${data.label} sync unavailable`
   return 'No valid weeks'
 }
 
 function getStatusHeadline(data: DashboardData) {
-  if (data.syncStatus.state === 'pending') return `${data.label} sync in progress`
+  if (data.syncStatus.state === 'pending') {
+    return hasVisibleData(data)
+      ? `${data.label} recent data is available`
+      : `${data.label} sync in progress`
+  }
   return `${data.label} sync unavailable`
 }
 
@@ -51,7 +64,7 @@ function App() {
   useEffect(() => {
     let active = true
 
-    fetch(`${import.meta.env.BASE_URL}dashboard-data.json?v=2026-05-30-1`, {
+    fetch(`${import.meta.env.BASE_URL}dashboard-data.json?v=2026-05-30-2`, {
       cache: 'no-store',
     })
       .then((response) => {
