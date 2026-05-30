@@ -14,7 +14,13 @@ import {
   resolveWebinarDateForClassification,
   TIME_ZONE,
 } from '../src/lib/analytics'
-import type { DashboardSnapshot, GatewayId, StoredPayment } from '../src/lib/dashboard-data'
+import type {
+  DashboardSnapshot,
+  DatabaseCourseRow,
+  DatabasePersonRow,
+  GatewayId,
+  StoredPayment,
+} from '../src/lib/dashboard-data'
 
 type InstamojoPaymentRequest = {
   id: string
@@ -308,6 +314,19 @@ async function writeCollection(
   }
 }
 
+async function writeMissingCollection(
+  firestore: FirebaseFirestore.Firestore,
+  collectionName: string,
+  docs: Array<{ id: string; data: Record<string, unknown> }>,
+) {
+  if (docs.length === 0) return
+
+  const existing = await firestore.collection(collectionName).get()
+  const existingIds = new Set(existing.docs.map((doc) => doc.id))
+  const missing = docs.filter((doc) => !existingIds.has(doc.id))
+  await writeCollection(firestore, collectionName, missing)
+}
+
 async function clearCollection(
   firestore: FirebaseFirestore.Firestore,
   collectionName: string,
@@ -319,6 +338,100 @@ async function clearCollection(
     const batch = firestore.batch()
     snapshot.docs.forEach((doc) => batch.delete(doc.ref))
     await batch.commit()
+  }
+}
+
+function toReportDate(createdAt: string) {
+  return new Intl.DateTimeFormat('en-GB', {
+    timeZone: TIME_ZONE,
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })
+    .format(new Date(createdAt))
+    .replace(/\//g, '-')
+}
+
+function identityKey(payment: StoredPayment) {
+  const phone = normalizePhone(payment.buyerPhone)
+  if (phone) return `phone:${phone}`
+
+  const email = normalizeEmail(payment.buyerEmail)
+  if (email) return `email:${email}`
+
+  const name = normalizeName(payment.buyerName)
+  if (name) return `name:${name}`
+
+  return `payment:${payment.paymentId}`
+}
+
+function toDatabasePersonRow(payment: StoredPayment): DatabasePersonRow {
+  return {
+    name: payment.buyerName,
+    phone: payment.buyerPhone,
+    email: payment.buyerEmail,
+    date: toReportDate(payment.createdAt),
+    createdAt: payment.createdAt,
+  }
+}
+
+function toDatabaseCourseRow(payment: StoredPayment): DatabaseCourseRow {
+  return {
+    ...toDatabasePersonRow(payment),
+    amount: payment.amount,
+  }
+}
+
+function buildDatabaseSnapshot(payments: StoredPayment[]) {
+  const successful = [...payments]
+    .filter((payment) => payment.status === 'Credit')
+    .sort((left, right) => right.createdAt.localeCompare(left.createdAt))
+
+  const bundleIdentities = new Set<string>()
+  const courseIdentities = new Set<string>()
+
+  for (const payment of successful) {
+    const key = identityKey(payment)
+    if (payment.classification === 'bundle_only' || payment.classification === 'combo') {
+      bundleIdentities.add(key)
+    }
+    if (payment.classification === 'course') {
+      courseIdentities.add(key)
+    }
+  }
+
+  const webinarOnly = new Map<string, DatabasePersonRow>()
+  const bundleBuyers = new Map<string, DatabasePersonRow>()
+  const courseBuyers = new Map<string, DatabaseCourseRow>()
+
+  for (const payment of successful) {
+    const key = identityKey(payment)
+
+    if (
+      payment.classification === 'webinar_only' &&
+      !bundleIdentities.has(key) &&
+      !courseIdentities.has(key) &&
+      !webinarOnly.has(key)
+    ) {
+      webinarOnly.set(key, toDatabasePersonRow(payment))
+    }
+
+    if (
+      (payment.classification === 'bundle_only' || payment.classification === 'combo') &&
+      !bundleBuyers.has(key)
+    ) {
+      bundleBuyers.set(key, toDatabasePersonRow(payment))
+    }
+
+    if (payment.classification === 'course' && !courseBuyers.has(key)) {
+      courseBuyers.set(key, toDatabaseCourseRow(payment))
+    }
+  }
+
+  return {
+    webinarOnly: Array.from(webinarOnly.values()),
+    bundleBuyers: Array.from(bundleBuyers.values()),
+    courseBuyers: Array.from(courseBuyers.values()),
   }
 }
 
@@ -995,23 +1108,23 @@ async function writeGatewayToFirestore(
     return
   }
 
-  const paymentCollection = `${gateway}Payments`
-  await clearCollection(firestore, paymentCollection)
-  await writeCollection(
-    firestore,
-    paymentCollection,
-    result.payments.map((payment) => ({
-      id: payment.paymentId,
-      data: {
-        ...payment,
-        syncedAt: generatedAt,
-      },
-    })),
-  )
+  if (gateway !== 'combined') {
+    const paymentCollection = `${gateway}Payments`
+    await writeMissingCollection(
+      firestore,
+      paymentCollection,
+      result.payments.map((payment) => ({
+        id: payment.paymentId,
+        data: {
+          ...payment,
+          firstSeenAt: generatedAt,
+        },
+      })),
+    )
+  }
 
   if (gateway === 'instamojo' && result.rawRequestDocs) {
-    await clearCollection(firestore, 'instamojoPaymentRequests')
-    await writeCollection(firestore, 'instamojoPaymentRequests', result.rawRequestDocs)
+    await writeMissingCollection(firestore, 'instamojoPaymentRequests', result.rawRequestDocs)
   }
 
   await clearCollection(firestore, `${gateway}WebinarReports`)
@@ -1099,6 +1212,8 @@ async function main() {
           },
         }
 
+  const database = buildDatabaseSnapshot(combinedDedupe.unique)
+
   const snapshot: DashboardSnapshot = {
     generatedAt,
     timezone: TIME_ZONE,
@@ -1108,6 +1223,7 @@ async function main() {
       cashfree: cashfree.dashboard,
       combined: combinedDashboard,
     },
+    database,
   }
 
   await mkdir(publicDir, { recursive: true })

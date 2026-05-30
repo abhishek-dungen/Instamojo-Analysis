@@ -60,6 +60,24 @@ export type HistoricalSummary = {
   courseConversionRate: number
 }
 
+export type DatabasePersonRow = {
+  name: string
+  phone: string
+  email: string
+  date: string
+  createdAt: string
+}
+
+export type DatabaseCourseRow = DatabasePersonRow & {
+  amount: number
+}
+
+export type DatabaseSnapshot = {
+  webinarOnly: DatabasePersonRow[]
+  bundleBuyers: DatabasePersonRow[]
+  courseBuyers: DatabaseCourseRow[]
+}
+
 export type DashboardData = {
   gateway: GatewayId
   label: string
@@ -93,4 +111,5 @@ export type DashboardSnapshot = {
   generatedAt: string
   timezone: string
   gateways: Record<GatewayId, DashboardData>
+  database: DatabaseSnapshot
 }
